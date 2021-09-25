@@ -31,8 +31,9 @@ class PostController extends Controller
     {
         $post = new Post();
         $post->title = $request->get('title');
+        $post->body = $request->get('body');
         $post->category_id = $request->get('category_id');
-        $post->user_id = 100;
+        $post->user_id = $request->get('user_id');
         $post->save();
         return new PostResource($post);
     }

@@ -6,7 +6,6 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 class PostFactory extends Factory
 {
@@ -27,8 +26,8 @@ class PostFactory extends Factory
         return [
             'title' => $this->faker->name(),
             'body' => $this->faker->text(200),
-            'user_id' => $this->faker->numberBetween(1,User::count()),
-            'category_id' => $this->faker->numberBetween(1,Category::count()),
+            'user_id' => $this->faker->numberBetween(1, User::count()),
+            'category_id' => $this->faker->numberBetween(1, Category::count()),
         ];
     }
 }
