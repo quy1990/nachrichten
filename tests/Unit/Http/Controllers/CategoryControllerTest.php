@@ -10,6 +10,7 @@ class CategoryControllerTest extends TestCase
 {
     use DatabaseMigrations;
 
+
     public function test_show()
     {
         $response = $this->get('/api/categories');
