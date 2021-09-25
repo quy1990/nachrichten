@@ -26,7 +26,6 @@ class CategoryPostControllerTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-
         $this->user = User::factory()->create();
         $this->category = Category::factory()->create();
     }
