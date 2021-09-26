@@ -26,7 +26,7 @@ class RoleControllerTest extends TestCase
             'name' => 'abc',
         ]);
 
-        $response->assertStatus(200);
+        $response->assertStatus(201);
     }
 
     public function test_update()
