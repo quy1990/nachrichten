@@ -14,10 +14,12 @@ class RoleController extends Controller
         return new RoleCollection(Role::paginate(20));
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RoleResource
     {
         $role = new Role();
         $role->name = $request->get("name");
+        $role->save();
+        return new RoleResource($role);
     }
 
     public function show(role $role): RoleResource
