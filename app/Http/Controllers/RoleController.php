@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\RoleCollection;
-use App\Http\Resources\RoleResource;
+use App\Http\Resources\Role\RoleCollection;
+use App\Http\Resources\Role\RoleResource;
 use App\Models\role;
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
-    public function index()
+    public function index(): RoleCollection
     {
         return new RoleCollection(Role::paginate(20));
     }
@@ -20,12 +20,12 @@ class RoleController extends Controller
         $role->name = $request->get("name");
     }
 
-    public function show(role $role)
+    public function show(role $role): RoleResource
     {
         return new RoleResource($role);
     }
 
-    public function update(Request $request, role $role)
+    public function update(Request $request, role $role): RoleResource
     {
         $role->name = $request->get("name");
         $role->save();

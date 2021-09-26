@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CategoryPostController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('posts', PostController::class);
-Route::resource('roles', CategoryController::class);
+Route::resource('roles', RoleController::class);
 Route::resource('categories', CategoryController::class);
 Route::get('categories/{id}/posts', [CategoryPostController::class, '__invoke']);
 
