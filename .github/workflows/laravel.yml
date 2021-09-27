@@ -2,9 +2,9 @@ name: Laravel
 
 on:
   push:
-    branches: [ main, dev ]
+    branches: [ main, dev, test ]
   pull_request:
-    branches: [ main, dev ]
+    branches: [ main, dev, test ]
 
 jobs:
   laravel-tests:
@@ -32,4 +32,4 @@ jobs:
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
-      run: vendor/bin/phpunit
+      run: vendor/bin/phpunit --coverage-text

@@ -10,15 +10,25 @@ class CategoryControllerTest extends TestCase
 {
     use DatabaseMigrations;
 
+    private string $url = "/api/categories/";
+
+    private $model;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+        $this->model = Category::factory()->create();
+    }
+
     public function test_show()
     {
-        $response = $this->get('/api/categories');
+        $response = $this->get($this->url . $this->model->id);
         $response->assertStatus(200);
     }
 
     public function test_store()
     {
-        $response = $this->post('/api/categories', [
+        $response = $this->post($this->url, [
             'name' => 'abc'
         ]);
 
@@ -27,9 +37,7 @@ class CategoryControllerTest extends TestCase
 
     public function test_update()
     {
-        $category = Category::factory()->create();
-
-        $response = $this->put('/api/categories/'. $category->id, [
+        $response = $this->put($this->url . $this->model->id, [
             'name' => 'test'
         ]);
 
@@ -38,14 +46,13 @@ class CategoryControllerTest extends TestCase
 
     public function test_destroy()
     {
-        $category = Category::factory()->create();
-        $response = $this->delete('/api/categories/' . $category->id);
+        $response = $this->delete($this->url . $this->model->id);
         $response->assertStatus(204);
     }
 
     public function test_index()
     {
-        $response = $this->get('/api/categories');
+        $response = $this->get($this->url);
         $response->assertStatus(200);
     }
 }
