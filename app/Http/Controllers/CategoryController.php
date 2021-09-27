@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\Category\CategoryCollection;
-use App\Http\Resources\category\CategoryResource;
+use App\Http\Resources\Category\CategoryResource;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
@@ -15,7 +15,7 @@ class CategoryController extends Controller
         return new CategoryCollection(Category::paginate(20));
     }
 
-    public function store(Request $request)
+    public function store(Request $request): CategoryResource
     {
         $category = new Category();
         $category->name = $request->get('name');
@@ -28,7 +28,7 @@ class CategoryController extends Controller
         return new CategoryResource($category);
     }
 
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Category $category): CategoryResource
     {
         $category->name = $request->get('name');
         $category->save();

@@ -35,12 +35,12 @@ class RoleControllerTest extends TestCase
             'name' => 'abc 123',
         ]);
 
-        $response->assertStatus(201);
+        $response->assertStatus(200);
     }
 
     public function test_show()
     {
-        $response = $this->get($this->url);
+        $response = $this->get($this->url . $this->model->id);
         $response->assertStatus(200);
     }
 
