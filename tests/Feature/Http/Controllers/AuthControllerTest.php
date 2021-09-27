@@ -77,4 +77,19 @@ class AuthControllerTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function test_login_fail()
+    {
+        $user = User::factory()->create([
+            'email' => 'abc@skdjsk.com',
+            'password' => bcrypt('1234567'),
+        ]);
+
+        $response = $this->post($this->url . 'login', [
+            'email' => $user->email,
+            'password' => '1234567____',
+        ]);
+
+        $response->assertStatus(401);
+    }
 }
