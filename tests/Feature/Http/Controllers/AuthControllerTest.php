@@ -14,11 +14,14 @@ class AuthControllerTest extends TestCase
 
     private $user;
 
+    private $token;
+
     public function setUp(): void
     {
         parent::setUp();
 
         $this->user = User::factory()->create();
+        $this->token = auth()->fromUser($this->user);
     }
 
     public function test_register()
@@ -35,11 +38,8 @@ class AuthControllerTest extends TestCase
 
     public function test_logout()
     {
-        $user = User::first();
-        $token = auth()->fromUser($user);
-
         $response = $this->post($this->url . 'logout/', [], [
-            'Authorization' => 'bearer ' . $token
+            'Authorization' => 'bearer ' . $this->token
         ]);
 
         $response->assertStatus(200);
@@ -47,11 +47,8 @@ class AuthControllerTest extends TestCase
 
     public function test_refresh()
     {
-        $user = User::first();
-        $token = auth()->fromUser($user);
-
         $response = $this->post($this->url . 'refresh/', [], [
-            'Authorization' => 'bearer ' . $token
+            'Authorization' => 'bearer ' . $this->token
         ]);
 
         $response->assertStatus(200);
@@ -59,11 +56,8 @@ class AuthControllerTest extends TestCase
 
     public function testUserProfile()
     {
-        $user = User::first();
-        $token = auth()->fromUser($user);
-
         $response = $this->get($this->url . 'user-profile', [
-            'Authorization' => 'bearer ' . $token
+            'Authorization' => 'bearer ' . $this->token
         ]);
 
         $response->assertStatus(200);
