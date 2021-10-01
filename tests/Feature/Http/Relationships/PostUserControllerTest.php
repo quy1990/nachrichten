@@ -1,7 +1,9 @@
 <?php
 
-namespace Http\Controllers;
+namespace Http\Relationships;
 
+use App\Models\Category;
+use App\Models\Post;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
@@ -9,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\TestCase;
 
-class RoleUserControllerTest extends TestCase
+class PostUserControllerTest extends TestCase
 {
     use DatabaseMigrations;
 
@@ -20,19 +22,22 @@ class RoleUserControllerTest extends TestCase
     /**
      * @var Collection|Model
      */
-    private $role;
+    private $post;
+    /**
+     * @var Collection|Model
+     */
+    private $category;
 
     public function setUp(): void
     {
         parent::setUp();
         $this->user = User::factory()->create();
-        $this->role = Role::factory()->create();
+        $this->category = Category::factory()->create();
+        $this->post = Post::factory()->create(['user_id' => $this->user->id]);
     }
 
     public function test__invoke()
     {
-        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $this->role->users);
-        $response = $this->get('/api/roles/' . $this->role->id . '/users');
-        $response->assertStatus(200);
+        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $this->user->posts);
     }
 }
