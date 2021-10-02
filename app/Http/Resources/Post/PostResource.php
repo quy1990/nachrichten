@@ -14,6 +14,7 @@ class PostResource extends JsonResource
             'body' => $this->body,
             'author' => $this->getAuthorArray(),
             'category' => $this->getCategoryArray(),
+            'image' => $this->image,
             'created_at' => $this->created_at->diffForHumans(),
             'updated_at' => $this->updated_at->diffForHumans(),
         ];

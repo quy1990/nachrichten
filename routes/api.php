@@ -37,5 +37,6 @@ Route::resource('roles', RoleController::class);
 Route::resource('categories', CategoryController::class);
 Route::get('categories/{id}/posts', [CategoryPostController::class, '__invoke']);
 Route::get('roles/{id}/users', [RoleUserController::class, '__invoke']);
+Route::get('images/{id}', [RoleUserController::class, '__invoke']);
 
 
