@@ -12,6 +12,8 @@ class Video extends Model
 
     public $timestamps = false;
 
+    protected $fillable = ['name'];
+
     public function tags(): MorphToMany
     {
         return $this->morphToMany(Tag::class, 'taggable');
