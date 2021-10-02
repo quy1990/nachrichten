@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Tag;
+use App\Models\Taggable;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class TagFactory extends Factory
+class TaggableFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Tag::class;
+    protected $model = Taggable::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +22,8 @@ class TagFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
+            'taggable_id' => 1,
+            'taggable_type' => rand(0, 1) == 1 ? 'App\Models\Post' : 'App\Models\Tag'
         ];
     }
 }
