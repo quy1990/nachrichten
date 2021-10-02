@@ -6,7 +6,8 @@ use App\Http\Controllers\CategoryPostController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\RoleUserController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\TagVideoController;
+use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,8 +26,8 @@ Route::group([
     'prefix' => 'auth'
 
 ], function ($router) {
-    Route::post('/login', [AuthController::class, 'login'])->name('login');
-    Route::post('/register', [AuthController::class, 'register'])->name('register');
+    Route::post('/login', [AuthController::class, 'login']);
+    Route::post('/register', [AuthController::class, 'register']);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::get('/user-profile', [AuthController::class, 'userProfile']);
@@ -35,8 +36,11 @@ Route::group([
 Route::resource('posts', PostController::class);
 Route::resource('roles', RoleController::class);
 Route::resource('categories', CategoryController::class);
-Route::get('categories/{id}/posts', [CategoryPostController::class, '__invoke']);
-Route::get('roles/{id}/users', [RoleUserController::class, '__invoke']);
-Route::get('images/{id}', [RoleUserController::class, '__invoke']);
+Route::resource('videos', VideoController::class);
+Route::get('videos/{id}/tags', TagVideoController::class);
+Route::get('posts/{id}/tags', TagVideoController::class);
+Route::get('categories/{id}/posts', CategoryPostController::class);
+Route::get('roles/{id}/users', RoleUserController::class);
+Route::get('images/{id}', RoleUserController::class);
 
 

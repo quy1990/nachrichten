@@ -21,9 +21,11 @@ class TaggableFactory extends Factory
      */
     public function definition(): array
     {
+        $arr = ['App\Models\Post', 'App\Models\Tag', 'App\Models\video'];
+
         return [
             'taggable_id' => 1,
-            'taggable_type' => rand(0, 1) == 1 ? 'App\Models\Post' : 'App\Models\Tag'
+            'taggable_type' => $arr[rand(0, 2)]
         ];
     }
 }

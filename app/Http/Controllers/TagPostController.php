@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\Role\RoleCollection;
-use App\Http\Resources\Role\RoleResource;
 use App\Http\Resources\Tag\TagCollection;
+use App\Models\Category;
 use App\Models\Post;
-use App\Models\role;
-use App\Models\User;
-use Illuminate\Http\Request;
+use App\Models\Video;
 
-class PostTagController extends Controller
+class TagPostController extends Controller
 {
     public function __invoke(int $id): TagCollection
     {
