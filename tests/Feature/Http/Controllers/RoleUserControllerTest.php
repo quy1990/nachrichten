@@ -32,7 +32,7 @@ class RoleUserControllerTest extends TestCase
     public function test__invoke()
     {
         $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $this->role->users);
-        $response = $this->get('/api/roles/' . $this->role->id . '/users');
+        $response = $this->get('/api/users/' . $this->role->id . '/roles');
         $response->assertStatus(200);
     }
 }

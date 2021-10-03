@@ -11,6 +11,16 @@ class CommentResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'author' => $this->getUser(),
+            'created_at' => $this->created_at
+        ];
+    }
+
+    private function getUser(): array
+    {
+        return [
+            'user_id' => $this->user->id,
+            'user_name' => $this->user->name,
         ];
     }
 }

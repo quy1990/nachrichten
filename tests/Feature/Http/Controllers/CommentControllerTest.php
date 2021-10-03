@@ -37,7 +37,7 @@ class CommentControllerTest extends TestCase
     public function test_store()
     {
         $response = $this->post($this->url, [
-            'name' => 'abc',
+            'body' => 'body',
             'user_id' => $this->user->id
         ]);
 
@@ -47,7 +47,7 @@ class CommentControllerTest extends TestCase
     public function test_update()
     {
         $response = $this->put($this->url . $this->model->id, [
-            'name' => 'test',
+            'body' => 'body',
             'user_id' => $this->user->id
         ]);
 
