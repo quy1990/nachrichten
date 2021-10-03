@@ -17,7 +17,7 @@ class ImageableImageController extends Controller
     public function __invoke(int $id)
     {
         $imageable = Image::find($id)->imageable;
-        $imageableClass = get_class(Image::find($id)->imageable);
+        $imageableClass = get_class($imageable);
 
         switch ($imageableClass) {
             case  User::class:

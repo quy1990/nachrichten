@@ -38,22 +38,38 @@ class ImageableImageControllerTest extends TestCase
     /**
      * @var Collection|Model
      */
-    private $image;
+    private $image1;
+    /**
+     * @var Collection|Model
+     */
+    private $image2;
 
     public function setUp(): void
     {
         parent::setUp();
-        $this->user = User::factory()->create();
         $this->category = Category::factory()->create();
+        $this->user = User::factory()->create();
         $this->post = Post::factory()->create([
             'category_id' => $this->category->id,
             'user_id' => $this->user->id]);
-        $this->image = Image::factory()->create();
+
+        $this->image1 = Image::factory()->create([
+            'imageable_id' => $this->user->id,
+            'imageable_type' => 'App\Models\User',
+        ]);
+
+        $this->image2 = Image::factory()->create([
+            'imageable_id' => $this->post->id,
+            'imageable_type' => 'App\Models\Post',
+        ]);
     }
 
     public function test__invoke()
     {
-        $response = $this->get('/api/images/' . $this->image->id . '/imageable');
+        $response = $this->get('/api/images/' . $this->image1->id . '/imageable');
+        $response->assertStatus(200);
+
+        $response = $this->get('/api/images/' . $this->image2->id . '/imageable');
         $response->assertStatus(200);
     }
 }
