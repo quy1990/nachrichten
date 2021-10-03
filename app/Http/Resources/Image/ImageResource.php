@@ -10,7 +10,15 @@ class ImageResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'url' => $this->url
+            'url' => $this->url,
+            'imageable' => $this->getImageable()
+        ];
+    }
+
+    private function getImageable(): array
+    {
+        return [
+            'imageable' => $this->imageable()
         ];
     }
 }

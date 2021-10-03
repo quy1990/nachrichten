@@ -18,7 +18,7 @@ class CommentController extends Controller
     public function store(Request $request): CommentResource
     {
         $comment = new Comment();
-        $comment->name = $request->get('name');
+        $comment->body = $request->get('body');
         $comment->user_id = $request->get('user_id');
         $comment->save();
         return new CommentResource($comment);
@@ -31,7 +31,7 @@ class CommentController extends Controller
 
     public function update(Request $request, Comment $comment): CommentResource
     {
-        $comment->name = $request->get('name');
+        $comment->body = $request->get('body');
         $comment->save();
         return new CommentResource($comment);
     }
