@@ -4,11 +4,12 @@ namespace Http\Controllers;
 
 use App\Models\Tag;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class TagControllerTest extends TestCase
 {
-    use DatabaseMigrations;
+    use RefreshDatabase;
 
     private string $url = "/api/tags/";
 

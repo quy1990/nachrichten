@@ -31,8 +31,8 @@ class PostResource extends JsonResource
     private function getCategoryArray(): array
     {
         return [
-            'user_id' => $this->user->id,
-            'user_name' => $this->user->name
+            'user_id' => $this->category->id,
+            'user_name' => $this->category->name
         ];
     }
 }

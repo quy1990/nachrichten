@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\Role\RoleCollection;
+use App\Http\Resources\User\UserCollection;
 use App\Models\Role;
 
 class UserRoleController extends Controller
 {
-    public function __invoke(int $id): RoleCollection
+    public function __invoke(int $id): UserCollection
     {
-        return new RoleCollection(Role::find($id)->users);
+        return new UserCollection(Role::find($id)->users);
     }
 }
