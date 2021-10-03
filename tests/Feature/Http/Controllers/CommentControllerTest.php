@@ -2,23 +2,30 @@
 
 namespace Http\Controllers;
 
-use App\Models\Category;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use App\Models\Comment;
+use App\Models\User;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class CategoryControllerTest extends TestCase
+class CommentControllerTest extends TestCase
 {
     use RefreshDatabase;
 
-    private string $url = "/api/categories/";
+    private string $url = "/api/comments/";
 
     private $model;
+    /**
+     * @var Collection|Model
+     */
+    private $user;
 
     public function setUp(): void
     {
         parent::setUp();
-        $this->model = Category::factory()->create();
+        $this->user = User::factory()->create();
+        $this->model = Comment::factory()->create();
     }
 
     public function test_show()
@@ -30,7 +37,8 @@ class CategoryControllerTest extends TestCase
     public function test_store()
     {
         $response = $this->post($this->url, [
-            'name' => 'abc'
+            'body' => 'body',
+            'user_id' => $this->user->id
         ]);
 
         $response->assertStatus(201);
@@ -39,7 +47,8 @@ class CategoryControllerTest extends TestCase
     public function test_update()
     {
         $response = $this->put($this->url . $this->model->id, [
-            'name' => 'test'
+            'body' => 'body',
+            'user_id' => $this->user->id
         ]);
 
         $response->assertStatus(200);

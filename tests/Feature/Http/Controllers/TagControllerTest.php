@@ -2,23 +2,22 @@
 
 namespace Http\Controllers;
 
-use App\Models\Category;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use App\Models\Tag;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class CategoryControllerTest extends TestCase
+class TagControllerTest extends TestCase
 {
     use RefreshDatabase;
 
-    private string $url = "/api/categories/";
+    private string $url = "/api/tags/";
 
     private $model;
 
     public function setUp(): void
     {
         parent::setUp();
-        $this->model = Category::factory()->create();
+        $this->model = Tag::factory()->create();
     }
 
     public function test_show()

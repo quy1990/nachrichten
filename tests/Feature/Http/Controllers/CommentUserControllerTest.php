@@ -2,16 +2,14 @@
 
 namespace Http\Controllers;
 
-use App\Models\Category;
-use App\Models\Post;
+use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class CategoryPostControllerTest extends TestCase
+class CommentUserControllerTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -22,22 +20,18 @@ class CategoryPostControllerTest extends TestCase
     /**
      * @var Collection|Model
      */
-    private $category;
+    private $comment;
 
     public function setUp(): void
     {
         parent::setUp();
         $this->user = User::factory()->create();
-        $this->category = Category::factory()->create();
+        $this->comment = Comment::factory(5)->create(['user_id' => $this->user->id]);
     }
 
     public function test__invoke()
     {
-        Post::factory(10)->create([
-            'category_id' => $this->category->id,
-            'user_id' => $this->user->id,
-        ]);
-        $response = $this->get('/api/categories/' . $this->category->id . '/posts');
+        $response = $this->get('/api/users/' . $this->user->id . '/comments');
         $response->assertStatus(200);
     }
 }

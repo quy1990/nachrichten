@@ -2,16 +2,14 @@
 
 namespace Http\Controllers;
 
-use App\Models\Category;
-use App\Models\Post;
+use App\Models\Image;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class CategoryPostControllerTest extends TestCase
+class ImageUserControllerTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -22,22 +20,18 @@ class CategoryPostControllerTest extends TestCase
     /**
      * @var Collection|Model
      */
-    private $category;
+    private $images;
 
     public function setUp(): void
     {
         parent::setUp();
         $this->user = User::factory()->create();
-        $this->category = Category::factory()->create();
+        $this->images = Image::factory(5)->create(['imageable_type' => 'App\Models\User']);
     }
 
     public function test__invoke()
     {
-        Post::factory(10)->create([
-            'category_id' => $this->category->id,
-            'user_id' => $this->user->id,
-        ]);
-        $response = $this->get('/api/categories/' . $this->category->id . '/posts');
+        $response = $this->get('/api/users/' . $this->user->id . '/image');
         $response->assertStatus(200);
     }
 }

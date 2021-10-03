@@ -9,10 +9,31 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class RoleUserControllerTest extends TestCase
+
+class UserRoleControllerTest extends TestCase
 {
     use RefreshDatabase;
 
+    /**
+     * @var Collection|Model
+     */
+    private $tag;
+    /**
+     * @var Collection|Model
+     */
+    private $video;
+    /**
+     * @var Collection|Model
+     */
+    private $post;
+    /**
+     * @var Collection|Model
+     */
+    private $taggable;
+    /**
+     * @var Collection|Model
+     */
+    private $category;
     /**
      * @var Collection|Model
      */
@@ -25,14 +46,15 @@ class RoleUserControllerTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->user = User::factory()->create();
         $this->role = Role::factory()->create();
+        $this->user = User::factory()->create();
+        $this->user->roles()->attach($this->role->id);
     }
 
     public function test__invoke()
     {
         $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $this->role->users);
-        $response = $this->get('/api/users/' . $this->role->id . '/roles');
+        $response = $this->get('/api/roles/' . $this->role->id . '/users');
         $response->assertStatus(200);
     }
 }

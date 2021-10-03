@@ -2,7 +2,6 @@
 
 namespace App\Http\Resources\Post;
 
-use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class PostResource extends JsonResource
@@ -12,10 +11,28 @@ class PostResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'author_id' => $this->user ? $this->user->id : 0,
-            'category_id' => $this->category ? $this->category->name : "no name",
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+            'body' => $this->body,
+            'author' => $this->getAuthorArray(),
+            'category' => $this->getCategoryArray(),
+            'image' => $this->image,
+            'created_at' => $this->created_at->diffForHumans(),
+            'updated_at' => $this->updated_at->diffForHumans(),
+        ];
+    }
+
+    private function getAuthorArray(): array
+    {
+        return [
+            'user_id' => $this->user->id,
+            'user_name' => $this->user->name
+        ];
+    }
+
+    private function getCategoryArray(): array
+    {
+        return [
+            'user_id' => $this->category->id,
+            'user_name' => $this->category->name
         ];
     }
 }

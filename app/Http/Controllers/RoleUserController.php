@@ -10,9 +10,8 @@ use Illuminate\Http\Request;
 
 class RoleUserController extends Controller
 {
-    public function __invoke(int $id)
+    public function __invoke(int $id): RoleCollection
     {
-        return Role::find($id)->users;
+        return new RoleCollection(Role::find($id)->users);
     }
-
 }
