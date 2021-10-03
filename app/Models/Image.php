@@ -10,6 +10,8 @@ class Image extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['url', 'imageable_id', 'imageable_type'];
+
     public $timestamps = false;
 
     public function imageable(): MorphTo

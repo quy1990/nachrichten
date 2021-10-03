@@ -3,8 +3,6 @@
 namespace Database\Factories;
 
 use App\Models\Image;
-use App\Models\Post;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ImageFactory extends Factory
@@ -23,10 +21,12 @@ class ImageFactory extends Factory
      */
     public function definition(): array
     {
+        $arr = ['App\Models\Post', 'App\Models\User'];
+
         return [
-            'url' => $this->faker->url,
+            'url' => $this->faker->imageUrl,
             'imageable_id' => 1,
-            'imageable_type' => array_rand([User::class, Post::class]),
+            'imageable_type' => $arr[rand(0, 1)]
         ];
     }
 }
