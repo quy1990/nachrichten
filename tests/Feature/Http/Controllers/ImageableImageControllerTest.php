@@ -72,4 +72,10 @@ class ImageableImageControllerTest extends TestCase
         $response = $this->get('/api/images/' . $this->image2->id . '/imageable');
         $response->assertStatus(200);
     }
+
+    public function test_fail_invoke()
+    {
+        $response = $this->get('/api/images/100/imageable');
+        $response->assertStatus(404);
+    }
 }

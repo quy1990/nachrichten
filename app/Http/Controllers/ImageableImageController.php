@@ -2,11 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\Post\PostResource;
-use App\Http\Resources\User\UserResource;
-use App\Models\Image;
-use App\Models\Post;
-use App\Models\User;
+use App\Http\Services\ImageableImageService;
 use Exception;
 
 class ImageableImageController extends Controller
@@ -16,16 +12,12 @@ class ImageableImageController extends Controller
      */
     public function __invoke(int $id)
     {
-        $imageable = Image::find($id)->imageable;
-        $imageableClass = get_class($imageable);
-
-        switch ($imageableClass) {
-            case  User::class:
-                return new UserResource($imageable);
-            case  Post::class:
-                return new PostResource($imageable);
-            default:
-                throw new Exception('not found the imageableClass');
+        try {
+            /** @var ImageableImageService $imageableImageService */
+            $imageableImageService = app(ImageableImageService::class);
+            return $imageableImageService->getImageable($id);
+        } catch (Exception $e) {
+            return response('there is Error', 404);
         }
     }
 }
