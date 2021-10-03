@@ -18,15 +18,7 @@ class PostTagControllerTest extends TestCase
     /**
      * @var Collection|Model
      */
-    private $user;
-    /**
-     * @var Collection|Model
-     */
     private $role;
-    /**
-     * @var Collection|Model
-     */
-    private $category;
     /**
      * @var Collection|Model
      */
@@ -40,11 +32,11 @@ class PostTagControllerTest extends TestCase
     {
         parent::setUp();
         $this->tag = Tag::factory()->create();
-        $this->category = Category::factory()->create();
-        $this->user = User::factory()->create();
+        $category = Category::factory()->create();
+        $user = User::factory()->create();
         $this->post = Post::factory()->create([
-            'category_id' => $this->category->id,
-            'user_id' => $this->user->id]);
+            'category_id' => $category->id,
+            'user_id' => $user->id]);
     }
 
     public function test__invoke()
