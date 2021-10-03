@@ -3,12 +3,12 @@
 namespace Http\Controllers;
 
 use App\Models\Video;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class VideoControllerTest extends TestCase
 {
-    use DatabaseMigrations;
+    use RefreshDatabase;
 
     private string $url = "/api/videos/";
 

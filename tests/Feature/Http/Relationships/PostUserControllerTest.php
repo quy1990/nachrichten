@@ -4,16 +4,15 @@ namespace Http\Relationships;
 
 use App\Models\Category;
 use App\Models\Post;
-use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class PostUserControllerTest extends TestCase
 {
-    use DatabaseMigrations;
+    use RefreshDatabase;
 
     /**
      * @var Collection|Model

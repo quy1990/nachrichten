@@ -5,12 +5,12 @@ namespace Tests\Feature\Http\Controllers;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class PostControllerTest extends TestCase
 {
-    use DatabaseMigrations;
+    use RefreshDatabase;
 
     private string $url = "/api/posts/";
 

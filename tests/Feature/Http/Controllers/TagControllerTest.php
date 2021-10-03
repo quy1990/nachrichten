@@ -3,7 +3,6 @@
 namespace Http\Controllers;
 
 use App\Models\Tag;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
