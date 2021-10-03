@@ -21,7 +21,7 @@ class PostPolicy
         return !is_null($user);
     }
 
-    public function create(User $user)
+    public function create(User $user): bool
     {
         return !is_null($user);
     }
