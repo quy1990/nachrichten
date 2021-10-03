@@ -11,11 +11,11 @@ use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
 
 class TagController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return TagCollection
-     */
+    public function __construct()
+    {
+        $this->authorizeResource(Tag::class, 'tag');
+    }
+
     public function index(): TagCollection
     {
         return new TagCollection(Tag::paginate(20));

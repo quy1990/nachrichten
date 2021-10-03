@@ -11,11 +11,11 @@ use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
 
 class VideoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return VideoCollection
-     */
+    public function __construct()
+    {
+        $this->authorizeResource(Video::class, 'video');
+    }
+
     public function index(): VideoCollection
     {
         return new VideoCollection(Video::paginate(20));
