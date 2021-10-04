@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Models\Video;
 use App\Models\User;
+use App\Models\Video;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class VideoPolicy
@@ -36,16 +36,6 @@ class VideoPolicy
     }
 
     public function delete(User $user, Video $video): bool
-    {
-        return $this->isOwner($user, $video);
-    }
-
-    public function restore(User $user, Video $video): bool
-    {
-        return $this->isOwner($user, $video);
-    }
-
-    public function forceDelete(User $user, Video $video): bool
     {
         return $this->isOwner($user, $video);
     }

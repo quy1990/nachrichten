@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\Role\RoleCollection;
 use App\Http\Resources\Role\RoleResource;
-use App\Models\Post;
 use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -42,16 +41,9 @@ class RoleController extends Controller
         return new RoleResource($role);
     }
 
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param Post $post
-     * @return Response
-     */
-    public function destroy(Post $post): Response
+    public function destroy(Role $role): Response
     {
-        $post->delete();
+        $role->delete();
         return response("", Status::HTTP_NO_CONTENT);
     }
 }

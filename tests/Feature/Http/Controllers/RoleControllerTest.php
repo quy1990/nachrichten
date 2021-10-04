@@ -56,4 +56,10 @@ class RoleControllerTest extends TestCase
         $response = $this->get($this->url, $this->header);
         $response->assertStatus(200);
     }
+
+    public function test_destroy()
+    {
+        $response = $this->delete($this->url . $this->model->id, [], $this->header);
+        $response->assertStatus(204);
+    }
 }

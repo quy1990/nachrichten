@@ -35,16 +35,6 @@ class PostPolicy
         return $this->isOwner($user, $post);
     }
 
-    public function restore(User $user, Post $post): bool
-    {
-        return $this->isOwner($user, $post);
-    }
-
-    public function forceDelete(User $user, Post $post): bool
-    {
-        return $this->isOwner($user, $post);
-    }
-
     private function isOwner(User $user, Post $post): bool
     {
         return $user->id == $post->user_id;
