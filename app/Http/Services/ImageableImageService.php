@@ -31,9 +31,4 @@ class ImageableImageService
 
         throw new Exception('Not found ImageableClass');
     }
-
-    private function getImage()
-    {
-
-    }
 }
