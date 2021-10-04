@@ -15,10 +15,6 @@ jobs:
       matrix:
         php-versions: [ '7.3', '7.4', '8.0' ]
     steps:
-      - uses: actions/checkout@v2
-      - name: Setup tmate session
-        if: ${{ failure() }}
-        uses: mxschmitt/action-tmate@v3
       - uses: shivammathur/setup-php@1.8.2
         with:
           extensions: intl
@@ -53,4 +49,7 @@ jobs:
           name: codecov-umbrella
           yml: ./codecov.yml
           fail_ci_if_error: true
+      - name: Setup tmate session
+        if: ${{ failure() }}
+        uses: mxschmitt/action-tmate@v3
 
