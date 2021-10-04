@@ -14,9 +14,9 @@ class ImageableImageService
     /**
      * @throws Exception
      */
-    public function getImageable(int $id)
+    public function getImageable(Image $image)
     {
-        $imageable = Image::findOrFail($id)->imageable;
+        $imageable = $image->imageable;
 
         if (!is_null($imageable)) {
             $imageableClass = get_class($imageable);
