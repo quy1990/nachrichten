@@ -30,7 +30,11 @@ class VideoController extends Controller
     public function store(Request $request): VideoResource
     {
         $video = new Video();
-        $video->name = $request->get('name');
+        $video->video_path = $request->get('video_path');
+        $video->title = $request->get('title');
+        $video->body = $request->get('body');
+        $video->user_id = $request->get('user_id');
+        $video->category_id = $request->get('category_id');
         $video->save();
         return new VideoResource($video);
     }

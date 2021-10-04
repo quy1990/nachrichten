@@ -6,8 +6,6 @@ use App\Models\Category;
 use App\Models\Image;
 use App\Models\Post;
 use App\Models\User;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -18,35 +16,30 @@ class ImageControllerTest extends TestCase
     private string $url = "/api/images/";
 
     private $model;
-    /**
-     * @var string[]
-     */
     private array $arr;
-    /**
-     * @var Collection|Model
-     */
-    private $user;
     private $post;
-    /**
-     * @var Collection|Model
-     */
-    private $category;
+    private array $header;
 
     public function setUp(): void
     {
         parent::setUp();
         $this->arr = ['App\Models\Post', 'App\Models\User'];
-        $this->user = User::factory()->create();
-        $this->category = Category::factory()->create();
-        $this->post = Post::factory()->create(['category_id' => $this->category->id]);
+        $user = User::factory()->create();
+        $category = Category::factory()->create();
+        $this->post = Post::factory()->create(['category_id' => $category->id]);
         $this->model = Image::factory()->create([
             'imageable_id' => 1,
             'imageable_type' => $this->arr[rand(0, 1)]]);
+
+        $token = auth()->fromUser($user);
+        $this->header = [
+            'Authorization' => 'bearer ' . $token
+        ];
     }
 
     public function test_show()
     {
-        $response = $this->get($this->url . $this->model->id);
+        $response = $this->get($this->url . $this->model->id, $this->header);
         $response->assertStatus(200);
     }
 
@@ -56,7 +49,7 @@ class ImageControllerTest extends TestCase
             'url' => 'https://via.placeholder.com/640x480.png/00aa99',
             'imageable_id' => 1,
             'imageable_type' => $this->arr[rand(0, 1)],
-        ]);
+        ], $this->header);
 
         $response->assertStatus(201);
     }
@@ -67,20 +60,20 @@ class ImageControllerTest extends TestCase
             'url' => 'https://via.placeholder.com/640x480.png/00aa99',
             'imageable_id' => 1,
             'imageable_type' => $this->arr[rand(0, 1)],
-        ]);
+        ], $this->header);
 
         $response->assertStatus(200);
     }
 
     public function test_destroy()
     {
-        $response = $this->delete($this->url . $this->model->id);
+        $response = $this->delete($this->url . $this->model->id, [], $this->header);
         $response->assertStatus(204);
     }
 
     public function test_index()
     {
-        $response = $this->get($this->url);
+        $response = $this->get($this->url, $this->header);
         $response->assertStatus(200);
     }
 }
