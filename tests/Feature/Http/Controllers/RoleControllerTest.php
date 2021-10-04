@@ -3,6 +3,7 @@
 namespace Http\Controllers;
 
 use App\Models\Role;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -13,18 +14,24 @@ class RoleControllerTest extends TestCase
     private string $url = "/api/roles/";
 
     private $model;
+    private array $header;
 
     public function setUp(): void
     {
         parent::setUp();
         $this->model = Role::factory()->create();
+        $user = User::factory()->create();
+        $token = auth()->fromUser($user);
+        $this->header = [
+            'Authorization' => 'bearer ' . $token
+        ];
     }
 
     public function test_store()
     {
         $response = $this->post($this->url, [
             'name' => 'abc',
-        ]);
+        ], $this->header);
 
         $response->assertStatus(201);
     }
@@ -33,20 +40,20 @@ class RoleControllerTest extends TestCase
     {
         $response = $this->put($this->url . $this->model->id, [
             'name' => 'abc 123',
-        ]);
+        ], $this->header);
 
         $response->assertStatus(200);
     }
 
     public function test_show()
     {
-        $response = $this->get($this->url . $this->model->id);
+        $response = $this->get($this->url . $this->model->id, $this->header);
         $response->assertStatus(200);
     }
 
     public function test_index()
     {
-        $response = $this->get($this->url);
+        $response = $this->get($this->url, $this->header);
         $response->assertStatus(200);
     }
 }

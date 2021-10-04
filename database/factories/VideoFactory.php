@@ -26,7 +26,11 @@ class VideoFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->name(),
+            'video_path' => $this->faker->filePath(),
+            'title' => $this->faker->name(),
+            'body' => $this->faker->text(200),
+            'user_id' => $this->faker->numberBetween(1, User::count()),
+            'category_id' => $this->faker->numberBetween(1, Category::count()),
         ];
     }
 }

@@ -11,11 +11,11 @@ use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
 
 class ImageController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return ImageCollection
-     */
+    public function __construct()
+    {
+        $this->authorizeResource(Image::class, 'image');
+    }
+
     public function index(): ImageCollection
     {
         return new ImageCollection(Image::paginate(20));
