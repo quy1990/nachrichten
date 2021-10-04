@@ -10,6 +10,11 @@ use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
 
 class CommentController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Comment::class, 'comment');
+    }
+
     public function index(): CommentCollection
     {
         return new CommentCollection(Comment::paginate(20));

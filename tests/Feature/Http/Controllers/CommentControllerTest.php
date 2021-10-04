@@ -20,17 +20,26 @@ class CommentControllerTest extends TestCase
      * @var Collection|Model
      */
     private $user;
+    /**
+     * @var string[]
+     */
+    private array $header;
 
     public function setUp(): void
     {
         parent::setUp();
         $this->user = User::factory()->create();
         $this->model = Comment::factory()->create();
+
+        $token = auth()->fromUser($this->user);
+        $this->header = [
+            'Authorization' => 'bearer ' . $token
+        ];
     }
 
     public function test_show()
     {
-        $response = $this->get($this->url . $this->model->id);
+        $response = $this->get($this->url . $this->model->id, $this->header);
         $response->assertStatus(200);
     }
 
@@ -39,7 +48,7 @@ class CommentControllerTest extends TestCase
         $response = $this->post($this->url, [
             'body' => 'body',
             'user_id' => $this->user->id
-        ]);
+        ], $this->header);
 
         $response->assertStatus(201);
     }
@@ -49,20 +58,20 @@ class CommentControllerTest extends TestCase
         $response = $this->put($this->url . $this->model->id, [
             'body' => 'body',
             'user_id' => $this->user->id
-        ]);
+        ], $this->header);
 
         $response->assertStatus(200);
     }
 
     public function test_destroy()
     {
-        $response = $this->delete($this->url . $this->model->id);
+        $response = $this->delete($this->url . $this->model->id, [], $this->header);
         $response->assertStatus(204);
     }
 
     public function test_index()
     {
-        $response = $this->get($this->url);
+        $response = $this->get($this->url, $this->header);
         $response->assertStatus(200);
     }
 }

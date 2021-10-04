@@ -44,13 +44,22 @@ class VideoTagControllerTest extends TestCase
     {
         parent::setUp();
         $this->tag = Tag::factory()->create();
-        $this->video = Video::factory()->create();
+        $this->user = User::factory()->create();
+        $this->category = Category::factory()->create();
+        $this->video = Video::factory()->create([
+            'user_id' => $this->user->id,
+            'category_id' => $this->category->id]);
+
+        $token = auth()->fromUser($this->user);
+        $this->header = [
+            'Authorization' => 'bearer ' . $token
+        ];
     }
 
     public function test__invoke()
     {
         $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $this->tag->videos);
-        $response = $this->get('/api/tags/' . $this->tag->id . '/videos');
+        $response = $this->get('/api/tags/' . $this->tag->id . '/videos', $this->header);
         $response->assertStatus(200);
     }
 }

@@ -5,11 +5,17 @@ namespace App\Http\Controllers;
 use App\Http\Resources\Category\CategoryCollection;
 use App\Http\Resources\Category\CategoryResource;
 use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
 
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Category::class, 'category');
+    }
+
     public function index(): CategoryCollection
     {
         return new CategoryCollection(Category::paginate(20));

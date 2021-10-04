@@ -17,6 +17,11 @@ class PostControllerTest extends TestCase
     private $model;
     private $user;
     private $category;
+    private $token;
+    /**
+     * @var string[]
+     */
+    private array $header;
 
     public function setUp(): void
     {
@@ -24,8 +29,11 @@ class PostControllerTest extends TestCase
 
         $this->user = User::factory()->create();
         $this->category = Category::factory()->create();
-
-        $this->model = Post::factory()->create();
+        $this->model = Post::factory()->create(['user_id' => $this->user->id, 'category_id' => $this->category->id]);
+        $this->token = auth()->fromUser($this->user);
+        $this->header = [
+            'Authorization' => 'bearer ' . $this->token
+        ];
     }
 
     public function test_store()
@@ -35,7 +43,7 @@ class PostControllerTest extends TestCase
             'body' => 'this is body',
             'user_id' => $this->user->id,
             'category_id' => $this->category->id,
-        ]);
+        ], $this->header);
 
         $response->assertStatus(201);
     }
@@ -47,26 +55,26 @@ class PostControllerTest extends TestCase
             'body' => 'this is body',
             'user_id' => $this->user->id,
             'category_id' => $this->category->id,
-        ]);
+        ], $this->header);
 
         $response->assertStatus(200);
     }
 
     public function test_show()
     {
-        $response = $this->get($this->url . $this->model->id);
+        $response = $this->get($this->url . $this->model->id, $this->header);
         $response->assertStatus(200);
     }
 
     public function test_destroy()
     {
-        $response = $this->delete($this->url . $this->model->id);
+        $response = $this->delete($this->url . $this->model->id, [], $this->header);
         $response->assertStatus(204);
     }
 
     public function test_index()
     {
-        $response = $this->get($this->url);
+        $response = $this->get($this->url, $this->header);
         $response->assertStatus(200);
     }
 }

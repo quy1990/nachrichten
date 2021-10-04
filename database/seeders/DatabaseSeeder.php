@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ImageSeeder::class);
         $this->call(TagSeeder::class);
         $this->call(VideoSeeder::class);
+        $this->call(CommentSeeder::class);
         $this->call(TaggableSeeder::class);
     }
 }
