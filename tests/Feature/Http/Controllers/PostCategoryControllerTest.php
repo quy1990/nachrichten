@@ -7,11 +7,10 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class CategoryPostControllerTest extends TestCase
+class PostCategoryControllerTest extends TestCase
 {
     use RefreshDatabase;
 

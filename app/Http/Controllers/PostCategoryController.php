@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\Post\PostCollection;
 use App\Models\Category;
 
-class CategoryPostController extends Controller
+class PostCategoryController extends Controller
 {
     public function __invoke(int $id): PostCollection
     {
