@@ -31,10 +31,6 @@ class ImageableImageControllerTest extends TestCase
      * @var Collection|Model
      */
     private $image2;
-    /**
-     * @var Collection|Model
-     */
-    private $image3;
 
     public function setUp(): void
     {
@@ -55,10 +51,6 @@ class ImageableImageControllerTest extends TestCase
             'imageable_type' => 'App\Models\Post',
         ]);
 
-        $this->image3 = Image::factory()->create([
-            'imageable_id' => 9000,
-            'imageable_type' => '',
-        ]);
     }
 
     public function test__invoke()
@@ -73,12 +65,16 @@ class ImageableImageControllerTest extends TestCase
     public function test_fail_invoke()
     {
         $response = $this->get('/api/images/100/imageable');
-        $response->assertStatus(404);
+        $response->assertStatus(400);
     }
 
     public function test_fail_imageable()
     {
-        $response = $this->get('/api/images/' . $this->image3->id . '/imageable');
+        $image3 = Image::factory()->create([
+            'imageable_id' => 9000,
+            'imageable_type' => '',
+        ]);
+        $response = $this->get('/api/images/' . $image3->id . '/imageable');
         $response->assertStatus(400);
     }
 }
