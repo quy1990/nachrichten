@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\Post\PostCollection;
-use App\Models\Category;
+use App\Models\User;
 
-class CategoryPostController extends Controller
+class PostUserController extends Controller
 {
     public function __invoke(int $id): PostCollection
     {
-        return new PostCollection(Category::find($id)->posts);
+        return new PostCollection(User::find($id)->posts);
     }
 }

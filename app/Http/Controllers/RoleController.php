@@ -6,6 +6,8 @@ use App\Http\Resources\Role\RoleCollection;
 use App\Http\Resources\Role\RoleResource;
 use App\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
 
 class RoleController extends Controller
 {
@@ -37,5 +39,11 @@ class RoleController extends Controller
         $role->name = $request->get("name");
         $role->save();
         return new RoleResource($role);
+    }
+
+    public function destroy(Role $role): Response
+    {
+        $role->delete();
+        return response("", Status::HTTP_NO_CONTENT);
     }
 }

@@ -18,23 +18,11 @@ class ImageableImageControllerTest extends TestCase
     /**
      * @var Collection|Model
      */
-    private $user;
-    /**
-     * @var Collection|Model
-     */
     private $role;
     /**
      * @var Collection|Model
      */
-    private $category;
-    /**
-     * @var Collection|Model
-     */
     private $tag;
-    /**
-     * @var Collection|Model
-     */
-    private $post;
     /**
      * @var Collection|Model
      */
@@ -47,21 +35,22 @@ class ImageableImageControllerTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->category = Category::factory()->create();
-        $this->user = User::factory()->create();
-        $this->post = Post::factory()->create([
-            'category_id' => $this->category->id,
-            'user_id' => $this->user->id]);
+        $category = Category::factory()->create();
+        $user = User::factory()->create();
+        $post = Post::factory()->create([
+            'category_id' => $category->id,
+            'user_id' => $user->id]);
 
         $this->image1 = Image::factory()->create([
-            'imageable_id' => $this->user->id,
+            'imageable_id' => $user->id,
             'imageable_type' => 'App\Models\User',
         ]);
 
         $this->image2 = Image::factory()->create([
-            'imageable_id' => $this->post->id,
+            'imageable_id' => $post->id,
             'imageable_type' => 'App\Models\Post',
         ]);
+
     }
 
     public function test__invoke()
@@ -76,6 +65,16 @@ class ImageableImageControllerTest extends TestCase
     public function test_fail_invoke()
     {
         $response = $this->get('/api/images/100/imageable');
-        $response->assertStatus(404);
+        $response->assertStatus(400);
+    }
+
+    public function test_fail_imageable()
+    {
+        $image3 = Image::factory()->create([
+            'imageable_id' => 9000,
+            'imageable_type' => '',
+        ]);
+        $response = $this->get('/api/images/' . $image3->id . '/imageable');
+        $response->assertStatus(400);
     }
 }

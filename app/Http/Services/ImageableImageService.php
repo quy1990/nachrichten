@@ -14,21 +14,17 @@ class ImageableImageService
     /**
      * @throws Exception
      */
-    public function getImageable(int $id)
+    public function getImageable(int $imageId)
     {
-        $imageable = Image::findOrFail($id)->imageable;
+        $imageable = Image::findOrFail($imageId)->imageable;
 
-        if (!is_null($imageable)) {
-            $imageableClass = get_class($imageable);
+        $imageableClass = get_class($imageable);
 
-            switch ($imageableClass) {
-                case  User::class:
-                    return new UserResource($imageable);
-                case  Post::class:
-                    return new PostResource($imageable);
-            }
+        switch ($imageableClass) {
+            case  User::class:
+                return new UserResource($imageable);
+            case  Post::class:
+                return new PostResource($imageable);
         }
-
-        throw new Exception('Not found ImageableClass');
     }
 }

@@ -39,14 +39,4 @@ class CategoryPolicy
     {
         return $this->isOwner($user, $category);
     }
-
-    public function restore(User $user, Category $category): bool
-    {
-        return $this->isOwner($user, $category);
-    }
-
-    public function forceDelete(User $user, Category $category): bool
-    {
-        return $this->isOwner($user, $category);
-    }
 }

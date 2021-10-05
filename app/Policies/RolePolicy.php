@@ -34,14 +34,4 @@ class RolePolicy
     {
         return !is_null($user);
     }
-
-    public function restore(User $user, Role $role): bool
-    {
-        return !is_null($user);
-    }
-
-    public function forceDelete(User $user, Role $role): bool
-    {
-        return !is_null($user);
-    }
 }

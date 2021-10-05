@@ -34,14 +34,4 @@ class ImagePolicy
     {
         return !is_null($user);
     }
-
-    public function restore(User $user, Image $image): bool
-    {
-        return !is_null($user);
-    }
-
-    public function forceDelete(User $user, Image $image): bool
-    {
-        return !is_null($user);
-    }
 }

@@ -34,14 +34,4 @@ class TagPolicy
     {
         return !is_null($user);
     }
-
-    public function restore(User $user, Tag $tag): bool
-    {
-        return !is_null($user);
-    }
-
-    public function forceDelete(User $user, Tag $tag): bool
-    {
-        return !is_null($user);
-    }
 }

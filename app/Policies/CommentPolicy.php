@@ -39,14 +39,4 @@ class CommentPolicy
     {
         return $this->isOwner($user, $comment);
     }
-
-    public function restore(User $user, Comment $comment): bool
-    {
-        return $this->isOwner($user, $comment);
-    }
-
-    public function forceDelete(User $user, Comment $comment): bool
-    {
-        return $this->isOwner($user, $comment);
-    }
 }

@@ -2,14 +2,17 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CategoryDetailController;
 use App\Http\Controllers\CategoryPostController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CommentUserController;
 use App\Http\Controllers\ImageableImageController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ImageUserController;
+use App\Http\Controllers\PostCategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostTagController;
+use App\Http\Controllers\PostUserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\RoleUserController;
 use App\Http\Controllers\TagController;
@@ -43,6 +46,20 @@ Route::group([
     Route::get('/user-profile', [AuthController::class, 'userProfile']);
 });
 
+Route::get('posts/{id}/tags', TagPostController::class);
+Route::get('videos/{id}/tags', TagVideoController::class);
+Route::get('tags/{id}/posts', PostTagController::class);
+Route::get('tags/{id}/videos', VideoTagController::class);
+Route::get('images/{id}/imageable', ImageableImageController::class);
+Route::get('users/{id}/comments', CommentUserController::class);
+Route::get('users/{id}/posts', PostUserController::class);
+Route::get('users/{id}/image', ImageUserController::class);
+Route::get('users/{id}/roles', RoleUserController::class);
+Route::get('categories/{id}/posts', PostCategoryController::class);
+Route::get('categoriesDetail', CategoryDetailController::class);
+Route::get('roles/{id}/users', UserRoleController::class);
+
+
 Route::resource('posts', PostController::class);
 Route::resource('roles', RoleController::class);
 Route::resource('categories', CategoryController::class);
@@ -50,15 +67,4 @@ Route::resource('videos', VideoController::class);
 Route::resource('comments', CommentController::class);
 Route::resource('images', ImageController::class);
 Route::resource('tags', TagController::class);
-Route::get('posts/{id}/tags', TagPostController::class);
-Route::get('videos/{id}/tags', TagVideoController::class);
-Route::get('tags/{id}/posts', PostTagController::class);
-Route::get('tags/{id}/videos', VideoTagController::class);
-Route::get('images/{id}/imageable', ImageableImageController::class);
-Route::get('users/{id}/comments', CommentUserController::class);
-Route::get('users/{id}/image', ImageUserController::class);
-Route::get('users/{id}/roles', RoleUserController::class);
-Route::get('categories/{id}/posts', CategoryPostController::class);
-Route::get('roles/{id}/users', UserRoleController::class);
-
 
