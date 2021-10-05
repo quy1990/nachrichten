@@ -53,7 +53,6 @@ class PostControllerTest extends TestCase
         $response = $this->put($this->url . $this->model->id, [
             'title' => 'abc',
             'body' => 'this is body',
-            'user_id' => $this->user->id,
             'category_id' => $this->category->id,
         ], $this->header);
 
