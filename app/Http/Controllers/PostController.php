@@ -38,7 +38,7 @@ class PostController extends Controller
         $post->title = $request->get('title');
         $post->body = $request->get('body');
         $post->category_id = $request->get('category_id');
-        $post->user_id = $request->get('user_id');
+        $post->user_id = auth()->user()->id;
         $post->save();
         return new PostResource($post);
     }
