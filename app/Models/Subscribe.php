@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Subscribe extends Model
 {
@@ -12,28 +13,15 @@ class Subscribe extends Model
 
     public $timestamps = false;
 
-    public function posts(): MorphToMany
+    protected $fillable = ['user_id', 'subscribable_id', 'subscribable_type'];
+
+    public function subscribable(): MorphTo
     {
-        return $this->morphedByMany(Post::class, 'subscribable');
+        return $this->morphTo();
     }
 
-    public function videos(): MorphToMany
+    public function user(): BelongsTo
     {
-        return $this->morphedByMany(Video::class, 'subscribable');
-    }
-
-    public function tags(): MorphToMany
-    {
-        return $this->morphedByMany(Tag::class, 'subscribable');
-    }
-
-    public function categories(): MorphToMany
-    {
-        return $this->morphedByMany(Category::class, 'subscribable');
-    }
-
-    public function comments(): MorphToMany
-    {
-        return $this->morphedByMany(Comment::class, 'subscribable');
+        return $this->belongsTo(User::class);
     }
 }

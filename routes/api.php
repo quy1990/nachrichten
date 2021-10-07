@@ -15,6 +15,7 @@ use App\Http\Controllers\PostTagController;
 use App\Http\Controllers\PostUserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\RoleUserController;
+use App\Http\Controllers\SubscribeController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TagPostController;
 use App\Http\Controllers\TagVideoController;
@@ -59,6 +60,7 @@ Route::get('categories/{id}/posts', PostCategoryController::class);
 Route::get('categoriesDetail', CategoryDetailController::class);
 Route::get('roles/{id}/users', UserRoleController::class);
 
+Route::resource('subscribes', SubscribeController::class);
 
 Route::resource('posts', PostController::class);
 Route::resource('roles', RoleController::class);

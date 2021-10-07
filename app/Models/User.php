@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -76,8 +75,8 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
 
-    public function getSubscribe(): MorphToMany
+    public function subscribes(): hasMany
     {
-        return $this->morphToMany(Subscribes::class, 'subscribable');
+        return $this->hasMany(Subscribe::class);
     }
 }

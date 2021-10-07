@@ -22,6 +22,6 @@ class Category extends Model
 
     public function subscribes(): MorphToMany
     {
-        return $this->morphToMany(Subscribe::class, 'taggable');
+        return $this->morphToMany(Subscribe::class, 'subscribable');
     }
 }

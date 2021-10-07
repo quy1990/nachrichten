@@ -15,7 +15,10 @@ class CreateSubscribesTable extends Migration
     {
         Schema::create('subscribes', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->unsignedBigInteger('user_id');
+            $table->bigInteger('subscribable_id');
+            $table->string('subscribable_type');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
