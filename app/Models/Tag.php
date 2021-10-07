@@ -26,6 +26,6 @@ class Tag extends Model
 
     public function subscribes(): MorphToMany
     {
-        return $this->morphToMany(Subscribe::class, 'subscribable');
+        return $this->morphToMany(User::class, 'subscribable');
     }
 }

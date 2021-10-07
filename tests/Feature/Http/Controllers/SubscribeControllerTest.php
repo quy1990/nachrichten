@@ -5,7 +5,7 @@ namespace Http\Controllers;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Post;
-use App\Models\Subscribe;
+use App\Models\Subscribable;
 use App\Models\Tag;
 use App\Models\User;
 use App\Models\Video;
@@ -18,7 +18,8 @@ class SubscribeControllerTest extends TestCase
 {
     use RefreshDatabase;
 
-    private string $url = "/api/subscribes/";
+    private string $url = "/api/subscribe";
+    private string $url_unsubscribes = "/api/unsubscribe";
 
     /**
      * @var Collection|Model
@@ -51,7 +52,7 @@ class SubscribeControllerTest extends TestCase
     /**
      * @var Collection|Model
      */
-    private $subscribe;
+    private $subscribable;
     /**
      * @var string[]
      */
@@ -74,7 +75,7 @@ class SubscribeControllerTest extends TestCase
         $this->post = Post::factory()->create();
         $this->video = Video::factory()->create();
         $this->comment = Comment::factory()->create();
-        $this->subscribe = Subscribe::factory()->create(['user_id' => $this->user1->id]);
+        $this->subscribable = Subscribable::factory()->create(['user_id' => $this->user1->id]);
 
         $this->user2 = User::factory()->create();
         $token = auth()->fromUser($this->user1);
@@ -89,21 +90,45 @@ class SubscribeControllerTest extends TestCase
             'subscribable_id' => $this->post->id,
             'subscribable_type' => 'App\Models\Post',
         ]);
-        $response->assertStatus(403);
+        $response->assertStatus(500);
     }
 
     public function testStore()
     {
+        $user1 = User::factory()->create();
+        $post = Post::factory()->create();
+        $token = auth()->fromUser($user1);
+        $header = [
+            'Authorization' => 'bearer ' . $token
+        ];
+
         $response = $this->post($this->url, [
-            'subscribable_id' => $this->post->id,
+            'subscribable_id' => $post->id,
             'subscribable_type' => 'App\Models\Post',
-        ], $this->header);
-        $response->assertStatus(201);
+        ], $header);
+
+        $response->assertStatus(200);
     }
 
     public function testDestroy()
     {
-        $response = $this->delete($this->url . $this->subscribe->id, [], $this->header);
+        $user1 = User::factory()->create();
+
+        $token = auth()->fromUser($user1);
+        $this->header = [
+            'Authorization' => 'bearer ' . $token
+        ];
+
+        Subscribable::factory()->create([
+            'user_id' => $user1->id,
+            'subscribable_id' => $this->post->id,
+            'subscribable_type' => 'App\Models\Post']);
+
+        $response = $this->post($this->url_unsubscribes, [
+            'subscribable_id' => $this->post->id,
+            'subscribable_type' => 'App\Models\Post'
+        ], $this->header);
+
         $response->assertStatus(204);
     }
 }

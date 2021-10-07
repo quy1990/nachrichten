@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Subscribe;
+use App\Models\Subscribable;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class SubscribeFactory extends Factory
+class SubscribableFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Subscribe::class;
+    protected $model = Subscribable::class;
 
     /**
      * Define the model's default state.
