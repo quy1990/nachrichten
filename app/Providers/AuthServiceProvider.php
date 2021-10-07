@@ -6,7 +6,6 @@ use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Role;
-use App\Models\Subscribable;
 use App\Models\Tag;
 use App\Models\Video;
 use App\Policies\CategoryPolicy;
@@ -32,7 +31,6 @@ class AuthServiceProvider extends ServiceProvider
         Video::class => VideoPolicy::class,
         Comment::class => CommentPolicy::class,
         Category::class => CategoryPolicy::class,
-        Subscribable::class => SubscribablePolicy::class,
     ];
 
     public function boot()
