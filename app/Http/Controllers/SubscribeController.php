@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Resources\Subscribe\SubscribeCollection;
 use App\Http\Resources\Subscribe\SubscribeResource;
 use App\Models\Subscribable;
-use App\Models\Subscribe;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
@@ -14,7 +13,7 @@ class SubscribeController extends Controller
 {
     public function __construct()
     {
-        $this->authorizeResource(Subscribe::class);
+        $this->authorizeResource(Subscribable::class);
     }
 
     public function index(): SubscribeCollection
@@ -25,16 +24,16 @@ class SubscribeController extends Controller
     // subscribe
     public function store(Request $request): SubscribeResource
     {
-        $subscribe = new Subscribe();
-        $subscribe->user_id = auth()->user()->id;
-        $subscribe->subscribable_id = $request->get("subscribable_id");
-        $subscribe->subscribable_type = $request->get("subscribable_type");
-        $subscribe->save();;
-        return new SubscribeResource($subscribe);
+        $subscribable = new Subscribable();
+        $subscribable->user_id = auth()->user()->id;
+        $subscribable->subscribable_id = $request->get("subscribable_id");
+        $subscribable->subscribable_type = $request->get("subscribable_type");
+        $subscribable->save();
+        return new SubscribeResource($subscribable);
     }
 
     // unsubscribe
-    public function destroy(Subscribe $subscribe): Response
+    public function destroy(Subscribable $subscribable): Response
     {
         return response("", Status::HTTP_NO_CONTENT);
     }

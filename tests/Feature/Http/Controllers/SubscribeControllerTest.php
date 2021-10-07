@@ -5,7 +5,7 @@ namespace Http\Controllers;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Post;
-use App\Models\Subscribe;
+use App\Models\Subscribable;
 use App\Models\Tag;
 use App\Models\User;
 use App\Models\Video;
@@ -51,7 +51,7 @@ class SubscribeControllerTest extends TestCase
     /**
      * @var Collection|Model
      */
-    private $subscribe;
+    private $subscribable;
     /**
      * @var string[]
      */
@@ -74,7 +74,7 @@ class SubscribeControllerTest extends TestCase
         $this->post = Post::factory()->create();
         $this->video = Video::factory()->create();
         $this->comment = Comment::factory()->create();
-        $this->subscribe = Subscribe::factory()->create(['user_id' => $this->user1->id]);
+        $this->subscribable = Subscribable::factory()->create(['user_id' => $this->user1->id]);
 
         $this->user2 = User::factory()->create();
         $token = auth()->fromUser($this->user1);
@@ -103,7 +103,7 @@ class SubscribeControllerTest extends TestCase
 
     public function testDestroy()
     {
-        $response = $this->delete($this->url . $this->subscribe->id, [], $this->header);
+        $response = $this->delete($this->url . $this->subscribable->id, [], $this->header);
         $response->assertStatus(204);
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSubscribesTable extends Migration
+class CreateSubscribableTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,7 @@ class CreateSubscribesTable extends Migration
      */
     public function up()
     {
-        Schema::create('subscribes', function (Blueprint $table) {
-            $table->id();
+        Schema::create('subscribables', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id');
             $table->bigInteger('subscribable_id');
             $table->string('subscribable_type');
@@ -29,6 +28,6 @@ class CreateSubscribesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subscribes');
+        Schema::dropIfExists('subscribables');
     }
 }
