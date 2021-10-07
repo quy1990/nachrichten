@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Taggable;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -24,5 +23,6 @@ class DatabaseSeeder extends Seeder
         $this->call(VideoSeeder::class);
         $this->call(CommentSeeder::class);
         $this->call(TaggableSeeder::class);
+        $this->call(SubscribeSeeder::class);
     }
 }
