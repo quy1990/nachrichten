@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Subscribe;
+use App\Models\Subscribable;
 use Illuminate\Database\Seeder;
 
-class SubscribeSeeder extends Seeder
+class SubscribableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class SubscribeSeeder extends Seeder
      */
     public function run()
     {
-        Subscribe::factory()
+        Subscribable::factory()
             ->count(5)
             ->create();
     }

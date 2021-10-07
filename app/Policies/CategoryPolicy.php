@@ -17,7 +17,7 @@ class CategoryPolicy
 
     public function view(User $user, Category $category): bool
     {
-        return !is_null($user);
+        return true;
     }
 
     public function create(User $user): bool
