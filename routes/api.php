@@ -57,6 +57,7 @@ Route::get('users/{id}/comments', CommentUserController::class);
 Route::get('users/{id}/posts', PostUserController::class);
 Route::get('users/{id}/image', ImageUserController::class);
 Route::get('users/{id}/roles', RoleUserController::class);
+Route::get('users/{id}/subscribes', [AuthController::class, 'getSubscribes']);
 Route::get('categories/{id}/posts', PostCategoryController::class);
 Route::get('categoriesDetail', CategoryDetailController::class);
 Route::get('roles/{id}/users', UserRoleController::class);

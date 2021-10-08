@@ -69,4 +69,9 @@ class AuthController extends Controller
         return response()->json(auth()->user());
     }
 
+    public function getSubscribes(): JsonResponse
+    {
+        $posts = auth()->user()->subscribers();
+        return response()->json(auth()->user()->subscribers());
+    }
 }
