@@ -76,22 +76,27 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
 
-    public function subscribes_users(): MorphToMany
+    public function subscribers(): MorphToMany
     {
         return $this->morphToMany(User::class, 'subscribable');
     }
 
-    public function subscribes_posts(): MorphToMany
+    public function subscribedUsers(): MorphToMany
+    {
+        return $this->morphToMany(User::class, 'subscribable');
+    }
+
+    public function subscribedPosts(): MorphToMany
     {
         return $this->morphedByMany(Post::class, 'subscribable');
     }
 
-    public function subscribes_videos(): MorphToMany
+    public function subscribedVideos(): MorphToMany
     {
         return $this->morphedByMany(Video::class, 'subscribable');
     }
 
-    public function subscribes_category(): MorphToMany
+    public function subscribedCategory(): MorphToMany
     {
         return $this->morphedByMany(Category::class, 'subscribable');
     }

@@ -20,7 +20,7 @@ class Category extends Model
         return $this->hasMany(Post::class);
     }
 
-    public function subscribes(): MorphToMany
+    public function subscribers(): MorphToMany
     {
         return $this->morphToMany(User::class, 'subscribable');
     }
