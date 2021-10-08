@@ -37,18 +37,14 @@ class UserRoleControllerTest extends TestCase
     /**
      * @var Collection|Model
      */
-    private $user;
-    /**
-     * @var Collection|Model
-     */
     private $role;
 
     public function setUp(): void
     {
         parent::setUp();
         $this->role = Role::factory()->create();
-        $this->user = User::factory()->create();
-        $this->user->roles()->attach($this->role->id);
+        $user = User::factory()->create();
+        $user->roles()->attach($this->role->id);
     }
 
     public function test__invoke()

@@ -11,6 +11,7 @@ class VideoResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'subscribe_count' => $this->subscribers()->count(),
         ];
     }
 }
