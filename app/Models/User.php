@@ -96,7 +96,7 @@ class User extends Authenticatable implements JWTSubject
         return $this->morphedByMany(Video::class, 'subscribable');
     }
 
-    public function subscribedCategory(): MorphToMany
+    public function subscribedCategories(): MorphToMany
     {
         return $this->morphedByMany(Category::class, 'subscribable');
     }

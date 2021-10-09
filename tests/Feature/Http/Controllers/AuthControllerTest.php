@@ -63,15 +63,6 @@ class AuthControllerTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_GetSubscribes()
-    {
-        $response = $this->get($this->url . $this->user->id . '/subscribes', [
-            'Authorization' => 'bearer ' . $this->token
-        ]);
-
-        $response->assertStatus(200);
-    }
-
     public function test_login()
     {
         $user = User::factory()->create([
