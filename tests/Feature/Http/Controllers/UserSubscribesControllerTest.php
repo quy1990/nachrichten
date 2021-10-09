@@ -4,7 +4,6 @@ namespace Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
-use App\Models\Role;
 use App\Models\Subscribable;
 use App\Models\User;
 use App\Models\Video;
@@ -28,9 +27,8 @@ class UserSubscribesControllerTest extends TestCase
         $this->token = auth()->fromUser($this->user);
     }
 
-    public function test_GetSubscribes()
+    public function test_get_subscribes()
     {
-        $role = Role::factory()->create();
         $categories = Category::factory(5)->create();
         $users = User::factory(5)->create();
         $videos = Video::factory(5)->create(['user_id' => $this->user->id, 'category_id' => $categories[0]->id]);
