@@ -3,7 +3,6 @@
 namespace Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -57,7 +56,7 @@ class AuthControllerTest extends TestCase
 
     public function testUserProfile()
     {
-        $response = $this->get($this->url . 'user-profile', [
+        $response = $this->get($this->url . 'testedUser-profile', [
             'Authorization' => 'bearer ' . $this->token
         ]);
 
