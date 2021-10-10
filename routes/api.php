@@ -3,7 +3,6 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CategoryDetailController;
-use App\Http\Controllers\CategoryPostController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CommentUserController;
 use App\Http\Controllers\ImageableImageController;
@@ -21,20 +20,10 @@ use App\Http\Controllers\TagPostController;
 use App\Http\Controllers\TagVideoController;
 use App\Http\Controllers\UnsubscribeController;
 use App\Http\Controllers\UserRoleController;
+use App\Http\Controllers\UserSubscribesController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\VideoTagController;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
 
 Route::group([
     'middleware' => 'api',
@@ -57,6 +46,9 @@ Route::get('users/{id}/comments', CommentUserController::class);
 Route::get('users/{id}/posts', PostUserController::class);
 Route::get('users/{id}/image', ImageUserController::class);
 Route::get('users/{id}/roles', RoleUserController::class);
+
+Route::get('users/{id}/subscribes', UserSubscribesController::class);
+
 Route::get('categories/{id}/posts', PostCategoryController::class);
 Route::get('categoriesDetail', CategoryDetailController::class);
 Route::get('roles/{id}/users', UserRoleController::class);
