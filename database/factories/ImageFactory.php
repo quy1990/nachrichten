@@ -24,8 +24,8 @@ class ImageFactory extends Factory
         $arr = ['App\Models\Post', 'App\Models\User'];
 
         return [
-            'url' => $this->faker->imageUrl,
-            'imageable_id' => 1,
+            'url'            => $this->faker->imageUrl,
+            'imageable_id'   => 1,
             'imageable_type' => $arr[rand(0, 1)]
         ];
     }

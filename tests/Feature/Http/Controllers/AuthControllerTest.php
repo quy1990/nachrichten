@@ -56,7 +56,7 @@ class AuthControllerTest extends TestCase
 
     public function testUserProfile()
     {
-        $response = $this->get($this->url . 'user-profile', [
+        $response = $this->get($this->url . 'testedUser-profile', [
             'Authorization' => 'bearer ' . $this->token
         ]);
 

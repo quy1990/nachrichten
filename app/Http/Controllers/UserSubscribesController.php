@@ -11,9 +11,9 @@ class UserSubscribesController extends Controller
     {
         $user = auth()->user();
         $subscribedContents = [
-            'posts' => $user->subscribedPosts,
-            'videos' => $user->subscribedVideos,
-            'categories' => $user->subscribedCategories,
+            'posts'           => $user->subscribedPosts,
+            'videos'          => $user->subscribedVideos,
+            'categories'      => $user->subscribedCategories,
             'subscribedUsers' => $user->subscribedUsers,
         ];
 
