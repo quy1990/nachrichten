@@ -41,6 +41,7 @@ class TagPostControllerTest extends TestCase
      * @var Collection|Model
      */
     private $user;
+    private $header;
 
     public function setUp(): void
     {
@@ -50,17 +51,22 @@ class TagPostControllerTest extends TestCase
         $this->category = Category::factory()->create();
         $this->video = Video::factory()->create();
         $this->post = Post::factory()->create([
-            'user_id' => $this->user->id,
+            'user_id'     => $this->user->id,
             'category_id' => $this->category->id,
         ]);
 
-        $this->taggable = Taggable::factory()->create();
+        $this->taggable = Taggable::factory()->create(['tag_id' => $this->tag->id, 'taggable_id' => $this->post->id, 'taggable_type' => 'App\Models\Post']);
+        $user = User::factory()->create();
+        $token = auth()->fromUser($user);
+        $this->header = [
+            'Authorization' => 'bearer ' . $token
+        ];
     }
 
     public function test__invoke()
     {
         $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $this->video->tags);
-        $response = $this->get('/api/posts/' . $this->post->id . '/tags');
+        $response = $this->get('/api/posts/' . $this->post->id . '/tags', $this->header);
         $response->assertStatus(200);
     }
 }

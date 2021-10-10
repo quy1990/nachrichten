@@ -42,6 +42,10 @@ class TagVideoControllerTest extends TestCase
      * @var Collection|Model
      */
     private $user;
+    /**
+     * @var string[]
+     */
+    private array $header;
 
     public function setUp(): void
     {
@@ -51,11 +55,16 @@ class TagVideoControllerTest extends TestCase
         $this->category = Category::factory()->create();
         $this->video = Video::factory()->create();
         $this->post = Post::factory()->create([
-            'user_id' => $this->user->id,
+            'user_id'     => $this->user->id,
             'category_id' => $this->category->id,
         ]);
 
-        $this->taggable = Taggable::factory()->create();
+        $this->taggable = Taggable::factory()->create(['tag_id' => $this->tag->id, 'taggable_id' => $this->post->id, 'taggable_type' => 'App\Models\Video']);
+        $user = User::factory()->create();
+        $token = auth()->fromUser($user);
+        $this->header = [
+            'Authorization' => 'bearer ' . $token
+        ];
     }
 
     public function test__invoke()
