@@ -54,15 +54,6 @@ class AuthControllerTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function testUserProfile()
-    {
-        $response = $this->get($this->url . 'testedUser-profile', [
-            'Authorization' => 'bearer ' . $this->token
-        ]);
-
-        $response->assertStatus(200);
-    }
-
     public function test_login()
     {
         $user = User::factory()->create([
