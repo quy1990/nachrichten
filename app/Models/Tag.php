@@ -23,4 +23,9 @@ class Tag extends Model
     {
         return $this->morphedByMany(Video::class, 'taggable');
     }
+
+    public function subscribers(): MorphToMany
+    {
+        return $this->morphToMany(User::class, 'subscribable');
+    }
 }

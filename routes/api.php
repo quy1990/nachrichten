@@ -15,7 +15,12 @@ use App\Http\Controllers\PostUserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\RoleUserController;
 use App\Http\Controllers\SubscribeController;
+use App\Http\Controllers\SubscribedCategoriesController;
+use App\Http\Controllers\SubscribedCommentsController;
 use App\Http\Controllers\SubscribedPostsController;
+use App\Http\Controllers\SubscribedTagsController;
+use App\Http\Controllers\SubscribedUsersController;
+use App\Http\Controllers\SubscribedVideosController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\TagPostController;
 use App\Http\Controllers\TagVideoController;
@@ -50,6 +55,11 @@ Route::get('users/{id}/roles', RoleUserController::class);
 
 Route::get('users/{id}/subscribes', UserSubscribesController::class);
 Route::get('users/subscribed-posts', SubscribedPostsController::class);
+Route::get('users/subscribed-videos', SubscribedVideosController::class);
+Route::get('users/subscribed-tags', SubscribedTagsController::class);
+Route::get('users/subscribed-categories', SubscribedCategoriesController::class);
+Route::get('users/subscribed-comments', SubscribedCommentsController::class);
+Route::get('users/subscribed-users', SubscribedUsersController::class);
 
 Route::get('categories/{id}/posts', PostCategoryController::class);
 Route::get('categoriesDetail', CategoryDetailController::class);
