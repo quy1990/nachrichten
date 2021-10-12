@@ -100,4 +100,14 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->morphedByMany(Category::class, 'subscribable');
     }
+
+    public function subscribedComments(): MorphToMany
+    {
+        return $this->morphedByMany(Comment::class, 'subscribable');
+    }
+
+    public function subscribedTags(): MorphToMany
+    {
+        return $this->morphedByMany(Tag::class, 'subscribable');
+    }
 }
