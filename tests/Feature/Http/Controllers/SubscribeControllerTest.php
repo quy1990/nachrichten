@@ -107,7 +107,7 @@ class SubscribeControllerTest extends TestCase
             'subscribable_type' => 'App\Models\Post',
         ], $header);
 
-        $response->assertStatus(200);
+        $response->assertStatus(201);
     }
 
     public function testDestroy()
