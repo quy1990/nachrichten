@@ -46,6 +46,6 @@ class CategoryTest extends TestCase
     public function testPosts()
     {
         $testingPosts = Category::find($this->categories[0]->id)->posts;
-        self::assertEquals($this->posts->toArray(), $testingPosts->toArray());
+        self::assertSame($this->categories[0]->posts->toArray(), $testingPosts->toArray());
     }
 }
