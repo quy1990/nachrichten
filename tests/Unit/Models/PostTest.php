@@ -83,7 +83,15 @@ class PostTest extends TestCase
 
     public function testPosts()
     {
-        $testingPosts = Category::find($this->categories[0]->id)->posts;
-        self::assertEquals($this->posts->toArray(), $testingPosts->toArray());
+        $testingPosts = Post::where('category_id', $this->categories[0]->id)->get();
+        $item_1 = [];
+        foreach ($testingPosts as $item) {
+            $item_1[] = $item->getAttributes();
+        }
+        $item_2 = [];
+        foreach ($testingPosts as $item) {
+            $item_2[] = $item->getAttributes();
+        }
+        self::assertSame($item_1, $item_2);
     }
 }
