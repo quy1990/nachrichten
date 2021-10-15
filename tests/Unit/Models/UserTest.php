@@ -158,7 +158,6 @@ class UserTest extends TestCase
         $user->save();
     }
 
-
     public function testUpdateUserObserver()
     {
         $user = User::first();
@@ -166,10 +165,7 @@ class UserTest extends TestCase
         $userObserver->shouldReceive('updated')->once();
         App::instance(UserObserver::class, $userObserver);
 
-        $user->name = "newname";
-        $user->email = "asdasd@dsd.com";
-        $user->password = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'; // password
-        $user->remember_token = Str::random(10);
+        $user->name = "newname_123";
         $user->save();
     }
 }
