@@ -10,7 +10,11 @@ use App\Models\Role;
 use App\Models\Subscribable;
 use App\Models\User;
 use App\Models\Video;
+use App\Observers\UserObserver;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Str;
+use Mockery;
 use Tests\TestCase;
 
 class UserTest extends TestCase
@@ -138,5 +142,34 @@ class UserTest extends TestCase
     {
         $posts = Post::where('user_id', $this->testedUser->id)->get();
         self::assertSame($this->testedUser->posts->toArray(), $posts->toArray());
+    }
+
+    public function testCreateUserObserver()
+    {
+        $user = new User();
+        $userObserver = Mockery::mock(UserObserver::class);
+        $userObserver->shouldReceive('created')->once();
+        App::instance(UserObserver::class, $userObserver);
+
+        $user->name = "newname";
+        $user->email = "asdasd@dsd.com";
+        $user->password = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'; // password
+        $user->remember_token = Str::random(10);
+        $user->save();
+    }
+
+
+    public function testUpdateUserObserver()
+    {
+        $user = User::first();
+        $userObserver = Mockery::mock(UserObserver::class);
+        $userObserver->shouldReceive('updated')->once();
+        App::instance(UserObserver::class, $userObserver);
+
+        $user->name = "newname";
+        $user->email = "asdasd@dsd.com";
+        $user->password = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'; // password
+        $user->remember_token = Str::random(10);
+        $user->save();
     }
 }
