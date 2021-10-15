@@ -36,6 +36,7 @@ class VideoTest extends TestCase
 
         foreach ($this->users as $user) {
             Subscribable::factory()->create(['user_id' => $user->id, 'subscribable_id' => $this->testedUser->id, 'subscribable_type' => 'App\Models\User']);
+            Subscribable::factory()->create(['user_id' => $user->id, 'subscribable_id' => $this->categories[0]->id, 'subscribable_type' => 'App\Models\Category']);
         }
 
         $this->videos = Video::factory(env('TEST_COUNT') * 2)->create(['user_id' => $this->testedUser->id, 'category_id' => $this->categories[0]->id]);
