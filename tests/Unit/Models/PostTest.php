@@ -9,7 +9,9 @@ use App\Models\Subscribable;
 use App\Models\Tag;
 use App\Models\Taggable;
 use App\Models\User;
+use App\Observers\PostObserver;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\App;
 use Tests\TestCase;
 
 class PostTest extends TestCase
@@ -17,13 +19,13 @@ class PostTest extends TestCase
     use RefreshDatabase;
 
     private $testedUser;
-    private $users;
     private $categories;
     private $posts;
     private $subscribedPosts;
     private $image;
     private $taggables;
     private $tag;
+    private $users;
 
     public function setUp(): void
     {
@@ -79,6 +81,20 @@ class PostTest extends TestCase
         foreach ($this->posts as $post) {
             self::assertEquals($post->subscribers->first()->getAttributes(), $this->testedUser->getAttributes());
         }
+    }
+
+    public function testSendMailToSubscribers()
+    {
+        $post = new Post();
+        $postObserver = \Mockery::mock(PostObserver::class);
+        $postObserver->shouldReceive('created')->once();
+        App::instance(PostObserver::class, $postObserver);
+
+        $post->title = "new name";
+        $post->body = "new name body";
+        $post->user_id = $this->testedUser->id;
+        $post->category_id = $this->categories[0]->id;
+        $post->save();
     }
 
     public function testPosts()

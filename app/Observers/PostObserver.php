@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use App\Jobs\SendEmailToSubscriberJob;
 use App\Models\Post;
 
 class PostObserver
@@ -14,12 +15,17 @@ class PostObserver
      */
     public function created(Post $post)
     {
-        $user = $post->user;
-        $followers = $user->subscribedUsers;
-        if (count($followers) > 0) {
-            foreach ($followers as $follower) {
-                //dump('send mail to follower: '. $follower ->email);
-            }
+        $emails = [];
+        foreach ($post->user->subscribedUsers as $subscriber) {
+            $emails[] = $subscriber->email;
+        }
+
+        foreach ($post->category->subscribers as $subscriber) {
+            $emails[] = $subscriber->email;
+        }
+
+        foreach ($emails as $email) {
+            dispatch(new SendEmailToSubscriberJob($email, $post));
         }
     }
 
