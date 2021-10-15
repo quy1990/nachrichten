@@ -26,7 +26,7 @@ class UserObserver
      */
     public function updated(User $user)
     {
-        //
+        dispatch(new SendEmailToNewUserJob($user->email));
     }
 
     /**
