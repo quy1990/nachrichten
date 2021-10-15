@@ -3,11 +3,9 @@
 namespace Database\Factories;
 
 use App\Models\Category;
-use App\Models\Post;
 use App\Models\User;
 use App\Models\Video;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 class VideoFactory extends Factory
 {
@@ -26,10 +24,10 @@ class VideoFactory extends Factory
     public function definition(): array
     {
         return [
-            'video_path' => $this->faker->filePath(),
-            'title' => $this->faker->name(),
-            'body' => $this->faker->text(200),
-            'user_id' => $this->faker->numberBetween(1, User::count()),
+            'video_path'  => $this->faker->imageUrl(),
+            'title'       => $this->faker->name(),
+            'body'        => $this->faker->text(200),
+            'user_id'     => $this->faker->numberBetween(1, User::count()),
             'category_id' => $this->faker->numberBetween(1, Category::count()),
         ];
     }

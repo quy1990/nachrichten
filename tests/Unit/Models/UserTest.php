@@ -136,6 +136,7 @@ class UserTest extends TestCase
 
     public function testPosts()
     {
-        self::assertEquals($this->posts->toArray(), $this->testedUser->posts->toArray());
+        $posts = Post::where('user_id', $this->testedUser->id)->get();
+        self::assertSame($this->testedUser->posts->toArray(), $posts->toArray());
     }
 }
