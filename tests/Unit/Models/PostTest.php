@@ -12,6 +12,7 @@ use App\Models\User;
 use App\Observers\PostObserver;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\App;
+use Mockery;
 use Tests\TestCase;
 
 class PostTest extends TestCase
@@ -86,7 +87,7 @@ class PostTest extends TestCase
     public function testSendMailToSubscribers()
     {
         $post = new Post();
-        $postObserver = \Mockery::mock(PostObserver::class);
+        $postObserver = Mockery::mock(PostObserver::class);
         $postObserver->shouldReceive('created')->once();
         App::instance(PostObserver::class, $postObserver);
 

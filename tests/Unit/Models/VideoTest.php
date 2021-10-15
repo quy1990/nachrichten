@@ -8,7 +8,10 @@ use App\Models\Tag;
 use App\Models\Taggable;
 use App\Models\User;
 use App\Models\Video;
+use App\Observers\VideoObserver;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\App;
+use Mockery;
 use Tests\TestCase;
 
 class VideoTest extends TestCase
@@ -20,14 +23,15 @@ class VideoTest extends TestCase
     private $subscribedCategories;
     private $taggables;
     private $tag;
+    private $categories;
 
     public function setUp(): void
     {
         parent::setUp();
         $this->testedUser = User::factory()->create();
-        $categories = Category::factory(env('TEST_COUNT'))->create();
+        $this->categories = Category::factory(env('TEST_COUNT'))->create();
         $this->tag = Tag::factory()->create();
-        $this->videos = Video::factory(env('TEST_COUNT') * 2)->create(['user_id' => $this->testedUser->id, 'category_id' => $categories[0]->id]);
+        $this->videos = Video::factory(env('TEST_COUNT') * 2)->create(['user_id' => $this->testedUser->id, 'category_id' => $this->categories[0]->id]);
 
         foreach ($this->videos as $video) {
             $this->subscribedCategories[] = Subscribable::factory()->create(['user_id' => $this->testedUser->id, 'subscribable_id' => $video->id, 'subscribable_type' => 'App\Models\Video']);
@@ -36,6 +40,21 @@ class VideoTest extends TestCase
         foreach ($this->videos as $video) {
             $this->taggables[] = Taggable::factory()->create(['tag_id' => $this->tag->id, 'taggable_id' => $video->id, 'taggable_type' => 'App\Models\Video']);
         }
+    }
+
+    public function testSendMailToSubscribers()
+    {
+        $model = new Video();
+        $videoObserver = Mockery::mock(VideoObserver::class);
+        $videoObserver->shouldReceive('created')->once();
+        App::instance(VideoObserver::class, $videoObserver);
+
+        $model->video_path = 'new_path';
+        $model->title = 'new_title';
+        $model->body = 'new_body';
+        $model->user_id = $this->testedUser->id;
+        $model->category_id = $this->categories[0]->id;
+        $model->save();
     }
 
     public function testTags()
