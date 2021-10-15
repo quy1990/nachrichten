@@ -29,18 +29,19 @@ class VideoTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->users = User::factory(env('TEST_COUNT'))->create();
         $this->testedUser = User::factory()->create();
+        $this->users = User::factory(env('TEST_COUNT'))->create();
         $this->categories = Category::factory(env('TEST_COUNT'))->create();
         $this->tag = Tag::factory()->create();
+
+        foreach ($this->users as $user) {
+            Subscribable::factory()->create(['user_id' => $user->id, 'subscribable_id' => $this->testedUser->id, 'subscribable_type' => 'App\Models\User']);
+        }
+
         $this->videos = Video::factory(env('TEST_COUNT') * 2)->create(['user_id' => $this->testedUser->id, 'category_id' => $this->categories[0]->id]);
 
         foreach ($this->videos as $video) {
             $this->subscribedCategories[] = Subscribable::factory()->create(['user_id' => $this->testedUser->id, 'subscribable_id' => $video->id, 'subscribable_type' => 'App\Models\Video']);
-        }
-
-        foreach ($this->users as $user) {
-            Subscribable::factory()->create(['user_id' => $user->id, 'subscribable_id' => $this->testedUser->id, 'subscribable_type' => 'App\Models\User']);
         }
 
         foreach ($this->videos as $video) {
@@ -50,6 +51,8 @@ class VideoTest extends TestCase
 
     public function testSendMailToSubscribers()
     {
+        $u = User::find($this->testedUser->id);
+        //dd($u);
         $model = new Video();
         $videoObserver = Mockery::mock(VideoObserver::class);
         $videoObserver->shouldReceive('created')->once();

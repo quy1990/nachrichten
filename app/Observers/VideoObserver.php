@@ -15,14 +15,16 @@ class VideoObserver
      */
     public function created(Video $video)
     {
-        $emails = [];
+        $subscribedUsers = [];
         foreach ($video->user->subscribedUsers as $subscriber) {
-            $emails[] = $subscriber->email;
+            $subscribedUsers[] = $subscriber->email;
+        }
+        $subscribers = [];
+        foreach ($video->category->subscribers as $subscriber) {
+            $subscribers[] = $subscriber->email;
         }
 
-        foreach ($video->category->subscribers as $subscriber) {
-            $emails[] = $subscriber->email;
-        }
+        $emails = array_merge($subscribedUsers, $subscribers);
 
         foreach ($emails as $email) {
             dispatch(new SendEmailToSubscriberJob($email, $video));
