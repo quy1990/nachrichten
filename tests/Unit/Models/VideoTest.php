@@ -24,10 +24,12 @@ class VideoTest extends TestCase
     private $taggables;
     private $tag;
     private $categories;
+    private $users;
 
     public function setUp(): void
     {
         parent::setUp();
+        $this->users = User::factory(env('TEST_COUNT'))->create();
         $this->testedUser = User::factory()->create();
         $this->categories = Category::factory(env('TEST_COUNT'))->create();
         $this->tag = Tag::factory()->create();
@@ -35,6 +37,10 @@ class VideoTest extends TestCase
 
         foreach ($this->videos as $video) {
             $this->subscribedCategories[] = Subscribable::factory()->create(['user_id' => $this->testedUser->id, 'subscribable_id' => $video->id, 'subscribable_type' => 'App\Models\Video']);
+        }
+
+        foreach ($this->users as $user) {
+            Subscribable::factory()->create(['user_id' => $user->id, 'subscribable_id' => $this->testedUser->id, 'subscribable_type' => 'App\Models\User']);
         }
 
         foreach ($this->videos as $video) {

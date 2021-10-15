@@ -164,8 +164,8 @@ class UserTest extends TestCase
         $userObserver = Mockery::mock(UserObserver::class);
         $userObserver->shouldReceive('updated')->once();
         App::instance(UserObserver::class, $userObserver);
-
         $user->name = "newname_123";
         $user->save();
+
     }
 }
