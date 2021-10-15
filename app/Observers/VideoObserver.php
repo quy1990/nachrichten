@@ -28,48 +28,4 @@ class VideoObserver
             dispatch(new SendEmailToSubscriberJob($email, $video));
         }
     }
-
-    /**
-     * Handle the Video "updated" event.
-     *
-     * @param Video $video
-     * @return void
-     */
-    public function updated(Video $video)
-    {
-        //
-    }
-
-    /**
-     * Handle the Video "deleted" event.
-     *
-     * @param Video $video
-     * @return void
-     */
-    public function deleted(Video $video)
-    {
-        //
-    }
-
-    /**
-     * Handle the Video "restored" event.
-     *
-     * @param Video $video
-     * @return void
-     */
-    public function restored(Video $video)
-    {
-        //
-    }
-
-    /**
-     * Handle the Video "force deleted" event.
-     *
-     * @param Video $video
-     * @return void
-     */
-    public function forceDeleted(Video $video)
-    {
-        //
-    }
 }
