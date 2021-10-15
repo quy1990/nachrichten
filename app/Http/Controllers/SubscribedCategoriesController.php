@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\Post\PostCollection;
+use App\Http\Resources\Category\CategoryCollection;
 
 
 class SubscribedCategoriesController extends Controller
 {
-    public function __invoke(): PostCollection
+    public function __invoke(): CategoryCollection
     {
         $user = auth()->user();
-        return new PostCollection($user->subscribedCategories);
+        return new CategoryCollection($user->subscribedCategories);
     }
 }
