@@ -22,10 +22,6 @@ class UserTest extends TestCase
     use RefreshDatabase;
 
     private $testedUser;
-    private $users;
-    private $categories;
-    private $videos;
-    private $posts;
     private $role;
     private $comment;
     private $subscribedUsers;
@@ -40,23 +36,23 @@ class UserTest extends TestCase
         $this->role = Role::factory()->create();
         $this->testedUser = User::factory()->create();
         $this->testedUser->roles()->attach($this->role->id);
-        $this->categories = Category::factory(env('TEST_COUNT'))->create();
-        $this->users = User::factory(env('TEST_COUNT'))->create();
-        $this->videos = Video::factory(env('TEST_COUNT'))->create(['user_id' => $this->testedUser->id, 'category_id' => $this->categories[0]->id]);
-        $this->posts = Post::factory(env('TEST_COUNT') * 2)->create(['user_id' => $this->testedUser->id, 'category_id' => $this->categories[0]->id]);
+        $categories = Category::factory(env('TEST_COUNT'))->create();
+        $users = User::factory(env('TEST_COUNT'))->create();
+        $videos = Video::factory(env('TEST_COUNT'))->create(['user_id' => $this->testedUser->id, 'category_id' => $categories[0]->id]);
+        $posts = Post::factory(env('TEST_COUNT') * 2)->create(['user_id' => $this->testedUser->id, 'category_id' => $categories[0]->id]);
         $this->comment = Comment::factory()->create(['user_id' => $this->testedUser->id]);
         $this->image = Image::factory()->create(['imageable_id' => $this->testedUser->id, 'imageable_type' => 'App\Models\User']);
 
-        foreach ($this->users as $user) {
+        foreach ($users as $user) {
             $this->subscribedUsers[] = Subscribable::factory()->create(['user_id' => $this->testedUser->id, 'subscribable_id' => $user->id, 'subscribable_type' => 'App\Models\User']);
         }
-        foreach ($this->posts as $post) {
+        foreach ($posts as $post) {
             $this->subscribedPosts[] = Subscribable::factory()->create(['user_id' => $this->testedUser->id, 'subscribable_id' => $post->id, 'subscribable_type' => 'App\Models\Post']);
         }
-        foreach ($this->categories as $category) {
+        foreach ($categories as $category) {
             $this->subscribedCategories[] = Subscribable::factory()->create(['user_id' => $this->testedUser->id, 'subscribable_id' => $category->id, 'subscribable_type' => 'App\Models\Category']);
         }
-        foreach ($this->videos as $video) {
+        foreach ($videos as $video) {
             $this->subscribedVideos[] = Subscribable::factory()->create(['user_id' => $this->testedUser->id, 'subscribable_id' => $video->id, 'subscribable_type' => 'App\Models\Video']);
         }
     }
@@ -166,6 +162,5 @@ class UserTest extends TestCase
         $user = User::first();
         $user->name = "newname_123";
         $user->save();
-
     }
 }
