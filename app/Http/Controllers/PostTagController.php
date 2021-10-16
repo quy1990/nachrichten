@@ -8,8 +8,8 @@ use App\Models\Tag;
 
 class PostTagController extends Controller
 {
-    public function __invoke(int $id): PostCollection
+    public function __invoke(Tag $tag): PostCollection
     {
-        return new PostCollection(Tag::find($id)->posts);
+        return new PostCollection($tag->posts);
     }
 }

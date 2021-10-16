@@ -72,8 +72,8 @@ class UserTest extends TestCase
     public function testImage()
     {
         $testedUserId = $this->testedUser->id;
-        $image = User::find($testedUserId)->image;
-        self::assertEquals($this->image->getAttributes(), $image->getAttributes());
+        $images = User::find($testedUserId)->images;
+        self::assertEquals($this->image->getAttributes(), $images->getAttributes());
     }
 
     public function testComments()
