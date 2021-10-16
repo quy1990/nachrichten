@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\Image\ImageResource;
-use App\Models\User;
+use App\Http\Resources\Image\ImageCollection;
 
 class ImageUserController extends Controller
 {
-    public function __invoke(int $id): ImageResource
+    public function __invoke(int $id): ImageCollection
     {
-        return new ImageResource(User::find($id)->image);
+        return new ImageCollection(auth()->user()->images);
     }
 }
