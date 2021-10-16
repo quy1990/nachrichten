@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostStoreRequest;
+use App\Http\Requests\PostUpdateRequest;
 use App\Http\Resources\Post\PostCollection;
 use App\Http\Resources\Post\PostResource;
 use App\Models\Post;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
 
@@ -29,10 +30,10 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param PostStoreRequest $request
      * @return PostResource
      */
-    public function store(Request $request): PostResource
+    public function store(PostStoreRequest $request): PostResource
     {
         $post = new Post();
         $post->title = $request->get('title');
@@ -57,11 +58,11 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param PostUpdateRequest $request
      * @param Post $post
      * @return PostResource
      */
-    public function update(Request $request, Post $post)
+    public function update(PostUpdateRequest $request, Post $post)
     {
         $post->update($request->all());
         return new PostResource($post);

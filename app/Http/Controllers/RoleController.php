@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RoleStoreRequest;
+use App\Http\Requests\RoleUpdateRequest;
 use App\Http\Resources\Role\RoleCollection;
 use App\Http\Resources\Role\RoleResource;
 use App\Models\Role;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
 
@@ -21,7 +22,7 @@ class RoleController extends Controller
         return new RoleCollection(Role::paginate(20));
     }
 
-    public function store(Request $request): RoleResource
+    public function store(RoleStoreRequest $request): RoleResource
     {
         $role = new Role();
         $role->name = $request->get("name");
@@ -34,7 +35,7 @@ class RoleController extends Controller
         return new RoleResource($role);
     }
 
-    public function update(Request $request, role $role): RoleResource
+    public function update(RoleUpdateRequest $request, role $role): RoleResource
     {
         $role->name = $request->get("name");
         $role->save();

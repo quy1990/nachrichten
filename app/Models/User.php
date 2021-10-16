@@ -61,7 +61,7 @@ class User extends Authenticatable implements JWTSubject
         return $this->belongsToMany(Role::class);
     }
 
-    public function image(): MorphOne
+    public function images(): MorphOne
     {
         return $this->morphOne(Image::class, 'imageable');
     }

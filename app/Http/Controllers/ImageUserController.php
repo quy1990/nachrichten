@@ -9,6 +9,6 @@ class ImageUserController extends Controller
 {
     public function __invoke(int $id): ImageResource
     {
-        return new ImageResource(User::find($id)->image);
+        return new ImageResource(User::find($id)->images);
     }
 }
