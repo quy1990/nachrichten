@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\VideoStoreRequest;
+use App\Http\Requests\VideoUpdateRequest;
 use App\Http\Resources\Video\VideoCollection;
 use App\Http\Resources\Video\VideoResource;
 use App\Models\Video;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
 
@@ -24,10 +25,10 @@ class VideoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param VideoStoreRequest $request
      * @return VideoResource
      */
-    public function store(Request $request): VideoResource
+    public function store(VideoStoreRequest $request): VideoResource
     {
         $video = new Video();
         $video->video_path = $request->get('video_path');
@@ -53,11 +54,11 @@ class VideoController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param VideoUpdateRequest $request
      * @param Video $video
      * @return VideoResource
      */
-    public function update(Request $request, Video $video): VideoResource
+    public function update(VideoUpdateRequest $request, Video $video): VideoResource
     {
         $video->update($request->all());
         return new VideoResource($video);

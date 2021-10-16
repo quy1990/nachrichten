@@ -7,8 +7,8 @@ use App\Models\Role;
 
 class UserRoleController extends Controller
 {
-    public function __invoke(int $id): UserCollection
+    public function __invoke(Role $role): UserCollection
     {
-        return new UserCollection(Role::find($id)->users);
+        return new UserCollection($role->users);
     }
 }

@@ -7,8 +7,8 @@ use App\Models\User;
 
 class PostUserController extends Controller
 {
-    public function __invoke(User $user): PostCollection
+    public function __invoke(int $id): PostCollection
     {
-        return new PostCollection($user->posts);
+        return new PostCollection(User::find($id)->posts);
     }
 }
