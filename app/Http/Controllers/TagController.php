@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TagStoreRequest;
+use App\Http\Requests\TagUpdateRequest;
 use App\Http\Resources\Tag\TagCollection;
 use App\Http\Resources\Tag\TagResource;
 use App\Models\Tag;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
 
@@ -24,10 +25,10 @@ class TagController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param TagStoreRequest $request
      * @return TagResource
      */
-    public function store(Request $request): TagResource
+    public function store(TagStoreRequest $request): TagResource
     {
         $tag = new Tag();
         $tag->name = $request->get('name');
@@ -49,11 +50,11 @@ class TagController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param TagUpdateRequest $request
      * @param Tag $tag
      * @return TagResource
      */
-    public function update(Request $request, Tag $tag): TagResource
+    public function update(TagUpdateRequest $request, Tag $tag): TagResource
     {
         $tag->update($request->all());
         return new TagResource($tag);

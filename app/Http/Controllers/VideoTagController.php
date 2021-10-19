@@ -7,8 +7,8 @@ use App\Models\Tag;
 
 class VideoTagController extends Controller
 {
-    public function __invoke(int $id): VideoCollection
+    public function __invoke(Tag $tag): VideoCollection
     {
-        return new VideoCollection(Tag::find($id)->videos);
+        return new VideoCollection($tag->videos);
     }
 }

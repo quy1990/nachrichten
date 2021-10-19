@@ -7,8 +7,8 @@ use App\Models\Post;
 
 class TagPostController extends Controller
 {
-    public function __invoke(int $id): TagCollection
+    public function __invoke(Post $post): TagCollection
     {
-        return new TagCollection(Post::find($id)->tags);
+        return new TagCollection($post->tags);
     }
 }

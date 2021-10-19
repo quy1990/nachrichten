@@ -10,7 +10,7 @@ class UnsubscribeController extends Controller
 {
     public function __invoke(Request $request)
     {
-        $subscribable = Subscribable::where('subscribable_id', $request->get("subscribable_id"))
+        Subscribable::where('subscribable_id', $request->get("subscribable_id"))
             ->where('subscribable_type', $request->get("subscribable_type"))
             ->where('user_id', auth()->user()->id)
             ->firstOrFail()

@@ -21,17 +21,26 @@ class CommentUserControllerTest extends TestCase
      * @var Collection|Model
      */
     private $comment;
+    /**
+     * @var string[]
+     */
+    private array $header;
 
     public function setUp(): void
     {
         parent::setUp();
         $this->user = User::factory()->create();
         $this->comment = Comment::factory(5)->create(['user_id' => $this->user->id]);
+        $user = User::factory()->create();
+        $token = auth()->fromUser($user);
+        $this->header = [
+            'Authorization' => 'bearer ' . $token
+        ];
     }
 
     public function test__invoke()
     {
-        $response = $this->get('/api/users/' . $this->user->id . '/comments');
+        $response = $this->get('/api/users/' . $this->user->id . '/comments', $this->header);
         $response->assertStatus(200);
     }
 }

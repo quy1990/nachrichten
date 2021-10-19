@@ -24,13 +24,21 @@ class VideoTest extends TestCase
     private $taggables;
     private $tag;
     private $categories;
+    private $users;
 
     public function setUp(): void
     {
         parent::setUp();
         $this->testedUser = User::factory()->create();
+        $this->users = User::factory(env('TEST_COUNT'))->create();
         $this->categories = Category::factory(env('TEST_COUNT'))->create();
         $this->tag = Tag::factory()->create();
+
+        foreach ($this->users as $user) {
+            Subscribable::factory()->create(['user_id' => $user->id, 'subscribable_id' => $this->testedUser->id, 'subscribable_type' => 'App\Models\User']);
+            Subscribable::factory()->create(['user_id' => $user->id, 'subscribable_id' => $this->categories[0]->id, 'subscribable_type' => 'App\Models\Category']);
+        }
+
         $this->videos = Video::factory(env('TEST_COUNT') * 2)->create(['user_id' => $this->testedUser->id, 'category_id' => $this->categories[0]->id]);
 
         foreach ($this->videos as $video) {
@@ -44,6 +52,8 @@ class VideoTest extends TestCase
 
     public function testSendMailToSubscribers()
     {
+        $u = User::find($this->testedUser->id);
+        //dd($u);
         $model = new Video();
         $videoObserver = Mockery::mock(VideoObserver::class);
         $videoObserver->shouldReceive('created')->once();
