@@ -25,6 +25,7 @@ use App\Http\Controllers\TagController;
 use App\Http\Controllers\TagPostController;
 use App\Http\Controllers\TagVideoController;
 use App\Http\Controllers\UnsubscribeController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserRoleController;
 use App\Http\Controllers\UserSubscribesController;
 use App\Http\Controllers\VideoController;
@@ -68,6 +69,7 @@ Route::get('roles/{id}/users', UserRoleController::class);
 Route::post('unsubscribe', UnsubscribeController::class);
 Route::post('subscribe', SubscribeController::class);
 
+Route::resource('users', UserController::class);
 Route::resource('posts', PostController::class);
 Route::resource('roles', RoleController::class);
 Route::resource('categories', CategoryController::class);
