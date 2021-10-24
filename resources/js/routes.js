@@ -9,12 +9,12 @@ export const routes = [
         component: Index
     },
     {
-        name: 'create',
+        name: 'createPost',
         path: '/posts/create',
         component: CreatePost
     },
     {
-        name: 'edit',
+        name: 'editPost',
         path: '/posts/edit/:id',
         component: EditPost
     }

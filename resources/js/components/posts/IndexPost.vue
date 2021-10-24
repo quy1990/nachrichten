@@ -19,7 +19,7 @@
                 <td>{{ post.author.user_name }}</td>
                 <td>
                     <div class="btn-group" role="group">
-                        <router-link :to="{name: 'EditPost', params: { id: post.id }}" class="btn btn-success">Edit
+                        <router-link :to="{name: 'editPost', params: { id: post.id }}" class="btn btn-success">Edit
                         </router-link>
                         <button class="btn btn-danger" @click="deleteProduct(post.id)">Delete</button>
                     </div>
