@@ -2,14 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\Comment\CommentCollection;
 use App\Models\Comment;
 
 
 class LatestCommentsController extends Controller
 {
-    public function __invoke(): CommentCollection
+    public function __invoke(): array
     {
-        return new CommentCollection(Comment::paginate(5));
+        $comments = Comment::paginate(5);
+        $notifications = [];
+        foreach ($comments as $comment) {
+            $notifications[] = $this->generateNotification($comment);
+        }
+        return $notifications;
+    }
+
+    private function generateNotification(Comment $comment): array
+    {
+        return [
+            "icon"    => "bx bx-error",
+            "content" => $comment->body
+        ];
     }
 }
