@@ -2,14 +2,12 @@
 
 namespace App\Jobs;
 
-use App\Mail\SendEmailToSubscriber;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Mail;
 
 class SendEmailToSubscriberJob implements ShouldQueue
 {
@@ -24,6 +22,6 @@ class SendEmailToSubscriberJob implements ShouldQueue
 
     public function handle()
     {
-        Mail::to($this->emailAddress)->send(new SendEmailToSubscriber());
+        //Mail::to($this->emailAddress)->send(new SendEmailToSubscriber());
     }
 }

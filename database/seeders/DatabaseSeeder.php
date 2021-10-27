@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TagSeeder::class);
         $this->call(VideoSeeder::class);
         $this->call(CommentSeeder::class);
-        $this->call(TaggableSeeder::class);
         $this->call(SubscribableSeeder::class);
+        $this->call(TaggableSeeder::class);
     }
 }

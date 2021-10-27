@@ -24,7 +24,7 @@ class TaggableFactory extends Factory
         $arr = ['App\Models\Post', 'App\Models\Tag', 'App\Models\video'];
 
         return [
-            'taggable_id' => 1,
+            'taggable_id'   => 0,
             'taggable_type' => $arr[rand(0, 2)]
         ];
     }
