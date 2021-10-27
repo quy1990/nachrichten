@@ -26,7 +26,8 @@ class DashBroadController extends Controller
         return [
             "icon"  => "bx bxs-detail",
             "count" => Post::count(),
-            "title" => "Total Posts"
+            "title" => "Total Posts",
+            "url"   => "/posts"
         ];
     }
 
@@ -35,7 +36,8 @@ class DashBroadController extends Controller
         return [
             "icon"  => "bx bx-list-ol",
             "count" => Category::count(),
-            "title" => "Total Categories"
+            "title" => "Total Categories",
+            "url"   => "/categories"
         ];
     }
 
@@ -44,7 +46,8 @@ class DashBroadController extends Controller
         return [
             "icon"  => "bx bx-tag",
             "count" => Tag::count(),
-            "title" => "Total Tags"
+            "title" => "Total Tags",
+            "url"   => "/tags"
         ];
     }
 
@@ -53,7 +56,8 @@ class DashBroadController extends Controller
         return [
             "icon"  => "bx bx-user",
             "count" => User::count(),
-            "title" => "Total Users"
+            "title" => "Total Users",
+            "url"   => "/users"
         ];
     }
 }
