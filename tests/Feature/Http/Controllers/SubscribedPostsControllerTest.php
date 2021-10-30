@@ -2,7 +2,6 @@
 
 namespace Http\Controllers;
 
-use App\Models\Category;
 use App\Models\Post;
 use App\Models\Subscribable;
 use App\Models\User;
@@ -71,7 +70,6 @@ class SubscribedPostsControllerTest extends TestCase
     {
         parent::setUp();
         $this->user1 = User::factory()->create();
-        $this->category = Category::factory()->create();
         $this->posts = Post::factory(env('TEST_COUNT'))->create();
         foreach ($this->posts as $post) {
             Subscribable::factory()->create(['user_id' => $this->user1->id, 'subscribable_id' => $post->id, 'subscribable_type' => 'App\Models\Post']);

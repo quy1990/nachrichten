@@ -36,7 +36,7 @@ class PostTagControllerTest extends TestCase
         $user = User::factory()->create();
         $this->post = Post::factory()->create([
             'category_id' => $category->id,
-            'user_id' => $user->id]);
+            'created_by'  => $user->id]);
     }
 
     public function test__invoke()

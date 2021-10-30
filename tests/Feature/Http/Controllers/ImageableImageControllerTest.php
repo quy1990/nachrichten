@@ -38,8 +38,9 @@ class ImageableImageControllerTest extends TestCase
         $category = Category::factory()->create();
         $user = User::factory()->create();
         $post = Post::factory()->create([
-            'category_id' => $category->id,
-            'user_id' => $user->id]);
+            'created_by'  => $user->id,
+            'category_id' => $category->id
+        ]);
 
         $this->image1 = Image::factory()->create([
             'imageable_id' => $user->id,

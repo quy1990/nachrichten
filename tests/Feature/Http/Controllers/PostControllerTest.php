@@ -4,6 +4,7 @@ namespace Tests\Feature\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Status;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -17,10 +18,7 @@ class PostControllerTest extends TestCase
     private $model;
     private $user;
     private $category;
-    private $token;
-    /**
-     * @var string[]
-     */
+    private $status;
     private array $header;
 
     public function setUp(): void
@@ -29,20 +27,22 @@ class PostControllerTest extends TestCase
 
         $this->user = User::factory()->create();
         $this->category = Category::factory()->create();
-        $this->model = Post::factory()->create(['user_id' => $this->user->id, 'category_id' => $this->category->id]);
-        $this->token = auth()->fromUser($this->user);
+        $this->status = Status::factory()->create();
+        $this->model = Post::factory()->create(['created_by' => $this->user->id, 'category_id' => $this->category->id]);
+        $token = auth()->fromUser($this->user);
         $this->header = [
-            'Authorization' => 'bearer ' . $this->token
+            'Authorization' => 'bearer ' . $token
         ];
     }
 
     public function test_store()
     {
         $response = $this->post($this->url, [
-            'title' => 'abc',
-            'body' => 'this is body',
-            'user_id' => $this->user->id,
+            'title'       => 'abc',
+            'body'        => 'this is body',
+            'created_by'  => $this->user->id,
             'category_id' => $this->category->id,
+            'status_id'   => $this->status->id,
         ], $this->header);
 
         $response->assertStatus(201);

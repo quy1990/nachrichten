@@ -34,7 +34,7 @@ class PostCategoryControllerTest extends TestCase
     {
         Post::factory(10)->create([
             'category_id' => $this->category->id,
-            'user_id' => $this->user->id,
+            'created_by'  => $this->user->id,
         ]);
         $response = $this->get('/api/categories/' . $this->category->id . '/posts');
         $response->assertStatus(200);
