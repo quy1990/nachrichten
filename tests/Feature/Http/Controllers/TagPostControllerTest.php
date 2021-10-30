@@ -51,7 +51,7 @@ class TagPostControllerTest extends TestCase
         $this->category = Category::factory()->create();
         $this->video = Video::factory()->create();
         $this->post = Post::factory()->create([
-            'user_id'     => $this->user->id,
+            'created_by'  => $this->user->id,
             'category_id' => $this->category->id,
         ]);
 

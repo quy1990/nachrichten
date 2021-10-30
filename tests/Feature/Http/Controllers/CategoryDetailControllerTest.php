@@ -25,7 +25,7 @@ class CategoryDetailControllerTest extends TestCase
         $user = User::factory()->create();
         $category = Category::factory()->create();
         Post::factory(5)->create([
-            'user_id' => $user->id,
+            'created_by'  => $user->id,
             'category_id' => $category->id,
         ]);
     }
