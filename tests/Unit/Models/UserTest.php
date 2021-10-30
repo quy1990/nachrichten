@@ -39,7 +39,7 @@ class UserTest extends TestCase
         $categories = Category::factory(env('TEST_COUNT'))->create();
         $users = User::factory(env('TEST_COUNT'))->create();
         $videos = Video::factory(env('TEST_COUNT'))->create(['user_id' => $this->testedUser->id, 'category_id' => $categories[0]->id]);
-        $posts = Post::factory(env('TEST_COUNT') * 2)->create(['user_id' => $this->testedUser->id, 'category_id' => $categories[0]->id]);
+        $posts = Post::factory(env('TEST_COUNT') * 2)->create(['created_by' => $this->testedUser->id, 'category_id' => $categories[0]->id]);
         $this->comment = Comment::factory()->create(['user_id' => $this->testedUser->id]);
         $this->image = Image::factory()->create(['imageable_id' => $this->testedUser->id, 'imageable_type' => 'App\Models\User']);
 
@@ -136,7 +136,7 @@ class UserTest extends TestCase
 
     public function testPosts()
     {
-        $posts = Post::where('user_id', $this->testedUser->id)->get();
+        $posts = Post::where('created_by', $this->testedUser->id)->get();
         self::assertSame($this->testedUser->posts->toArray(), $posts->toArray());
     }
 

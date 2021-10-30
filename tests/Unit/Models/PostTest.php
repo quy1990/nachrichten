@@ -5,6 +5,7 @@ namespace Models;
 use App\Models\Category;
 use App\Models\Image;
 use App\Models\Post;
+use App\Models\Status;
 use App\Models\Subscribable;
 use App\Models\Tag;
 use App\Models\Taggable;
@@ -27,6 +28,7 @@ class PostTest extends TestCase
     private $taggables;
     private $tag;
     private $users;
+    private $status;
 
     public function setUp(): void
     {
@@ -34,9 +36,10 @@ class PostTest extends TestCase
         $this->testedUser = User::factory()->create();
         $this->categories = Category::factory(env('TEST_COUNT'))->create();
         $this->users = User::factory(env('TEST_COUNT'))->create();
-        $this->posts = Post::factory(env('TEST_COUNT') * 2)->create(['user_id' => $this->testedUser->id, 'category_id' => $this->categories[0]->id]);
+        $this->posts = Post::factory(env('TEST_COUNT') * 2)->create(['created_by' => $this->testedUser->id, 'category_id' => $this->categories[0]->id]);
         $this->image = Image::factory()->create(['imageable_id' => $this->categories[0]->id, 'imageable_type' => 'App\Models\Category']);
         $this->tag = Tag::factory()->create();
+        $this->status = Status::factory()->create();
 
         foreach ($this->posts as $post) {
             $this->subscribedPosts[] = Subscribable::factory()->create(['user_id' => $this->testedUser->id, 'subscribable_id' => $post->id, 'subscribable_type' => 'App\Models\Post']);
@@ -54,13 +57,13 @@ class PostTest extends TestCase
 
     public function testUser()
     {
-        $user = Post::where('user_id', $this->testedUser->id)->first()->user;
+        $user = Post::where('created_by', $this->testedUser->id)->first()->user;
         self::assertEquals($user->getAttributes(), $this->testedUser->getAttributes());
     }
 
     public function testCategory()
     {
-        $category = Post::where('user_id', $this->testedUser->id)->first()->category;
+        $category = Post::where('created_by', $this->testedUser->id)->first()->category;
         self::assertEquals($category->getAttributes(), $this->categories[0]->getAttributes());
     }
 
@@ -97,8 +100,9 @@ class PostTest extends TestCase
 
         $post->title = "new name";
         $post->body = "new name body";
-        $post->user_id = $this->testedUser->id;
+        $post->created_by = $this->testedUser->id;
         $post->category_id = $this->categories[0]->id;
+        $post->status_id = $this->status->id;
         $post->save();
     }
 

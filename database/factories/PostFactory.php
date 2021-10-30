@@ -24,6 +24,9 @@ class PostFactory extends Factory
      */
     public function definition(): array
     {
+        User::factory()->create();
+        Category::factory()->create();
+        Status::factory(5)->create();
         return [
             'title'       => $this->faker->name(),
             'body'        => $this->faker->text(200),

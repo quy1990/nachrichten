@@ -32,7 +32,7 @@ class PostUserControllerTest extends TestCase
         parent::setUp();
         $this->user = User::factory()->create();
         $this->category = Category::factory()->create();
-        $this->post = Post::factory()->create(['user_id' => $this->user->id]);
+        $this->post = Post::factory()->create(['created_by' => $this->user->id]);
     }
 
     public function test__invoke()

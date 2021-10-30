@@ -42,7 +42,7 @@ class PostUserControllerTest extends TestCase
         $this->user = User::factory()->create();
         $this->post = Post::factory(5)->create([
             'category_id' => $category->id,
-            'user_id' => $this->user->id]);
+            'created_by'  => $this->user->id]);
         $token = auth()->fromUser($this->user);
         $this->header = [
             'Authorization' => 'bearer ' . $token

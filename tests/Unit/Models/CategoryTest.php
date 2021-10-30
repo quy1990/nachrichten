@@ -25,7 +25,7 @@ class CategoryTest extends TestCase
         $this->testedUser = User::factory()->create();
         $this->categories = Category::factory(env('TEST_COUNT'))->create();
         $this->users = User::factory(env('TEST_COUNT'))->create();
-        $this->posts = Post::factory(env('TEST_COUNT') * 2)->create(['user_id' => $this->testedUser->id, 'category_id' => $this->categories[0]->id]);
+        $this->posts = Post::factory(env('TEST_COUNT') * 2)->create(['created_by' => $this->testedUser->id, 'category_id' => $this->categories[0]->id]);
 
         foreach ($this->categories as $category) {
             $this->subscribedCategories[] = Subscribable::factory()->create(['user_id' => $this->testedUser->id, 'subscribable_id' => $category->id, 'subscribable_type' => 'App\Models\Category']);
