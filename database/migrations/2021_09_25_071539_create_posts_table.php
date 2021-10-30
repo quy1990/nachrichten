@@ -18,11 +18,16 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->text('body');
 
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('created_by');
+            $table->foreign('created_by')->references('id')->on('users');
+
+            $table->unsignedBigInteger('edited_by')->nullable();
+            $table->foreign('edited_by')->references('id')->on('users')->nullOnDelete();
 
             $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')->references('id')->on('users');
+
+            $table->unsignedBigInteger('status_id');
+
             $table->timestamps();
         });
     }
