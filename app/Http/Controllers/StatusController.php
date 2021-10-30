@@ -2,84 +2,78 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StatusStoreRequest;
+use App\Http\Requests\StatusUpdateRequest;
+use App\Http\Resources\Status\StatusCollection;
+use App\Http\Resources\Status\StatusResource;
 use App\Models\Status;
-use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Lukasoppermann\Httpstatus\Httpstatuscodes;
 
 class StatusController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function __construct()
     {
-        //
+        //$this->authorizeResource(Status::class, 'Status');
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return StatusCollection
      */
-    public function create()
+    public function index(): StatusCollection
     {
-        //
+        return new StatusCollection(Status::paginate(20));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param StatusStoreRequest $request
+     * @return StatusResource
      */
-    public function store(Request $request)
+    public function store(StatusStoreRequest $request): StatusResource
     {
-        //
+        $status = new Status();
+        $status->name = $request->get('name');
+        $status->save();
+        return new StatusResource($status);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\Status $status
-     * @return \Illuminate\Http\Response
+     * @param Status $status
+     * @return StatusResource
      */
-    public function show(Status $status)
+    public function show(Status $status): StatusResource
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param \App\Models\Status $status
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Status $status)
-    {
-        //
+        return new StatusResource($status);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Status $status
-     * @return \Illuminate\Http\Response
+     * @param StatusUpdateRequest $request
+     * @param Status $status
+     * @return StatusResource
      */
-    public function update(Request $request, Status $status)
+    public function update(StatusUpdateRequest $request, Status $status): StatusResource
     {
-        //
+        $status->update($request->all());
+        return new StatusResource($status);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\Status $status
-     * @return \Illuminate\Http\Response
+     * @param Status $status
+     * @return Response
      */
-    public function destroy(Status $status)
+    public function destroy(Status $status): Response
     {
-        //
+        $status->delete();
+        return response("", Httpstatuscodes::HTTP_NO_CONTENT);
     }
 }

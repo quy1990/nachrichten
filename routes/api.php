@@ -17,6 +17,7 @@ use App\Http\Controllers\PostTagController;
 use App\Http\Controllers\PostUserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\RoleUserController;
+use App\Http\Controllers\StatusController;
 use App\Http\Controllers\SubscribeController;
 use App\Http\Controllers\SubscribedCategoriesController;
 use App\Http\Controllers\SubscribedCommentsController;
@@ -78,6 +79,7 @@ Route::post('unsubscribe', UnsubscribeController::class);
 Route::post('subscribe', SubscribeController::class);
 
 Route::resource('users', UserController::class);
+Route::resource('statuses', StatusController::class);
 Route::resource('posts', PostController::class);
 Route::resource('roles', RoleController::class);
 Route::resource('categories', CategoryController::class);
