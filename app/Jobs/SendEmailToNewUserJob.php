@@ -2,13 +2,11 @@
 
 namespace App\Jobs;
 
-use App\Mail\SendEmailToNewUser;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Mail;
 
 class SendEmailToNewUserJob implements ShouldQueue
 {
@@ -23,7 +21,7 @@ class SendEmailToNewUserJob implements ShouldQueue
 
     public function handle()
     {
-        Mail::to($this->emailAddress)
-            ->send(new SendEmailToNewUser());
+//        Mail::to($this->emailAddress)
+//            ->send(new SendEmailToNewUser());
     }
 }

@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Status;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -24,10 +25,11 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->name(),
-            'body' => $this->faker->text(200),
-            'user_id' => $this->faker->numberBetween(1, User::count()),
+            'title'       => $this->faker->name(),
+            'body'        => $this->faker->text(200),
+            'created_by'  => $this->faker->numberBetween(1, User::count()),
             'category_id' => $this->faker->numberBetween(1, Category::count()),
+            'status_id'   => $this->faker->numberBetween(1, Status::count()),
         ];
     }
 }
