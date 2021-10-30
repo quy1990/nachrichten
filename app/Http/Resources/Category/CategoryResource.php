@@ -11,7 +11,7 @@ class CategoryResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'subscribe_count' => $this->subscribers()->count()
+            'post_count' => $this->posts()->count()
         ];
     }
 }

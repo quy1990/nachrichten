@@ -13,11 +13,11 @@ class Post extends Model
     use HasFactory;
 
     public $timestamps = true;
-    protected $fillable = ['title', 'body', 'user_id', 'category_id'];
+    protected $fillable = ['title', 'body', 'created_by', 'category_id'];
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'created_by');
     }
 
     public function category(): BelongsTo
@@ -28,6 +28,11 @@ class Post extends Model
     public function image(): MorphOne
     {
         return $this->morphOne(Image::class, 'imageable');
+    }
+
+    public function status(): belongsTo
+    {
+        return $this->belongsTo(Status::class, 'status_id');
     }
 
     public function tags(): MorphToMany
