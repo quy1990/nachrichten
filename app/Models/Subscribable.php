@@ -11,5 +11,9 @@ class Subscribable extends Model
 
     public $timestamps = false;
 
+    protected $primaryKey = null;
+
+    public $incrementing = false;
+
     protected $fillable = ['user_id', 'subscribable_id', 'subscribable_type'];
 }
