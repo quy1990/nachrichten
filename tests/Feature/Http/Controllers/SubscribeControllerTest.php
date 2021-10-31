@@ -103,7 +103,8 @@ class SubscribeControllerTest extends TestCase
         ];
 
         $response = $this->post($this->url, [
-            'subscribable_id' => $post->id,
+            'user_id'           => $user1->id,
+            'subscribable_id'   => $post->id,
             'subscribable_type' => 'App\Models\Post',
         ], $header);
 
@@ -125,7 +126,8 @@ class SubscribeControllerTest extends TestCase
             'subscribable_type' => 'App\Models\Post']);
 
         $response = $this->post($this->url_unsubscribes, [
-            'subscribable_id' => $this->post->id,
+            'user_id'           => $user1->id,
+            'subscribable_id'   => $this->post->id,
             'subscribable_type' => 'App\Models\Post'
         ], $this->header);
 
