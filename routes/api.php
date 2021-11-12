@@ -11,6 +11,7 @@ use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ImageUserController;
 use App\Http\Controllers\LatestCommentsController;
 use App\Http\Controllers\LatestPostsController;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PostCategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostTagController;
@@ -80,6 +81,7 @@ Route::post('subscribe', SubscribeController::class);
 
 Route::resource('users', UserController::class);
 Route::resource('statuses', StatusController::class);
+Route::resource('menus', MenuController::class);
 Route::resource('posts', PostController::class);
 Route::resource('roles', RoleController::class);
 Route::resource('categories', CategoryController::class);
