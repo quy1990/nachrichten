@@ -25,7 +25,7 @@ class PostResource extends JsonResource
     private function getAuthorArray(): array
     {
         return [
-            'user_id' => $this->user->id,
+            'user_id'   => $this->user->id,
             'user_name' => $this->user->name
         ];
     }
@@ -33,8 +33,8 @@ class PostResource extends JsonResource
     private function getCategoryArray(): array
     {
         return [
-            'user_id' => $this->category->id,
-            'user_name' => $this->category->name
+            'category_id'   => $this->category->id,
+            'category_name' => $this->category->name
         ];
     }
 }
