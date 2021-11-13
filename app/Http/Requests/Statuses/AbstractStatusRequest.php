@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Statuses;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StatusUpdateRequest extends FormRequest
+Abstract class AbstractStatusRequest  extends FormRequest
 {
     public function authorize(): bool
     {

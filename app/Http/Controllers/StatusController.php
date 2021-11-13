@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StatusStoreRequest;
-use App\Http\Requests\StatusUpdateRequest;
+use App\Http\Requests\Statuses\StatusStoreRequest;
+use App\Http\Requests\Statuses\StatusUpdateRequest;
 use App\Http\Resources\Status\StatusCollection;
 use App\Http\Resources\Status\StatusResource;
 use App\Models\Status;
