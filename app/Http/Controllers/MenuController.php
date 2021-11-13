@@ -29,7 +29,12 @@ class MenuController extends Controller
      */
     public function store(Request $request): MenuResource
     {
-        return new MenuResource([]);
+        $menu = new Menu();
+        $menu->name = $request->get('name');
+        $menu->route = $request->get('route');
+        $menu->icon = $request->get('icon');
+        $menu->save();
+        return new MenuResource($menu);
     }
 
     /**

@@ -2,16 +2,16 @@
 
 namespace Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Menu;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class CategoryControllerTest extends TestCase
+class MenuControllerTest extends TestCase
 {
     use RefreshDatabase;
 
-    private string $url = "/api/categories/";
+    private string $url = "/api/menus/";
 
     private $model;
     private array $header;
@@ -19,7 +19,7 @@ class CategoryControllerTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->model = Category::factory()->create();
+        $this->model = Menu::factory()->create(['name' => 'menu 1', 'route' => '/route1', 'icon' => 'icon1']);
         $user = User::factory()->create();
         $token = auth()->fromUser($user);
         $this->header = [
@@ -36,7 +36,7 @@ class CategoryControllerTest extends TestCase
     public function test_store()
     {
         $response = $this->post($this->url, [
-            'name' => 'abc'
+            'name' => 'abc', 'route' => '/route1', 'icon' => 'icon1'
         ], $this->header);
 
         $response->assertStatus(201);
@@ -45,7 +45,7 @@ class CategoryControllerTest extends TestCase
     public function test_update()
     {
         $response = $this->put($this->url . $this->model->id, [
-            'name' => 'test'
+            'name' => 'abc', 'route' => '/route1', 'icon' => 'icon1'
         ], $this->header);
 
         $response->assertStatus(200);
