@@ -4,7 +4,7 @@ namespace Modules\Comment\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\Comment\Entities\Comment;
-use Modules\Image\Entities\User;
+use Modules\User\Entities\User;
 
 class CommentFactory extends Factory
 {

@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Faker\Generator;
 use Illuminate\Database\Seeder;
 use Modules\Category\Entities\Role;
-use Modules\Image\Entities\User;
+use Modules\User\Entities\User;
 
 class RoleUserSeeder extends Seeder
 {

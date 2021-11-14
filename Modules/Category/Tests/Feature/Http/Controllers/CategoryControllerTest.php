@@ -4,7 +4,7 @@ namespace Modules\Category\Tests\Feature\Http\Controllers;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Category\Entities\Category;
-use Modules\Image\Entities\User;
+use Modules\User\Entities\User;
 use Tests\TestCase;
 
 class CategoryControllerTest extends TestCase

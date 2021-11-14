@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Category\Entities\Category;
 use Modules\Category\Entities\Post;
 use Modules\Category\Entities\Status;
-use Modules\Image\Entities\User;
+use Modules\User\Entities\User;
 use Tests\TestCase;
 
 class StatusTest extends TestCase

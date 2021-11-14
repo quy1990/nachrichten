@@ -3,7 +3,7 @@
 namespace Http\Controllers;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Modules\Image\Entities\User;
+use Modules\User\Entities\User;
 use Tests\TestCase;
 
 class AuthControllerTest extends TestCase

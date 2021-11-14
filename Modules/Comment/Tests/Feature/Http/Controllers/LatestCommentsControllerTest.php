@@ -5,9 +5,9 @@ namespace Modules\Comment\Tests\Feature\Http\Controllers;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Category\Entities\Category;
 use Modules\Comment\Entities\Comment;
-use Modules\Image\Entities\Post;
+use Modules\Post\Entities\Post;
 use Modules\Image\Entities\Tag;
-use Modules\Image\Entities\User;
+use Modules\User\Entities\User;
 use Tests\TestCase;
 
 class LatestCommentsControllerTest extends TestCase

@@ -13,7 +13,7 @@ use Modules\Category\Entities\Post;
 use Modules\Category\Entities\Role;
 use Modules\Category\Entities\Subscribable;
 use Modules\Category\Entities\Video;
-use Modules\Image\Entities\User;
+use Modules\User\Entities\User;
 use Modules\Post\Observers\UserObserver;
 use Tests\TestCase;
 

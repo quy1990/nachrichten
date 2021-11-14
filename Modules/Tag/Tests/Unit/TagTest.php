@@ -4,11 +4,11 @@ namespace Models;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Category\Entities\Category;
-use Modules\Image\Entities\Post;
+use Modules\Post\Entities\Post;
 use Modules\Image\Entities\Subscribable;
 use Modules\Image\Entities\Tag;
 use Modules\Image\Entities\Taggable;
-use Modules\Image\Entities\User;
+use Modules\User\Entities\User;
 use Modules\Image\Entities\Video;
 use Tests\TestCase;
 

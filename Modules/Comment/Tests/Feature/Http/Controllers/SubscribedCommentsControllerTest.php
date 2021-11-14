@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Category\Entities\Category;
 use Modules\Comment\Entities\Comment;
 use Modules\Image\Entities\Subscribable;
-use Modules\Image\Entities\User;
+use Modules\User\Entities\User;
 use Tests\TestCase;
 
 class SubscribedCommentsControllerTest extends TestCase

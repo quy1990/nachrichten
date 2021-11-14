@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Modules\Comment\Database\Factories\CommentFactory;
-use Modules\Image\Entities\User;
+use Modules\User\Entities\User;
 
 class Comment extends Model
 {

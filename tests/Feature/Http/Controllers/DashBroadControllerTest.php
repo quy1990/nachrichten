@@ -1,13 +1,13 @@
 <?php
 
-namespace Http\Controllers;
+namespace Tests\Feature\Http\Controllers;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Category\Entities\Category;
 use Modules\Comment\Entities\Comment;
-use Modules\Comment\Entities\Post;
-use Modules\Comment\Entities\Tag;
-use Modules\Comment\Entities\User;
+use Modules\Post\Entities\Post;
+use Modules\Tag\Entities\Tag;
+use Modules\User\Entities\User;
 use Tests\TestCase;
 
 class DashBroadControllerTest extends TestCase

@@ -10,7 +10,7 @@ use Modules\Category\Entities\Subscribable;
 use Modules\Category\Entities\Tag;
 use Modules\Category\Entities\Taggable;
 use Modules\Category\Entities\Video;
-use Modules\Image\Entities\User;
+use Modules\User\Entities\User;
 use Modules\Post\Observers\VideoObserver;
 use Tests\TestCase;
 

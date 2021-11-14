@@ -1,6 +1,6 @@
 <?php
 
-use Modules\Image\Entities\User;
+use Modules\User\Entities\User;
 
 return [
 

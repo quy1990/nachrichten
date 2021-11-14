@@ -4,7 +4,7 @@ namespace App\Policies;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Modules\Category\Entities\Video;
-use Modules\Image\Entities\User;
+use Modules\User\Entities\User;
 
 class VideoPolicy
 {

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
-use Modules\Image\Entities\User;
+use Modules\User\Entities\User;
 use Modules\Post\Http\Requests\LoginRequest;
 use Modules\Post\Http\Requests\RegisterRequest;
 

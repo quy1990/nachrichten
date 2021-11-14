@@ -6,7 +6,7 @@ use App\Http\Resources\User\UserResource;
 use Exception;
 use Modules\Category\Entities\Image;
 use Modules\Category\Entities\Post;
-use Modules\Image\Entities\User;
+use Modules\User\Entities\User;
 use Modules\Post\Resources\PostResource;
 
 class ImageableImageService

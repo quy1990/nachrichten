@@ -3,8 +3,8 @@
 namespace App\Policies;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
-use Modules\Image\Entities\Post;
-use Modules\Image\Entities\User;
+use Modules\Post\Entities\Post;
+use Modules\User\Entities\User;
 
 class PostPolicy
 {

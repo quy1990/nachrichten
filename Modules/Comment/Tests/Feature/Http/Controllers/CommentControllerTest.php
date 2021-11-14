@@ -4,7 +4,7 @@ namespace Modules\Comment\Tests\Feature\Http\Controllers;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Comment\Entities\Comment;
-use Modules\Image\Entities\User;
+use Modules\User\Entities\User;
 use Tests\TestCase;
 
 class CommentControllerTest extends TestCase

@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Modules\Category\Database\Factories\CategoryFactory;
-use Modules\Image\Entities\Post;
-use Modules\Image\Entities\User;
+use Modules\Post\Entities\Post;
+use Modules\User\Entities\User;
 
 class Category extends Model
 {
