@@ -2,6 +2,7 @@
 
 namespace Modules\Post\Entities;
 
+use Database\Factories\PostFactory;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -9,7 +10,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Modules\Category\Entities\Category;
-use Modules\Comment\Database\Factories\CommentFactory;
 
 class Post extends Model
 {
@@ -20,7 +20,7 @@ class Post extends Model
 
     protected static function newFactory(): Factory
     {
-        return CommentFactory::new();
+        return PostFactory::new();
     }
 
     public function user(): BelongsTo
