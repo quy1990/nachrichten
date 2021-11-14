@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Modules\Video\Http\Controllers;
 
-use Modules\Category\Entities\Tag;
+use App\Http\Controllers\Controller;
+use Modules\Tag\Entities\Tag;
 use Modules\Video\Resources\VideoCollection;
 
 class VideoTagController extends Controller

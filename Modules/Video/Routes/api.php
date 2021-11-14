@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Modules\Subscribe\Http\Controllers\SubscribedVideosController;
-use Modules\User\Http\Controllers\VideoTagController;
+use Modules\Video\Http\Controllers\VideoTagController;
 use Modules\Video\Http\Controllers\VideoController;
 
 /*

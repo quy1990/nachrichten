@@ -11,8 +11,6 @@ use Modules\Video\Http\Requests\VideoUpdateRequest;
 use Modules\Video\Resources\VideoCollection;
 use Modules\Video\Resources\VideoResource;
 
-;
-
 class VideoController extends Controller
 {
     public function __construct()

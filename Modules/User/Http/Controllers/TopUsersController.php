@@ -1,9 +1,9 @@
 <?php
+namespace Modules\User\Http\Controllers;
 
-namespace App\Http\Controllers;
-
+use App\Http\Controllers\Controller;
 use App\Http\Resources\User\UserCollection;
-use Modules\Image\Entities\User;
+use Modules\User\Entities\User;
 
 class TopUsersController extends Controller
 {
