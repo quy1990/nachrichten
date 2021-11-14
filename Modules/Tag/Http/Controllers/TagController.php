@@ -9,7 +9,7 @@ use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
 use Modules\Tag\Entities\Tag;
 use Modules\Tag\Http\Requests\TagStoreRequest;
 use Modules\Tag\Http\Requests\TagUpdateRequest;
-use Modules\User\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 
 class TagController extends Controller
 {

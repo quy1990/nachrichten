@@ -4,7 +4,7 @@ namespace Modules\Role\Http\Controllers;
 
 use Modules\Role\Entities\Role;
 use Modules\Role\Resources\RoleCollection;
-use Modules\User\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 
 ;
 

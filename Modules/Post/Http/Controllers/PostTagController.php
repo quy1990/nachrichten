@@ -4,7 +4,7 @@ namespace Modules\Post\Http\Controllers;
 
 use Modules\Post\Resources\PostCollection;
 use Modules\Tag\Entities\Tag;
-use Modules\User\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 
 ;
 

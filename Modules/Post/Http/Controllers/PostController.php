@@ -9,7 +9,7 @@ use Modules\Post\Http\Requests\PostStoreRequest;
 use Modules\Post\Http\Requests\PostUpdateRequest;
 use Modules\Post\Resources\PostCollection;
 use Modules\Post\Resources\PostResource;
-use Modules\User\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 
 class PostController extends Controller
 {

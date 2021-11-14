@@ -3,7 +3,7 @@
 namespace Modules\Tag\Http\Controllers;
 
 use App\Http\Resources\Tag\TagCollection;
-use Modules\User\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 use Modules\Video\Entities\Video;
 
 class TagVideoController extends Controller

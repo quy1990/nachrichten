@@ -4,7 +4,7 @@ namespace Modules\Video\Http\Controllers;
 
 use Illuminate\Http\Response;
 use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
-use Modules\User\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 use Modules\Video\Entities\Video;
 use Modules\Video\Http\Requests\VideoStoreRequest;
 use Modules\Video\Http\Requests\VideoUpdateRequest;

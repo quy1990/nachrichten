@@ -4,7 +4,7 @@ namespace Modules\Image\Http\Controllers;
 
 use App\Http\Resources\Image\ImageResource;
 use Modules\User\Entities\User;
-use Modules\User\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 
 ;
 
