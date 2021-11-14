@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Category\Entities\Category;
 use Modules\Comment\Entities\Comment;
 use Modules\Post\Entities\Post;
-use Modules\Image\Entities\Tag;
+use Modules\Tag\Entities\Tag;
 use Modules\User\Entities\User;
 use Tests\TestCase;
 

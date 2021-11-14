@@ -5,7 +5,7 @@ namespace Modules\Category\Tests\Unit\Models;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Category\Entities\Category;
 use Modules\Post\Entities\Post;
-use Modules\Image\Entities\Subscribable;
+use Modules\Subscribe\Entities\Subscribable;
 use Modules\User\Entities\User;
 use Tests\TestCase;
 

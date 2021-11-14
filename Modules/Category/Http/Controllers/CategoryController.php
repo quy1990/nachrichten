@@ -2,12 +2,12 @@
 
 namespace Modules\Category\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
 use Modules\Category\Entities\Category;
 use Modules\Category\Resources\CategoryCollection;
 use Modules\Category\Resources\CategoryResource;
-use Modules\Image\Http\Controllers\Controller;
 
 class CategoryController extends Controller
 {

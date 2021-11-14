@@ -4,8 +4,8 @@ namespace Modules\Category\Tests\Feature\Http\Controllers;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Category\Entities\Category;
-use Modules\Comment\Entities\Post;
-use Modules\Comment\Entities\User;
+use Modules\Post\Entities\Post;
+use Modules\User\Entities\User;
 use Tests\TestCase;
 
 class CategoryDetailControllerTest extends TestCase

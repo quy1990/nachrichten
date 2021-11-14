@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Category\Entities\Category;
-use Modules\Comment\Entities\Post;
-use Modules\Comment\Entities\User;
+use Modules\Post\Entities\Post;
+use Modules\User\Entities\User;
 use Tests\TestCase;
 
 class PostUserControllerTest extends TestCase

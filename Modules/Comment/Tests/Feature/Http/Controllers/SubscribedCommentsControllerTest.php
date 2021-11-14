@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Category\Entities\Category;
 use Modules\Comment\Entities\Comment;
-use Modules\Image\Entities\Subscribable;
+use Modules\Subscribe\Entities\Subscribable;
 use Modules\User\Entities\User;
 use Tests\TestCase;
 

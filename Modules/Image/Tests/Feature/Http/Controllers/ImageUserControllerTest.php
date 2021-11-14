@@ -1,12 +1,12 @@
 <?php
 
-namespace Http\Controllers;
+namespace Modules\Image\Tests\Feature\Http\Controllers;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Modules\Comment\Entities\Image;
-use Modules\Comment\Entities\User;
+use Modules\Image\Entities\Image;
+use Modules\User\Entities\User;
 use Tests\TestCase;
 
 class ImageUserControllerTest extends TestCase

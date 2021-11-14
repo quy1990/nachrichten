@@ -1,10 +1,10 @@
 <?php
 
-namespace Http\Controllers;
+namespace Modules\Menu\Tests\Feature\Http\Controllers;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Modules\Comment\Entities\Menu;
-use Modules\Comment\Entities\User;
+use Modules\Menu\Entities\Menu;
+use Modules\User\Entities\User;
 use Tests\TestCase;
 
 class MenuControllerTest extends TestCase
