@@ -2,12 +2,12 @@
 
 namespace App\Http\Services;
 
-use App\Http\Resources\Post\PostResource;
 use App\Http\Resources\User\UserResource;
 use Exception;
 use Modules\Category\Entities\Image;
 use Modules\Category\Entities\Post;
-use Modules\Category\Entities\User;
+use Modules\Image\Entities\User;
+use Modules\Post\Resources\PostResource;
 
 class ImageableImageService
 {

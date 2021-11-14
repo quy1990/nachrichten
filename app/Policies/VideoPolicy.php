@@ -3,8 +3,8 @@
 namespace App\Policies;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
-use Modules\Category\Entities\User;
 use Modules\Category\Entities\Video;
+use Modules\Image\Entities\User;
 
 class VideoPolicy
 {

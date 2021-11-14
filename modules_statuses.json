@@ -1,3 +1,13 @@
 {
-    "Category": true
+    "Category": true,
+    "Comment": true,
+    "Image": true,
+    "Menu": true,
+    "Post": true,
+    "Role": true,
+    "Status": true,
+    "Subscribe": true,
+    "Tag": true,
+    "User": true,
+    "Video": true
 }

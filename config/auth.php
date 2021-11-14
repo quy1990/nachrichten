@@ -1,5 +1,7 @@
 <?php
 
+use Modules\Image\Entities\User;
+
 return [
 
     /*
@@ -68,7 +70,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Modules\Category\Entities\User::class,
+            'model' => User::class,
         ],
 
         // 'users' => [

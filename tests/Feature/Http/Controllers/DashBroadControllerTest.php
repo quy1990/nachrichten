@@ -2,12 +2,12 @@
 
 namespace Http\Controllers;
 
-use App\Models\Comment;
-use App\Models\Post;
-use App\Models\Tag;
-use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Category\Entities\Category;
+use Modules\Comment\Entities\Comment;
+use Modules\Comment\Entities\Post;
+use Modules\Comment\Entities\Tag;
+use Modules\Comment\Entities\User;
 use Tests\TestCase;
 
 class DashBroadControllerTest extends TestCase

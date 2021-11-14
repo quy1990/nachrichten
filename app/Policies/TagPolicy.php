@@ -3,8 +3,8 @@
 namespace App\Policies;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
-use Modules\Category\Entities\Tag;
-use Modules\Category\Entities\User;
+use Modules\Image\Entities\Tag;
+use Modules\Image\Entities\User;
 
 class TagPolicy
 {

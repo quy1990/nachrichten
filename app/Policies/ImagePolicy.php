@@ -3,8 +3,8 @@
 namespace App\Policies;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
-use Modules\Category\Entities\Image;
-use Modules\Category\Entities\User;
+use Modules\Image\Entities\Image;
+use Modules\Image\Entities\User;
 
 class ImagePolicy
 {

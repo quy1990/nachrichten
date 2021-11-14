@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Modules\Category\Entities\Category;
-use Modules\Category\Entities\Post;
-use Modules\Category\Entities\Tag;
-use Modules\Category\Entities\User;
+use Modules\Post\Entities\Post;
+use Modules\Tag\Entities\Tag;
+use Modules\User\Entities\User;
 
 class DashBroadController extends Controller
 {

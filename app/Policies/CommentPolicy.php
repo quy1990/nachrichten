@@ -3,8 +3,8 @@
 namespace App\Policies;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
-use Modules\Category\Entities\Comment;
-use Modules\Category\Entities\User;
+use Modules\Comment\Entities\Comment;
+use Modules\Image\Entities\User;
 
 class CommentPolicy
 {

@@ -1,0 +1,34 @@
+<?php
+
+namespace Modules\Video\Database\factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Modules\Category\Entities\Category;
+use Modules\User\Entities\User;
+use Modules\Video\Entities\Video;
+
+class VideoFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Video::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition(): array
+    {
+        return [
+            'video_path'  => $this->faker->imageUrl(),
+            'title'       => $this->faker->name(),
+            'body'        => $this->faker->text(200),
+            'user_id'     => $this->faker->numberBetween(1, User::count()),
+            'category_id' => $this->faker->numberBetween(1, Category::count()),
+        ];
+    }
+}

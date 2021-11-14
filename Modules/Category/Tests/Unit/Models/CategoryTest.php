@@ -1,12 +1,12 @@
 <?php
 
-namespace Models;
+namespace Modules\Category\Tests\Unit\Models;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Category\Entities\Category;
-use Modules\Category\Entities\Post;
-use Modules\Category\Entities\Subscribable;
-use Modules\Category\Entities\User;
+use Modules\Image\Entities\Post;
+use Modules\Image\Entities\Subscribable;
+use Modules\Image\Entities\User;
 use Tests\TestCase;
 
 class CategoryTest extends TestCase

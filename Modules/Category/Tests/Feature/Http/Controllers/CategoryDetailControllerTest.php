@@ -2,10 +2,10 @@
 
 namespace Modules\Category\Tests\Feature\Http\Controllers;
 
-use App\Models\Post;
-use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Category\Entities\Category;
+use Modules\Comment\Entities\Post;
+use Modules\Comment\Entities\User;
 use Tests\TestCase;
 
 class CategoryDetailControllerTest extends TestCase
