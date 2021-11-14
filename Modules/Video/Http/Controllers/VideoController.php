@@ -4,12 +4,14 @@ namespace Modules\Video\Http\Controllers;
 
 use Illuminate\Http\Response;
 use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
-use App\Http\Controllers\Controller;;
+use Modules\User\Http\Controllers\Controller;
 use Modules\Video\Entities\Video;
 use Modules\Video\Http\Requests\VideoStoreRequest;
 use Modules\Video\Http\Requests\VideoUpdateRequest;
 use Modules\Video\Resources\VideoCollection;
 use Modules\Video\Resources\VideoResource;
+
+;
 
 class VideoController extends Controller
 {

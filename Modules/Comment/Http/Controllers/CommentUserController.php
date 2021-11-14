@@ -4,7 +4,9 @@ namespace Modules\Comment\Http\Controllers;
 
 use Modules\Comment\Resources\CommentCollection;
 use Modules\User\Entities\User;
-use App\Http\Controllers\Controller;;
+use Modules\User\Http\Controllers\Controller;
+
+;
 
 class CommentUserController extends Controller
 {

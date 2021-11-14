@@ -4,7 +4,9 @@ namespace Modules\Role\Http\Controllers;
 
 use Modules\Role\Entities\Role;
 use Modules\Role\Resources\RoleCollection;
-use App\Http\Controllers\Controller;;
+use Modules\User\Http\Controllers\Controller;
+
+;
 
 class RoleUserController extends Controller
 {

@@ -4,7 +4,9 @@ namespace Modules\Post\Http\Controllers;
 
 use Modules\Post\Resources\PostCollection;
 use Modules\User\Entities\User;
-use App\Http\Controllers\Controller;;
+use Modules\User\Http\Controllers\Controller;
+
+;
 
 class PostUserController extends Controller
 {

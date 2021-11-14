@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Modules\User\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Http\Resources\User\UserCollection;
-use Modules\Category\Entities\Role;
+use Modules\Role\Entities\Role;
 
 class UserRoleController extends Controller
 {

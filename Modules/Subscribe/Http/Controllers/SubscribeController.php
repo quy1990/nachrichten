@@ -5,7 +5,9 @@ namespace Modules\Subscribe\Http\Controllers;
 use Modules\Subscribe\Entities\Subscribable;
 use Modules\Subscribe\Http\Requests\SubscribeRequest;
 use Modules\Subscribe\Resources\SubscribeResource;
-use App\Http\Controllers\Controller;;
+use Modules\User\Http\Controllers\Controller;
+
+;
 
 class SubscribeController extends Controller
 {

@@ -5,7 +5,9 @@ namespace Modules\Subscribe\Http\Controllers;
 use Illuminate\Http\Request;
 use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
 use Modules\Subscribe\Entities\Subscribable;
-use App\Http\Controllers\Controller;;
+use Modules\User\Http\Controllers\Controller;
+
+;
 
 class UnsubscribeController extends Controller
 {

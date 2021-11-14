@@ -4,7 +4,7 @@ namespace Modules\Image\Http\Controllers;
 
 use App\Http\Services\ImageableImageService;
 use Exception;
-use App\Http\Controllers\Controller;;
+use Modules\User\Http\Controllers\Controller;
 
 class ImageableImageController extends Controller
 {

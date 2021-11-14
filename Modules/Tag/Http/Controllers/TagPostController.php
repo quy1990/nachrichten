@@ -2,9 +2,9 @@
 
 namespace Modules\Tag\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Http\Resources\Tag\TagCollection;
 use Modules\Post\Entities\Post;
+use Modules\User\Http\Controllers\Controller;
 
 class TagPostController extends Controller
 {

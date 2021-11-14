@@ -3,7 +3,9 @@
 namespace Modules\Post\Http\Controllers;
 
 use Modules\Post\Resources\PostCollection;
-use App\Http\Controllers\Controller;;
+use Modules\User\Http\Controllers\Controller;
+
+;
 
 
 class SubscribedPostsController extends Controller

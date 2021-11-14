@@ -3,8 +3,7 @@
 namespace Modules\Subscribe\Http\Controllers;
 
 use Modules\Post\Resources\PostCollection;
-use Modules\Subscribe\Http\Controllers\Controller;
-
+use Modules\User\Http\Controllers\Controller;
 
 class SubscribedUsersController extends Controller
 {

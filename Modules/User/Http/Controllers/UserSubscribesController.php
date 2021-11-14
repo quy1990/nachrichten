@@ -3,8 +3,7 @@
 namespace Modules\User\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
-use Modules\Tag\Http\Controllers\Controller;
-
+use Modules\User\Http\Controllers\Controller;
 
 class UserSubscribesController extends Controller
 {

@@ -9,7 +9,7 @@ use Modules\Post\Http\Requests\Statuses\StatusUpdateRequest;
 use Modules\Status\Entities\Status;
 use Modules\Status\Resources\StatusCollection;
 use Modules\Status\Resources\StatusResource;
-use Modules\Subscribe\Http\Controllers\Controller;
+use Modules\User\Http\Controllers\Controller;
 
 class StatusController extends Controller
 {

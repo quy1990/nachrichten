@@ -2,7 +2,7 @@
 
 namespace Modules\Subscribe\Http\Controllers;
 
-use Modules\Subscribe\Http\Controllers\Controller;
+use Modules\User\Http\Controllers\Controller;
 use Modules\Video\Resources\VideoCollection;
 
 

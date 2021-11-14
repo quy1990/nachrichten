@@ -4,7 +4,9 @@ namespace Modules\Post\Http\Controllers;
 
 use Modules\Post\Entities\Post;
 use Modules\Post\Resources\PostCollection;
-use App\Http\Controllers\Controller;;
+use Modules\User\Http\Controllers\Controller;
+
+;
 
 
 class LatestPostsController extends Controller
