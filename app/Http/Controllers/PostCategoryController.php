@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\Post\PostCollection;
-use App\Models\Category;
+use Modules\Category\Entities\Category;
 
 class PostCategoryController extends Controller
 {

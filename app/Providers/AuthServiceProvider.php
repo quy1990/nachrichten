@@ -2,12 +2,6 @@
 
 namespace App\Providers;
 
-use App\Models\Category;
-use App\Models\Comment;
-use App\Models\Post;
-use App\Models\Role;
-use App\Models\Tag;
-use App\Models\Video;
 use App\Policies\CategoryPolicy;
 use App\Policies\CommentPolicy;
 use App\Policies\PostPolicy;
@@ -16,6 +10,12 @@ use App\Policies\SubscribablePolicy;
 use App\Policies\TagPolicy;
 use App\Policies\VideoPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Modules\Category\Entities\Category;
+use Modules\Category\Entities\Comment;
+use Modules\Category\Entities\Post;
+use Modules\Category\Entities\Role;
+use Modules\Category\Entities\Tag;
+use Modules\Category\Entities\Video;
 
 class AuthServiceProvider extends ServiceProvider
 {

@@ -1,12 +1,8 @@
 <?php
+namespace Modules\Category\Database\Factories;
 
-namespace Database\Factories;
-
-use App\Models\Category;
-use App\Models\Post;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
+use Modules\Category\Entities\Category;
 
 class CategoryFactory extends Factory
 {

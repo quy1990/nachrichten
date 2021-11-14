@@ -2,12 +2,12 @@
 
 namespace Http\Controllers;
 
-use App\Models\Category;
 use App\Models\Post;
 use App\Models\Subscribable;
 use App\Models\User;
 use App\Models\Video;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Modules\Category\Entities\Category;
 use Tests\TestCase;
 
 class UserSubscribesControllerTest extends TestCase

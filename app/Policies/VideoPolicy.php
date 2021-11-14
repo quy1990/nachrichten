@@ -2,9 +2,9 @@
 
 namespace App\Policies;
 
-use App\Models\User;
-use App\Models\Video;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Modules\Category\Entities\User;
+use Modules\Category\Entities\Video;
 
 class VideoPolicy
 {

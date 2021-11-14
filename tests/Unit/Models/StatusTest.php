@@ -2,11 +2,11 @@
 
 namespace Models;
 
-use App\Models\Category;
-use App\Models\Post;
-use App\Models\Status;
-use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Modules\Category\Entities\Category;
+use Modules\Category\Entities\Post;
+use Modules\Category\Entities\Status;
+use Modules\Category\Entities\User;
 use Tests\TestCase;
 
 class StatusTest extends TestCase

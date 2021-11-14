@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Comment;
+use Modules\Category\Entities\Comment;
 
 
 class LatestCommentsController extends Controller

@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Post;
-use App\Models\User;
 use Illuminate\Database\Seeder;
+use Modules\Category\Entities\Post;
+use Modules\Category\Entities\User;
 
 class UserSeeder extends Seeder
 {

@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Tag;
 use Illuminate\Database\Seeder;
+use Modules\Category\Entities\Tag;
 
 class TagSeeder extends Seeder
 {

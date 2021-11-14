@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Role;
-use App\Models\User;
 use Faker\Generator;
 use Illuminate\Database\Seeder;
+use Modules\Category\Entities\Role;
+use Modules\Category\Entities\User;
 
 class RoleUserSeeder extends Seeder
 {

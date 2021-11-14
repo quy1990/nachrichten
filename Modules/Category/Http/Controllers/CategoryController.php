@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Modules\Category\Http\Controllers;
 
-use App\Http\Resources\Category\CategoryCollection;
-use App\Http\Resources\Category\CategoryResource;
-use App\Models\Category;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
+use Modules\Category\Entities\Category;
+use Modules\Category\Resources\CategoryCollection;
+use Modules\Category\Resources\CategoryResource;
 
 class CategoryController extends Controller
 {

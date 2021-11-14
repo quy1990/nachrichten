@@ -2,9 +2,9 @@
 
 namespace Models;
 
-use App\Models\Comment;
-use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Modules\Category\Entities\Comment;
+use Modules\Category\Entities\User;
 use Tests\TestCase;
 
 class CommentTest extends TestCase

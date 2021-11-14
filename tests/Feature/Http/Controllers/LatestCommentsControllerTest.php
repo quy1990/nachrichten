@@ -2,12 +2,12 @@
 
 namespace Http\Controllers;
 
-use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Modules\Category\Entities\Category;
 use Tests\TestCase;
 
 class LatestCommentsControllerTest extends TestCase

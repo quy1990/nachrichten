@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Menu;
 use Illuminate\Database\Seeder;
+use Modules\Category\Entities\Menu;
 
 class MenuSeeder extends Seeder
 {

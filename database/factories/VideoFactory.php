@@ -2,10 +2,10 @@
 
 namespace Database\Factories;
 
-use App\Models\Category;
 use App\Models\User;
 use App\Models\Video;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Modules\Category\Entities\Category;
 
 class VideoFactory extends Factory
 {

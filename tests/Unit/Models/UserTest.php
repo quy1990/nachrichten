@@ -2,19 +2,19 @@
 
 namespace Models;
 
-use App\Models\Category;
-use App\Models\Comment;
-use App\Models\Image;
-use App\Models\Post;
-use App\Models\Role;
-use App\Models\Subscribable;
-use App\Models\User;
-use App\Models\Video;
 use App\Observers\UserObserver;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
 use Mockery;
+use Modules\Category\Entities\Category;
+use Modules\Category\Entities\Comment;
+use Modules\Category\Entities\Image;
+use Modules\Category\Entities\Post;
+use Modules\Category\Entities\Role;
+use Modules\Category\Entities\Subscribable;
+use Modules\Category\Entities\User;
+use Modules\Category\Entities\Video;
 use Tests\TestCase;
 
 class UserTest extends TestCase

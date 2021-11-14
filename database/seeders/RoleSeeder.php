@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Role;
 use Illuminate\Database\Seeder;
+use Modules\Category\Entities\Role;
 
 class RoleSeeder extends Seeder
 {

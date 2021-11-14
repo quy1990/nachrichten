@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\Menu\MenuCollection;
 use App\Http\Resources\Menu\MenuResource;
-use App\Models\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
+use Modules\Category\Entities\Menu;
 
 class MenuController extends Controller
 {

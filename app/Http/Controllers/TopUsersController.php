@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\User\UserCollection;
-use App\Models\User;
+use Modules\Category\Entities\User;
 
 
 class TopUsersController extends Controller

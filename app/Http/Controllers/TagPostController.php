@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\Tag\TagCollection;
-use App\Models\Post;
+use Modules\Category\Entities\Post;
 
 class TagPostController extends Controller
 {

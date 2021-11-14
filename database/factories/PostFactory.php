@@ -2,11 +2,11 @@
 
 namespace Database\Factories;
 
-use App\Models\Category;
 use App\Models\Post;
 use App\Models\Status;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Modules\Category\Entities\Category;
 
 class PostFactory extends Factory
 {

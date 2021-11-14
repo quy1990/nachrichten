@@ -2,9 +2,9 @@
 
 namespace App\Policies;
 
-use App\Models\Category;
-use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Modules\Category\Entities\Category;
+use Modules\Category\Entities\User;
 
 class CategoryPolicy
 {

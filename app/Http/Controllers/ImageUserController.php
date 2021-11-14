@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\Image\ImageResource;
-use App\Models\User;
+use Modules\Category\Entities\User;
 
 class ImageUserController extends Controller
 {

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
-use App\Models\Post;
-use App\Models\Tag;
-use App\Models\User;
 use Illuminate\Http\JsonResponse;
+use Modules\Category\Entities\Category;
+use Modules\Category\Entities\Post;
+use Modules\Category\Entities\Tag;
+use Modules\Category\Entities\User;
 
 class DashBroadController extends Controller
 {

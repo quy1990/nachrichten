@@ -2,7 +2,6 @@
 
 namespace Http\Controllers;
 
-use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\Taggable;
@@ -11,6 +10,7 @@ use App\Models\Video;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Modules\Category\Entities\Category;
 use Tests\TestCase;
 
 class TagPostControllerTest extends TestCase

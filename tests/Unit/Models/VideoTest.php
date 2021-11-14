@@ -2,16 +2,16 @@
 
 namespace Models;
 
-use App\Models\Category;
-use App\Models\Subscribable;
-use App\Models\Tag;
-use App\Models\Taggable;
-use App\Models\User;
-use App\Models\Video;
 use App\Observers\VideoObserver;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\App;
 use Mockery;
+use Modules\Category\Entities\Category;
+use Modules\Category\Entities\Subscribable;
+use Modules\Category\Entities\Tag;
+use Modules\Category\Entities\Taggable;
+use Modules\Category\Entities\User;
+use Modules\Category\Entities\Video;
 use Tests\TestCase;
 
 class VideoTest extends TestCase

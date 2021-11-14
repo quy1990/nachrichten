@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\Video\VideoCollection;
-use App\Models\Tag;
+use Modules\Category\Entities\Tag;
 
 class VideoTagController extends Controller
 {

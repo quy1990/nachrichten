@@ -2,12 +2,12 @@
 
 namespace Http\Controllers;
 
-use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Modules\Category\Entities\Category;
 use Tests\TestCase;
 
 class PostUserControllerTest extends TestCase

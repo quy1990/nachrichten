@@ -2,7 +2,6 @@
 
 namespace Models;
 
-use App\Models\Category;
 use App\Models\Image;
 use App\Models\Post;
 use App\Models\Status;
@@ -14,6 +13,7 @@ use App\Observers\PostObserver;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\App;
 use Mockery;
+use Modules\Category\Entities\Category;
 use Tests\TestCase;
 
 class PostTest extends TestCase

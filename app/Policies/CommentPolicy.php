@@ -2,9 +2,9 @@
 
 namespace App\Policies;
 
-use App\Models\Comment;
-use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Modules\Category\Entities\Comment;
+use Modules\Category\Entities\User;
 
 class CommentPolicy
 {

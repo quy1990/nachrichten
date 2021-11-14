@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Comment;
 use Illuminate\Database\Seeder;
+use Modules\Category\Entities\Comment;
 
 class CommentSeeder extends Seeder
 {

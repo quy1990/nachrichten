@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Status;
 use Illuminate\Database\Seeder;
+use Modules\Category\Entities\Status;
 
 class StatusSeeder extends Seeder
 {

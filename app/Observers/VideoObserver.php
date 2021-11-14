@@ -3,7 +3,7 @@
 namespace App\Observers;
 
 use App\Jobs\SendEmailToSubscriberJob;
-use App\Models\Video;
+use Modules\Category\Entities\Video;
 
 class VideoObserver
 {

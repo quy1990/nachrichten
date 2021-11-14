@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Subscribable;
 use Illuminate\Database\Seeder;
+use Modules\Category\Entities\Subscribable;
 
 class SubscribableSeeder extends Seeder
 {

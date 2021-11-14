@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Category;
-use App\Models\Video;
-use App\Models\Videos;
 use Illuminate\Database\Seeder;
+use Modules\Category\Entities\Video;
+use Modules\Category\Entities\Videos;
 
 class VideoSeeder extends Seeder
 {

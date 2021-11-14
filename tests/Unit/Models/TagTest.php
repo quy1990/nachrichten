@@ -2,14 +2,14 @@
 
 namespace Models;
 
-use App\Models\Category;
-use App\Models\Post;
-use App\Models\Subscribable;
-use App\Models\Tag;
-use App\Models\Taggable;
-use App\Models\User;
-use App\Models\Video;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Modules\Category\Entities\Category;
+use Modules\Category\Entities\Post;
+use Modules\Category\Entities\Subscribable;
+use Modules\Category\Entities\Tag;
+use Modules\Category\Entities\Taggable;
+use Modules\Category\Entities\User;
+use Modules\Category\Entities\Video;
 use Tests\TestCase;
 
 class TagTest extends TestCase

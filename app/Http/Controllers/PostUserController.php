@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\Post\PostCollection;
-use App\Models\User;
+use Modules\Category\Entities\User;
 
 class PostUserController extends Controller
 {

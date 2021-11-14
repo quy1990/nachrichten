@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\Comment\CommentCollection;
 use App\Http\Resources\Comment\CommentResource;
-use App\Models\Comment;
 use Illuminate\Http\Request;
 use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
+use Modules\Category\Entities\Comment;
 
 class CommentController extends Controller
 {

@@ -2,11 +2,11 @@
 
 namespace Http\Controllers;
 
-use App\Models\Category;
 use App\Models\Image;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Modules\Category\Entities\Category;
 use Tests\TestCase;
 
 class ImageControllerTest extends TestCase

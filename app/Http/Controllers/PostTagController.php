@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\Post\PostCollection;
-use App\Models\Tag;
+use Modules\Category\Entities\Tag;
 
 
 class PostTagController extends Controller

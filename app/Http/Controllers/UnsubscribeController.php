@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Subscribable;
 use Illuminate\Http\Request;
 use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
+use Modules\Category\Entities\Subscribable;
 
 class UnsubscribeController extends Controller
 {

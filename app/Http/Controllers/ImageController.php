@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\Image\ImageCollection;
 use App\Http\Resources\Image\ImageResource;
-use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
+use Modules\Category\Entities\Image;
 
 class ImageController extends Controller
 {

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\User\UserCollection;
-use App\Models\Role;
+use Modules\Category\Entities\Role;
 
 class UserRoleController extends Controller
 {

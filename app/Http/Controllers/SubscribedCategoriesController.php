@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\Category\CategoryCollection;
+use Modules\Category\Resources\CategoryCollection;
 
 
 class SubscribedCategoriesController extends Controller

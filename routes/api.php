@@ -1,8 +1,6 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\CategoryDetailController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CommentUserController;
 use App\Http\Controllers\DashBroadController;
@@ -37,6 +35,8 @@ use App\Http\Controllers\UserSubscribesController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\VideoTagController;
 use Illuminate\Support\Facades\Route;
+use Modules\Category\Http\Controllers\CategoryController;
+use Modules\Category\Http\Controllers\CategoryDetailController;
 
 Route::group([
     'middleware' => 'api',

@@ -4,10 +4,10 @@ namespace App\Http\Services;
 
 use App\Http\Resources\Post\PostResource;
 use App\Http\Resources\User\UserResource;
-use App\Models\Image;
-use App\Models\Post;
-use App\Models\User;
 use Exception;
+use Modules\Category\Entities\Image;
+use Modules\Category\Entities\Post;
+use Modules\Category\Entities\User;
 
 class ImageableImageService
 {

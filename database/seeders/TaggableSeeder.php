@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Post;
-use App\Models\Tag;
-use App\Models\Taggable;
-use App\Models\Video;
 use Illuminate\Database\Seeder;
+use Modules\Category\Entities\Post;
+use Modules\Category\Entities\Tag;
+use Modules\Category\Entities\Taggable;
+use Modules\Category\Entities\Video;
 
 class TaggableSeeder extends Seeder
 {

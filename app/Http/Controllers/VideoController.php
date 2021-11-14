@@ -6,9 +6,9 @@ use App\Http\Requests\VideoStoreRequest;
 use App\Http\Requests\VideoUpdateRequest;
 use App\Http\Resources\Video\VideoCollection;
 use App\Http\Resources\Video\VideoResource;
-use App\Models\Video;
 use Illuminate\Http\Response;
 use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
+use Modules\Category\Entities\Video;
 
 class VideoController extends Controller
 {

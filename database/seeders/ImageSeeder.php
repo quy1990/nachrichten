@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Category;
-use App\Models\Image;
 use Illuminate\Database\Seeder;
+use Modules\Category\Entities\Image;
 
 class ImageSeeder extends Seeder
 {

@@ -6,9 +6,9 @@ use App\Http\Requests\Statuses\StatusStoreRequest;
 use App\Http\Requests\Statuses\StatusUpdateRequest;
 use App\Http\Resources\Status\StatusCollection;
 use App\Http\Resources\Status\StatusResource;
-use App\Models\Status;
 use Illuminate\Http\Response;
 use Lukasoppermann\Httpstatus\Httpstatuscodes;
+use Modules\Category\Entities\Status;
 
 class StatusController extends Controller
 {

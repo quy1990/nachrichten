@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SubscribeRequest;
 use App\Http\Resources\Subscribe\SubscribeResource;
-use App\Models\Subscribable;
+use Modules\Category\Entities\Subscribable;
 
 class SubscribeController extends Controller
 {
