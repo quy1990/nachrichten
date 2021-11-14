@@ -2,8 +2,8 @@
 
 namespace Modules\Comment\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Modules\Comment\Entities\Comment;
-use Modules\User\Http\Controllers\Controller;
 
 class LatestCommentsController extends Controller
 {

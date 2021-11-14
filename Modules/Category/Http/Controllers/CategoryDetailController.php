@@ -2,9 +2,9 @@
 
 namespace Modules\Category\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Modules\Category\Entities\Category;
 use Modules\Category\Resources\CategoryDetailCollection;
-use Modules\User\Http\Controllers\Controller;
 
 class CategoryDetailController extends Controller
 {

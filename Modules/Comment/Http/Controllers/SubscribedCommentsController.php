@@ -2,8 +2,8 @@
 
 namespace Modules\Comment\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Modules\Comment\Resources\CommentCollection;
-use Modules\User\Http\Controllers\Controller;
 
 class SubscribedCommentsController extends Controller
 {

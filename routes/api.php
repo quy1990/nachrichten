@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashBroadController;
 use Illuminate\Support\Facades\Route;
-use Modules\User\Http\Controllers\AuthController;
-use Modules\User\Http\Controllers\DashBroadController;
 
 Route::group([
     'middleware' => 'api',
