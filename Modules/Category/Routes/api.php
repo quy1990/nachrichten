@@ -1,5 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use Modules\Category\Http\Controllers\CategoryController;
+use Modules\Category\Http\Controllers\CategoryDetailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::resource('categories', CategoryController::class);
+Route::get('categoriesDetail', CategoryDetailController::class);

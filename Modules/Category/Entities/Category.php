@@ -2,14 +2,14 @@
 
 namespace Modules\Category\Entities;
 
-use App\Models\Post;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Modules\Category\Database\Factories\CategoryFactory;
+use Modules\Image\Entities\Post;
+use Modules\Image\Entities\User;
 
 class Category extends Model
 {
