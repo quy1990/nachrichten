@@ -18,7 +18,6 @@ class ImageableImageController extends Controller
      */
     public function __invoke(int $imageId): UserResource|Response|PostResource|Application|ResponseFactory
     {
-        dd($imageId);
         try {
             /** @var ImageableImageService $imageableImageService */
             $imageableImageService = app(ImageableImageService::class);

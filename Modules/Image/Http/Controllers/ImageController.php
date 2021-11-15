@@ -5,6 +5,7 @@ namespace Modules\Image\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use JetBrains\PhpStorm\Pure;
 use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
 use Modules\Image\Entities\Image;
 use Modules\Image\Resources\ImageCollection;
@@ -44,7 +45,7 @@ class ImageController extends Controller
      * @param Image $image
      * @return ImageResource
      */
-    public function show(Image $image): ImageResource
+    #[Pure] public function show(Image $image): ImageResource
     {
         return new ImageResource($image);
     }

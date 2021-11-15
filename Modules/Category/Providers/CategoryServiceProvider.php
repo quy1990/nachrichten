@@ -3,19 +3,18 @@
 namespace Modules\Category\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Database\Eloquent\Factory;
 
 class CategoryServiceProvider extends ServiceProvider
 {
     /**
      * @var string $moduleName
      */
-    protected $moduleName = 'Category';
+    protected string $moduleName = 'Category';
 
     /**
      * @var string $moduleNameLower
      */
-    protected $moduleNameLower = 'category';
+    protected string $moduleNameLower = 'category';
 
     /**
      * Boot the application events.
