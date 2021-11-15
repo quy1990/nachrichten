@@ -1,20 +1,21 @@
 <?php
 
-namespace App\Http\Services;
+namespace Modules\Image\Services;
 
-use App\Http\Resources\User\UserResource;
 use Exception;
-use Modules\Category\Entities\Image;
-use Modules\Category\Entities\Post;
-use Modules\User\Entities\User;
+use Modules\Image\Entities\Image;
+use Modules\Post\Entities\Post;
 use Modules\Post\Resources\PostResource;
+use Modules\User\Entities\User;
+use Modules\User\Resources\UserResource;
+use RuntimeException;
 
 class ImageableImageService
 {
     /**
      * @throws Exception
      */
-    public function getImageable(int $imageId)
+    public function getImageable(int $imageId): UserResource|PostResource
     {
         $imageable = Image::findOrFail($imageId)->imageable;
 
@@ -25,6 +26,8 @@ class ImageableImageService
                 return new UserResource($imageable);
             case  Post::class:
                 return new PostResource($imageable);
+            default:
+                throw new RuntimeException("Not found class");
         }
     }
 }

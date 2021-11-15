@@ -16,6 +16,6 @@ use Modules\Image\Http\Controllers\ImageUserController;
 |
 */
 
-Route::resource('images', ImageController::class);
 Route::get('images/{id}/imageable', ImageableImageController::class);
 Route::get('users/{id}/image', ImageUserController::class);
+Route::resource('images', ImageController::class);

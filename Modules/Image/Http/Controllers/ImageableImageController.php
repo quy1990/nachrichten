@@ -2,17 +2,23 @@
 
 namespace Modules\Image\Http\Controllers;
 
-use App\Http\Services\ImageableImageService;
 use Exception;
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Routing\ResponseFactory;
+use Illuminate\Http\Response;
+use Modules\Image\Services\ImageableImageService;
+use Modules\Post\Resources\PostResource;
+use Modules\User\Resources\UserResource;
 
 class ImageableImageController extends Controller
 {
     /**
      * @throws Exception
      */
-    public function __invoke(int $imageId)
+    public function __invoke(int $imageId): UserResource|Response|PostResource|Application|ResponseFactory
     {
+        dd($imageId);
         try {
             /** @var ImageableImageService $imageableImageService */
             $imageableImageService = app(ImageableImageService::class);
