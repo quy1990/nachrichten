@@ -1,20 +1,19 @@
 <?php
-
-namespace Models;
+namespace Modules\User\Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
 use Mockery;
 use Modules\Category\Entities\Category;
-use Modules\Category\Entities\Comment;
-use Modules\Category\Entities\Image;
-use Modules\Category\Entities\Post;
-use Modules\Category\Entities\Role;
-use Modules\Category\Entities\Subscribable;
-use Modules\Category\Entities\Video;
+use Modules\Comment\Entities\Comment;
+use Modules\Image\Entities\Image;
+use Modules\Post\Entities\Post;
+use Modules\Role\Entities\Role;
+use Modules\Subscribe\Entities\Subscribable;
+use Modules\Video\Entities\Video;
 use Modules\User\Entities\User;
-use Modules\Post\Observers\UserObserver;
+use Modules\User\Observers\UserObserver;
 use Tests\TestCase;
 
 class UserTest extends TestCase

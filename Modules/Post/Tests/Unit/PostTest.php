@@ -1,18 +1,17 @@
 <?php
-
-namespace Models;
+namespace Modules\Post\Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\App;
 use Mockery;
 use Modules\Category\Entities\Category;
-use Modules\Comment\Entities\Image;
-use Modules\Comment\Entities\Post;
-use Modules\Comment\Entities\Status;
-use Modules\Comment\Entities\Subscribable;
-use Modules\Comment\Entities\Tag;
-use Modules\Comment\Entities\Taggable;
-use Modules\Comment\Entities\User;
+use Modules\Image\Entities\Image;
+use Modules\Post\Entities\Post;
+use Modules\Status\Entities\Status;
+use Modules\Subscribe\Entities\Subscribable;
+use Modules\Tag\Entities\Tag;
+use Modules\Tag\Entities\Taggable;
+use Modules\User\Entities\User;
 use Modules\Post\Observers\PostObserver;
 use Tests\TestCase;
 

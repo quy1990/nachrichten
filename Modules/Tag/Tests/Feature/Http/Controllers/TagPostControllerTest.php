@@ -1,16 +1,16 @@
 <?php
 
-namespace Http\Controllers;
+namespace Modules\Tag\Tests\Feature\Http\Controllers;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Category\Entities\Category;
-use Modules\Comment\Entities\Post;
-use Modules\Comment\Entities\Tag;
-use Modules\Comment\Entities\Taggable;
-use Modules\Comment\Entities\User;
-use Modules\Comment\Entities\Video;
+use Modules\Post\Entities\Post;
+use Modules\Tag\Entities\Tag;
+use Modules\Tag\Entities\Taggable;
+use Modules\User\Entities\User;
+use Modules\Video\Entities\Video;
 use Tests\TestCase;
 
 class TagPostControllerTest extends TestCase

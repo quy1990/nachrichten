@@ -1,12 +1,12 @@
 <?php
 
-namespace Http\Controllers;
+namespace Modules\User\Tests\Feature\Http\Controllers;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Modules\Comment\Entities\Role;
-use Modules\Comment\Entities\User;
+use Modules\Role\Entities\Role;
+use Modules\User\Entities\User;
 use Tests\TestCase;
 
 

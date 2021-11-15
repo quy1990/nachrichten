@@ -5,7 +5,7 @@ namespace Modules\Subscribe\Tests\Feature\Http\Controllers;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Modules\Subscrib\Entities\Subscribable;
+use Modules\Subscribe\Entities\Subscribable;
 use Modules\Tag\Entities\Tag;
 use Modules\User\Entities\User;
 use Tests\TestCase;

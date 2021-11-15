@@ -1,11 +1,10 @@
 <?php
-
-namespace Models;
+namespace Modules\Status\Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Category\Entities\Category;
-use Modules\Category\Entities\Post;
-use Modules\Category\Entities\Status;
+use Modules\Post\Entities\Post;
+use Modules\Status\Entities\Status;
 use Modules\User\Entities\User;
 use Tests\TestCase;
 

@@ -1,9 +1,8 @@
 <?php
-
-namespace App\Observers;
+namespace Modules\User\Observers;
 
 use App\Jobs\SendEmailToNewUserJob;
-use Modules\Comment\Entities\User;
+use Modules\User\Entities\User;
 
 class UserObserver
 {

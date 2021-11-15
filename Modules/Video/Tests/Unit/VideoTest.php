@@ -1,17 +1,16 @@
 <?php
-
-namespace Models;
+namespace Modules\Video\Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\App;
 use Mockery;
 use Modules\Category\Entities\Category;
-use Modules\Category\Entities\Subscribable;
-use Modules\Category\Entities\Tag;
-use Modules\Category\Entities\Taggable;
-use Modules\Category\Entities\Video;
+use Modules\Subscribe\Entities\Subscribable;
+use Modules\Tag\Entities\Tag;
+use Modules\Tag\Entities\Taggable;
+use Modules\Video\Entities\Video;
 use Modules\User\Entities\User;
-use Modules\Post\Observers\VideoObserver;
+use Modules\Video\Observers\VideoObserver;
 use Tests\TestCase;
 
 class VideoTest extends TestCase

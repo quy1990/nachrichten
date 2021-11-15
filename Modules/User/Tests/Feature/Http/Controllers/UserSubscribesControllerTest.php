@@ -1,13 +1,13 @@
 <?php
 
-namespace Http\Controllers;
+namespace Modules\User\Tests\Feature\Http\Controllers;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Category\Entities\Category;
 use Modules\Post\Entities\Post;
-use Modules\Image\Entities\Subscribable;
+use Modules\Subscribe\Entities\Subscribable;
 use Modules\User\Entities\User;
-use Modules\Image\Entities\Video;
+use Modules\Video\Entities\Video;
 use Tests\TestCase;
 
 class UserSubscribesControllerTest extends TestCase

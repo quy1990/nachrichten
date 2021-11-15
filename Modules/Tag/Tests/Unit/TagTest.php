@@ -1,15 +1,15 @@
 <?php
 
-namespace Models;
+namespace Modules\Tag\Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Category\Entities\Category;
 use Modules\Post\Entities\Post;
-use Modules\Image\Entities\Subscribable;
-use Modules\Image\Entities\Tag;
-use Modules\Image\Entities\Taggable;
+use Modules\Subscribe\Entities\Subscribable;
+use Modules\Tag\Entities\Tag;
+use Modules\Tag\Entities\Taggable;
 use Modules\User\Entities\User;
-use Modules\Image\Entities\Video;
+use Modules\Video\Entities\Video;
 use Tests\TestCase;
 
 class TagTest extends TestCase

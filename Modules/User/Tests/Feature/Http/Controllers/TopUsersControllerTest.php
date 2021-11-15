@@ -1,10 +1,10 @@
 <?php
 
-namespace Http\Controllers;
+namespace Modules\User\Tests\Feature\Http\Controllers;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Comment\Entities\Comment;
-use Modules\Comment\Entities\User;
+use Modules\User\Entities\User;
 use Tests\TestCase;
 
 class TopUsersControllerTest extends TestCase

@@ -11,8 +11,14 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Modules\Category\Database\Factories\CategoryFactory;
+use Modules\Category\Entities\Category;
+use Modules\Comment\Entities\Comment;
+use Modules\Image\Entities\Image;
+use Modules\Post\Entities\Post;
+use Modules\Role\Entities\Role;
+use Modules\Tag\Entities\Tag;
 use Modules\User\Database\factories\UserFactory;
+use Modules\Video\Entities\Video;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
 class User extends Authenticatable implements JWTSubject

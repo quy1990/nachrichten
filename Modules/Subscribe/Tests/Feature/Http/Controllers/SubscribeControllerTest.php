@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Category\Entities\Category;
 use Modules\Comment\Entities\Comment;
 use Modules\Post\Entities\Post;
-use Modules\Subscribable\Entities\Subscribable;
+use Modules\Subscribe\Entities\Subscribable;
 use Modules\Tag\Entities\Tag;
 use Modules\User\Entities\User;
 use Modules\Video\Entities\Video;

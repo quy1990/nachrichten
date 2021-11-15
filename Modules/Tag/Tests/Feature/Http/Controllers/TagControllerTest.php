@@ -1,10 +1,10 @@
 <?php
 
-namespace Http\Controllers;
+namespace Modules\Tag\Tests\Feature\Http\Controllers;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Modules\Comment\Entities\Tag;
-use Modules\Comment\Entities\User;
+use Modules\Tag\Entities\Tag;
+use Modules\User\Entities\User;
 use Tests\TestCase;
 
 class TagControllerTest extends TestCase
