@@ -34,18 +34,18 @@ class VideoTest extends TestCase
         $this->tag = Tag::factory()->create();
 
         foreach ($this->users as $user) {
-            Subscribable::factory()->create(['user_id' => $user->id, 'subscribable_id' => $this->testedUser->id, 'subscribable_type' => 'App\Models\User']);
+            Subscribable::factory()->create(['user_id' => $user->id, 'subscribable_id' => $this->testedUser->id, 'subscribable_type' => 'Modules\User\Entities\User']);
             Subscribable::factory()->create(['user_id' => $user->id, 'subscribable_id' => $this->categories[0]->id, 'subscribable_type' => 'App\Models\Category']);
         }
 
         $this->videos = Video::factory(env('TEST_COUNT') * 2)->create(['user_id' => $this->testedUser->id, 'category_id' => $this->categories[0]->id]);
 
         foreach ($this->videos as $video) {
-            $this->subscribedCategories[] = Subscribable::factory()->create(['user_id' => $this->testedUser->id, 'subscribable_id' => $video->id, 'subscribable_type' => 'App\Models\Video']);
+            $this->subscribedCategories[] = Subscribable::factory()->create(['user_id' => $this->testedUser->id, 'subscribable_id' => $video->id, 'subscribable_type' => 'Modules\Video\Entities\Video']);
         }
 
         foreach ($this->videos as $video) {
-            $this->taggables[] = Taggable::factory()->create(['tag_id' => $this->tag->id, 'taggable_id' => $video->id, 'taggable_type' => 'App\Models\Video']);
+            $this->taggables[] = Taggable::factory()->create(['tag_id' => $this->tag->id, 'taggable_id' => $video->id, 'taggable_type' => 'Modules\Video\Entities\Video']);
         }
     }
 

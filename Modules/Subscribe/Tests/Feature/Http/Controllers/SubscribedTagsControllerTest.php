@@ -76,7 +76,7 @@ class SubscribedTagsControllerTest extends TestCase
         $this->user1 = User::factory()->create();
         $this->tags = Tag::factory(env('TEST_COUNT'))->create();
         foreach ($this->tags as $item) {
-            Subscribable::factory()->create(['user_id' => $this->user1->id, 'subscribable_id' => $item->id, 'subscribable_type' => 'App\Models\Tag']);
+            Subscribable::factory()->create(['user_id' => $this->user1->id, 'subscribable_id' => $item->id, 'subscribable_type' => 'Modules\Tag\Entities\Tag']);
         }
 
         $token = auth()->fromUser($this->user1);

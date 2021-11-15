@@ -40,10 +40,10 @@ class UserTest extends TestCase
         $videos = Video::factory(env('TEST_COUNT'))->create(['user_id' => $this->testedUser->id, 'category_id' => $categories[0]->id]);
         $posts = Post::factory(env('TEST_COUNT') * 2)->create(['created_by' => $this->testedUser->id, 'category_id' => $categories[0]->id]);
         $this->comment = Comment::factory()->create(['user_id' => $this->testedUser->id]);
-        $this->image = Image::factory()->create(['imageable_id' => $this->testedUser->id, 'imageable_type' => 'App\Models\User']);
+        $this->image = Image::factory()->create(['imageable_id' => $this->testedUser->id, 'imageable_type' => 'Modules\User\Entities\User']);
 
         foreach ($users as $user) {
-            $this->subscribedUsers[] = Subscribable::factory()->create(['user_id' => $this->testedUser->id, 'subscribable_id' => $user->id, 'subscribable_type' => 'App\Models\User']);
+            $this->subscribedUsers[] = Subscribable::factory()->create(['user_id' => $this->testedUser->id, 'subscribable_id' => $user->id, 'subscribable_type' => 'Modules\User\Entities\User']);
         }
         foreach ($posts as $post) {
             $this->subscribedPosts[] = Subscribable::factory()->create(['user_id' => $this->testedUser->id, 'subscribable_id' => $post->id, 'subscribable_type' => 'Modules\Post\Entities\Post']);
@@ -52,7 +52,7 @@ class UserTest extends TestCase
             $this->subscribedCategories[] = Subscribable::factory()->create(['user_id' => $this->testedUser->id, 'subscribable_id' => $category->id, 'subscribable_type' => 'App\Models\Category']);
         }
         foreach ($videos as $video) {
-            $this->subscribedVideos[] = Subscribable::factory()->create(['user_id' => $this->testedUser->id, 'subscribable_id' => $video->id, 'subscribable_type' => 'App\Models\Video']);
+            $this->subscribedVideos[] = Subscribable::factory()->create(['user_id' => $this->testedUser->id, 'subscribable_id' => $video->id, 'subscribable_type' => 'Modules\Video\Entities\Video']);
         }
     }
 
@@ -60,7 +60,7 @@ class UserTest extends TestCase
     public function testSubscribedUsers()
     {
         $subscribedUsers = Subscribable::select(['user_id', 'subscribable_id', 'subscribable_type'])->where('user_id', $this->testedUser->id)
-            ->where('subscribable_type', 'App\Models\User')->get()->toArray();
+            ->where('subscribable_type', 'Modules\User\Entities\User')->get()->toArray();
         foreach ($this->subscribedUsers as $subscribedUser) {
             $subscribedUser = $subscribedUser->getAttributes('user_id', 'subscribable_id', 'subscribable_type');
             unset($subscribedUser['id']);
@@ -92,7 +92,7 @@ class UserTest extends TestCase
     public function testSubscribedVideos()
     {
         $subscribedVideos = Subscribable::select(['user_id', 'subscribable_id', 'subscribable_type'])->where('user_id', $this->testedUser->id)
-            ->where('subscribable_type', 'App\Models\Video')->get()->toArray();
+            ->where('subscribable_type', 'Modules\Video\Entities\Video')->get()->toArray();
         foreach ($this->subscribedVideos as $item) {
             $item = $item->getAttributes('user_id', 'subscribable_id', 'subscribable_type');
             unset($item['id']);
@@ -114,7 +114,7 @@ class UserTest extends TestCase
     public function testSubscribers()
     {
         $subscribedUsers = Subscribable::select(['user_id', 'subscribable_id', 'subscribable_type'])->where('user_id', $this->testedUser->id)
-            ->where('subscribable_type', 'App\Models\User')->get()->toArray();
+            ->where('subscribable_type', 'Modules\User\Entities\User')->get()->toArray();
         foreach ($this->subscribedUsers as $item) {
             $item = $item->getAttributes('user_id', 'subscribable_id', 'subscribable_type');
             unset($item['id']);

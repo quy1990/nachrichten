@@ -75,7 +75,7 @@ class SubscribedUsersControllerTest extends TestCase
         $this->user1 = User::factory()->create();
         $this->users = User::factory(env('TEST_COUNT'))->create();
         foreach ($this->users as $item) {
-            Subscribable::factory()->create(['user_id' => $this->user1->id, 'subscribable_id' => $item->id, 'subscribable_type' => 'App\Models\User']);
+            Subscribable::factory()->create(['user_id' => $this->user1->id, 'subscribable_id' => $item->id, 'subscribable_type' => 'Modules\User\Entities\User']);
         }
 
         $token = auth()->fromUser($this->user1);

@@ -45,7 +45,7 @@ class PostTest extends TestCase
         }
 
         foreach ($this->users as $user) {
-            Subscribable::factory()->create(['user_id' => $user->id, 'subscribable_id' => $this->testedUser->id, 'subscribable_type' => 'App\Models\User']);
+            Subscribable::factory()->create(['user_id' => $user->id, 'subscribable_id' => $this->testedUser->id, 'subscribable_type' => 'Modules\User\Entities\User']);
         }
 
         foreach ($this->posts as $post) {
@@ -88,21 +88,6 @@ class PostTest extends TestCase
         foreach ($this->posts as $post) {
             self::assertEquals($post->subscribers->first()->getAttributes(), $this->testedUser->getAttributes());
         }
-    }
-
-    public function testSendMailToSubscribers()
-    {
-        $post = new Post();
-        $postObserver = Mockery::mock(PostObserver::class);
-        $postObserver->shouldReceive('created')->once();
-        App::instance(PostObserver::class, $postObserver);
-
-        $post->title = "new name";
-        $post->body = "new name body";
-        $post->created_by = $this->testedUser->id;
-        $post->category_id = $this->categories[0]->id;
-        $post->status_id = $this->status->id;
-        $post->save();
     }
 
     public function testPosts()

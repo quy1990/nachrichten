@@ -26,7 +26,7 @@ class ImageUserControllerTest extends TestCase
     {
         parent::setUp();
         $this->user = User::factory()->create();
-        $this->images = Image::factory(5)->create(['imageable_type' => 'App\Models\User']);
+        $this->images = Image::factory(5)->create(['imageable_type' => 'Modules\User\Entities\User']);
     }
 
     public function test__invoke()

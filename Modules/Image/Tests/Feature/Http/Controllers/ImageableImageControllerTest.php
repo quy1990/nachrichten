@@ -43,7 +43,7 @@ class ImageableImageControllerTest extends TestCase
 
         $this->image1 = Image::factory()->create([
             'imageable_id' => $user->id,
-            'imageable_type' => 'App\Models\User',
+            'imageable_type' => 'Modules\User\Entities\User',
         ]);
 
         $this->image2 = Image::factory()->create([

@@ -35,7 +35,7 @@ class UserSubscribesControllerTest extends TestCase
         $this->videos = Video::factory(5)->create(['user_id' => $this->user->id, 'category_id' => $this->categories[0]->id]);
         $this->posts = Post::factory(10)->create(['category_id' => $this->categories[0]->id]);
         foreach ($this->users as $user) {
-            Subscribable::factory()->create(['user_id' => $this->user->id, 'subscribable_id' => $user->id, 'subscribable_type' => 'App\Models\User']);
+            Subscribable::factory()->create(['user_id' => $this->user->id, 'subscribable_id' => $user->id, 'subscribable_type' => 'Modules\User\Entities\User']);
         }
         foreach ($this->posts as $post) {
             Subscribable::factory()->create(['user_id' => $this->user->id, 'subscribable_id' => $post->id, 'subscribable_type' => 'Modules\Post\Entities\Post']);
@@ -44,7 +44,7 @@ class UserSubscribesControllerTest extends TestCase
             Subscribable::factory()->create(['user_id' => $this->user->id, 'subscribable_id' => $category->id, 'subscribable_type' => 'App\Models\Category']);
         }
         foreach ($this->videos as $video) {
-            Subscribable::factory()->create(['user_id' => $this->user->id, 'subscribable_id' => $video->id, 'subscribable_type' => 'App\Models\Video']);
+            Subscribable::factory()->create(['user_id' => $this->user->id, 'subscribable_id' => $video->id, 'subscribable_type' => 'Modules\Video\Entities\Video']);
         }
     }
 

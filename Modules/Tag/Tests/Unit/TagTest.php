@@ -32,14 +32,14 @@ class TagTest extends TestCase
         $this->posts = Post::factory(env('TEST_COUNT') * 2)->create(['created_by' => $this->testedUser->id, 'category_id' => $categories[0]->id]);
 
         foreach ($this->videos as $video) {
-            $this->taggables[] = Taggable::factory()->create(['tag_id' => $this->tag->id, 'taggable_id' => $video->id, 'taggable_type' => 'App\Models\Video']);
+            $this->taggables[] = Taggable::factory()->create(['tag_id' => $this->tag->id, 'taggable_id' => $video->id, 'taggable_type' => 'Modules\Video\Entities\Video']);
         }
 
         foreach ($this->posts as $post) {
             $this->taggables[] = Taggable::factory()->create(['tag_id' => $this->tag->id, 'taggable_id' => $post->id, 'taggable_type' => 'Modules\Post\Entities\Post']);
         }
 
-        Subscribable::factory()->create(['user_id' => $this->testedUser->id, 'subscribable_id' => $this->tag->id, 'subscribable_type' => 'App\Models\Tag']);
+        Subscribable::factory()->create(['user_id' => $this->testedUser->id, 'subscribable_id' => $this->tag->id, 'subscribable_type' => 'Modules\Tag\Entities\Tag']);
     }
 
     public function testPosts()

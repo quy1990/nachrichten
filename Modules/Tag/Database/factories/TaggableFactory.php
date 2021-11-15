@@ -21,7 +21,7 @@ class TaggableFactory extends Factory
      */
     public function definition(): array
     {
-        $arr = ['Modules\Post\Entities\Post', 'App\Models\Tag', 'App\Models\Video'];
+        $arr = ['Modules\Post\Entities\Post', 'Modules\Tag\Entities\Tag', 'Modules\Video\Entities\Video'];
 
         return [
             'tag_id'        => 0,

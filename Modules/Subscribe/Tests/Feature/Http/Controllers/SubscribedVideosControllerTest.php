@@ -78,7 +78,7 @@ class SubscribedVideosControllerTest extends TestCase
         $this->category = Category::factory()->create();
         $this->videos = Video::factory(env('TEST_COUNT'))->create();
         foreach ($this->videos as $video) {
-            Subscribable::factory()->create(['user_id' => $this->user1->id, 'subscribable_id' => $video->id, 'subscribable_type' => 'App\Models\Video']);
+            Subscribable::factory()->create(['user_id' => $this->user1->id, 'subscribable_id' => $video->id, 'subscribable_type' => 'Modules\Video\Entities\Video']);
         }
 
         $token = auth()->fromUser($this->user1);
