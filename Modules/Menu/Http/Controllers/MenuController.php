@@ -2,13 +2,13 @@
 
 namespace Modules\Menu\Http\Controllers;
 
-use App\Http\Resources\Menu\MenuCollection;
-use App\Http\Resources\Menu\MenuResource;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
 use Modules\Menu\Entities\Menu;
-use Modules\Role\Http\Controllers\Controller;
+use Modules\Menu\Resources\MenuCollection;
+use Modules\Menu\Resources\MenuResource;
 
 class MenuController extends Controller
 {
