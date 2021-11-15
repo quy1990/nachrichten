@@ -41,7 +41,7 @@ class PostTest extends TestCase
         $this->status = Status::factory()->create();
 
         foreach ($this->posts as $post) {
-            $this->subscribedPosts[] = Subscribable::factory()->create(['user_id' => $this->testedUser->id, 'subscribable_id' => $post->id, 'subscribable_type' => 'App\Models\Post']);
+            $this->subscribedPosts[] = Subscribable::factory()->create(['user_id' => $this->testedUser->id, 'subscribable_id' => $post->id, 'subscribable_type' => 'Modules\Post\Entities\Post']);
         }
 
         foreach ($this->users as $user) {
@@ -49,7 +49,7 @@ class PostTest extends TestCase
         }
 
         foreach ($this->posts as $post) {
-            $this->taggables[] = Taggable::factory()->create(['tag_id' => $this->tag->id, 'taggable_id' => $post->id, 'taggable_type' => 'App\Models\Post']);
+            $this->taggables[] = Taggable::factory()->create(['tag_id' => $this->tag->id, 'taggable_id' => $post->id, 'taggable_type' => 'Modules\Post\Entities\Post']);
         }
     }
 

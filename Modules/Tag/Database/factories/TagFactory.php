@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Tag\Database\Factories;
+namespace Modules\Tag\Database\factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\Tag\Entities\Tag;

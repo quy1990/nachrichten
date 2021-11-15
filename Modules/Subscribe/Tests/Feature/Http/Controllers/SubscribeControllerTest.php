@@ -88,7 +88,7 @@ class SubscribeControllerTest extends TestCase
     {
         $response = $this->post($this->url, [
             'subscribable_id' => $this->post->id,
-            'subscribable_type' => 'App\Models\Post',
+            'subscribable_type' => 'Modules\Post\Entities\Post',
         ]);
         $response->assertStatus(500);
     }
@@ -105,7 +105,7 @@ class SubscribeControllerTest extends TestCase
         $response = $this->post($this->url, [
             'user_id'           => $user1->id,
             'subscribable_id'   => $post->id,
-            'subscribable_type' => 'App\Models\Post',
+            'subscribable_type' => 'Modules\Post\Entities\Post',
         ], $header);
 
         $response->assertStatus(201);
@@ -123,12 +123,12 @@ class SubscribeControllerTest extends TestCase
         Subscribable::factory()->create([
             'user_id' => $user1->id,
             'subscribable_id' => $this->post->id,
-            'subscribable_type' => 'App\Models\Post']);
+            'subscribable_type' => 'Modules\Post\Entities\Post']);
 
         $response = $this->post($this->url_unsubscribes, [
             'user_id'           => $user1->id,
             'subscribable_id'   => $this->post->id,
-            'subscribable_type' => 'App\Models\Post'
+            'subscribable_type' => 'Modules\Post\Entities\Post'
         ], $this->header);
 
         $response->assertStatus(204);

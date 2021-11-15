@@ -21,7 +21,7 @@ class SubscribableFactory extends Factory
      */
     public function definition(): array
     {
-        $arr = ['App\Models\User', 'App\Models\Post', 'App\Models\Tag', 'App\Models\Video', 'Modules\Comment\Entities\Category', 'Modules\Comment\Entities\Comment'];
+        $arr = ['App\Models\User', 'Modules\Post\Entities\Post', 'App\Models\Tag', 'App\Models\Video', 'Modules\Comment\Entities\Category', 'Modules\Comment\Entities\Comment'];
 
         return [
             'user_id' => 1,

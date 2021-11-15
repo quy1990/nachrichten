@@ -21,7 +21,7 @@ class ImageFactory extends Factory
      */
     public function definition(): array
     {
-        $arr = ['App\Models\Post', 'App\Models\User'];
+        $arr = ['Modules\Post\Entities\Post', 'Modules\User\Entities\User'];
 
         return [
             'url'            => $this->faker->imageUrl,

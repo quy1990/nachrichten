@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources\Menu;
+namespace Modules\Menu\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 

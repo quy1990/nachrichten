@@ -2,6 +2,7 @@
 
 namespace Modules\Role\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
 use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
 use Modules\Role\Entities\Role;
@@ -9,7 +10,6 @@ use Modules\Role\Http\Requests\RoleStoreRequest;
 use Modules\Role\Http\Requests\RoleUpdateRequest;
 use Modules\Role\Resources\RoleCollection;
 use Modules\Role\Resources\RoleResource;
-use Modules\Status\Http\Controllers\Controller;
 
 class RoleController extends Controller
 {

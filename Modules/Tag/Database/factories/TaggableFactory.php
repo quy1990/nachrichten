@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Tag\Database\Factories;
+namespace Modules\Tag\Database\factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\Tag\Entities\Taggable;
@@ -21,7 +21,7 @@ class TaggableFactory extends Factory
      */
     public function definition(): array
     {
-        $arr = ['App\Models\Post', 'App\Models\Tag', 'App\Models\Video'];
+        $arr = ['Modules\Post\Entities\Post', 'App\Models\Tag', 'App\Models\Video'];
 
         return [
             'tag_id'        => 0,

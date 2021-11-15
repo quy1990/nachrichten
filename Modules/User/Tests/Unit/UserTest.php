@@ -46,7 +46,7 @@ class UserTest extends TestCase
             $this->subscribedUsers[] = Subscribable::factory()->create(['user_id' => $this->testedUser->id, 'subscribable_id' => $user->id, 'subscribable_type' => 'App\Models\User']);
         }
         foreach ($posts as $post) {
-            $this->subscribedPosts[] = Subscribable::factory()->create(['user_id' => $this->testedUser->id, 'subscribable_id' => $post->id, 'subscribable_type' => 'App\Models\Post']);
+            $this->subscribedPosts[] = Subscribable::factory()->create(['user_id' => $this->testedUser->id, 'subscribable_id' => $post->id, 'subscribable_type' => 'Modules\Post\Entities\Post']);
         }
         foreach ($categories as $category) {
             $this->subscribedCategories[] = Subscribable::factory()->create(['user_id' => $this->testedUser->id, 'subscribable_id' => $category->id, 'subscribable_type' => 'App\Models\Category']);
@@ -125,7 +125,7 @@ class UserTest extends TestCase
     public function testSubscribedPosts()
     {
         $subscribedPosts = Subscribable::select(['user_id', 'subscribable_id', 'subscribable_type'])->where('user_id', $this->testedUser->id)
-            ->where('subscribable_type', 'App\Models\Post')->get()->toArray();
+            ->where('subscribable_type', 'Modules\Post\Entities\Post')->get()->toArray();
         foreach ($this->subscribedPosts as $item) {
             $item = $item->getAttributes('user_id', 'subscribable_id', 'subscribable_type');
             unset($item['id']);

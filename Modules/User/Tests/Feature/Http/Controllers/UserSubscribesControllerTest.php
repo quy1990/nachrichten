@@ -38,7 +38,7 @@ class UserSubscribesControllerTest extends TestCase
             Subscribable::factory()->create(['user_id' => $this->user->id, 'subscribable_id' => $user->id, 'subscribable_type' => 'App\Models\User']);
         }
         foreach ($this->posts as $post) {
-            Subscribable::factory()->create(['user_id' => $this->user->id, 'subscribable_id' => $post->id, 'subscribable_type' => 'App\Models\Post']);
+            Subscribable::factory()->create(['user_id' => $this->user->id, 'subscribable_id' => $post->id, 'subscribable_type' => 'Modules\Post\Entities\Post']);
         }
         foreach ($this->categories as $category) {
             Subscribable::factory()->create(['user_id' => $this->user->id, 'subscribable_id' => $category->id, 'subscribable_type' => 'App\Models\Category']);

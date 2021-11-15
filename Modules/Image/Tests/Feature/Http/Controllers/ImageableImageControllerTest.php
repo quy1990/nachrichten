@@ -48,7 +48,7 @@ class ImageableImageControllerTest extends TestCase
 
         $this->image2 = Image::factory()->create([
             'imageable_id' => $post->id,
-            'imageable_type' => 'App\Models\Post',
+            'imageable_type' => 'Modules\Post\Entities\Post',
         ]);
 
     }

@@ -22,7 +22,7 @@ class ImageControllerTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->arr = ['App\Models\Post', 'App\Models\User'];
+        $this->arr = ['Modules\Post\Entities\Post', 'Modules\User\Entities\User'];
         $user = User::factory()->create();
         $category = Category::factory()->create();
         $this->post = Post::factory()->create(['category_id' => $category->id]);

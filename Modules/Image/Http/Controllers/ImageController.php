@@ -3,18 +3,18 @@
 namespace Modules\Image\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Image\ImageCollection;
-use App\Http\Resources\Image\ImageResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
 use Modules\Image\Entities\Image;
+use Modules\Image\Resources\ImageCollection;
+use Modules\Image\Resources\ImageResource;
 
 class ImageController extends Controller
 {
     public function __construct()
     {
-        $this->authorizeResource(Image::class, 'image');
+        //$this->authorizeResource(Image::class, 'image');
     }
 
     public function index(): ImageCollection

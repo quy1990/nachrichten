@@ -55,7 +55,7 @@ class TagPostControllerTest extends TestCase
             'category_id' => $this->category->id,
         ]);
 
-        $this->taggable = Taggable::factory()->create(['tag_id' => $this->tag->id, 'taggable_id' => $this->post->id, 'taggable_type' => 'App\Models\Post']);
+        $this->taggable = Taggable::factory()->create(['tag_id' => $this->tag->id, 'taggable_id' => $this->post->id, 'taggable_type' => 'Modules\Post\Entities\Post']);
         $user = User::factory()->create();
         $token = auth()->fromUser($user);
         $this->header = [

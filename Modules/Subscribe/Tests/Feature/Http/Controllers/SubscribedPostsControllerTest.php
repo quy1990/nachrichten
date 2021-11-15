@@ -72,7 +72,7 @@ class SubscribedPostsControllerTest extends TestCase
         $this->user1 = User::factory()->create();
         $this->posts = Post::factory(env('TEST_COUNT'))->create();
         foreach ($this->posts as $post) {
-            Subscribable::factory()->create(['user_id' => $this->user1->id, 'subscribable_id' => $post->id, 'subscribable_type' => 'App\Models\Post']);
+            Subscribable::factory()->create(['user_id' => $this->user1->id, 'subscribable_id' => $post->id, 'subscribable_type' => 'Modules\Post\Entities\Post']);
         }
 
         $token = auth()->fromUser($this->user1);

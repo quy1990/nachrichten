@@ -2,11 +2,9 @@
 
 namespace Modules\Image\Http\Controllers;
 
-use App\Http\Resources\Image\ImageResource;
+use Modules\Image\Resources\ImageResource;
 use Modules\User\Entities\User;
 use App\Http\Controllers\Controller;
-
-;
 
 class ImageUserController extends Controller
 {
