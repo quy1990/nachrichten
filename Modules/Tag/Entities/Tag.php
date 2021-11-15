@@ -6,16 +6,17 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
-use Modules\Comment\Database\Factories\CommentFactory;
+use Modules\Post\Entities\Post;
 use Modules\Tag\Database\Factories\TagFactory;
+use Modules\User\Entities\User;
+use Modules\Video\Entities\Video;
 
 class Tag extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
-
     public $timestamps = false;
+    protected $fillable = ['name'];
 
     protected static function newFactory(): Factory
     {

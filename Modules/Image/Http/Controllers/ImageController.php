@@ -2,13 +2,13 @@
 
 namespace Modules\Image\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Http\Resources\Image\ImageCollection;
 use App\Http\Resources\Image\ImageResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
 use Modules\Image\Entities\Image;
-use Modules\Menu\Http\Controllers\Controller;
 
 class ImageController extends Controller
 {

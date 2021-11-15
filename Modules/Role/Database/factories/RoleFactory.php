@@ -1,9 +1,9 @@
 <?php
 
-namespace Database\Factories;
+namespace Modules\Role\Database\factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Modules\Comment\Entities\Role;
+use Modules\Role\Entities\Role;
 
 class RoleFactory extends Factory
 {

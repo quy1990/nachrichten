@@ -2,6 +2,7 @@
 
 namespace Modules\Video\Entities;
 
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -9,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Modules\Category\Entities\Category;
 use Modules\Tag\Entities\Tag;
 use Modules\User\Entities\User;
+use Modules\Video\Database\factories\VideoFactory;
 
 class Video extends Model
 {
@@ -17,6 +19,11 @@ class Video extends Model
     public $timestamps = false;
 
     protected $fillable = ['name'];
+
+    protected static function newFactory(): Factory
+    {
+        return VideoFactory::new();
+    }
 
     public function user(): BelongsTo
     {

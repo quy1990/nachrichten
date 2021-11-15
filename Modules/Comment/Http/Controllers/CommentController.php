@@ -2,12 +2,12 @@
 
 namespace Modules\Comment\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
 use Modules\Comment\Entities\Comment;
 use Modules\Comment\Resources\CommentCollection;
 use Modules\Comment\Resources\CommentResource;
-use Modules\Image\Http\Controllers\Controller;
 
 class CommentController extends Controller
 {

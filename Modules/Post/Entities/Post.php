@@ -9,7 +9,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Modules\Category\Entities\Category;
+use Modules\Image\Entities\Image;
 use Modules\Post\Database\factories\PostFactory;
+use Modules\Status\Entities\Status;
+use Modules\Tag\Entities\Tag;
+use Modules\User\Entities\User;
 
 class Post extends Model
 {

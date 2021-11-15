@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Status\Database\Factories;
+namespace Modules\Status\Database\factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\Status\Entities\Status;

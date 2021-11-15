@@ -4,8 +4,8 @@ namespace Modules\Status\Http\Controllers;
 
 use Illuminate\Http\Response;
 use Lukasoppermann\Httpstatus\Httpstatuscodes;
-use Modules\Post\Http\Requests\Statuses\StatusStoreRequest;
-use Modules\Post\Http\Requests\Statuses\StatusUpdateRequest;
+use Modules\Status\Http\Requests\StatusStoreRequest;
+use Modules\Status\Http\Requests\StatusUpdateRequest;
 use Modules\Status\Entities\Status;
 use Modules\Status\Resources\StatusCollection;
 use Modules\Status\Resources\StatusResource;

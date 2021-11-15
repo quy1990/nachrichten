@@ -2,14 +2,13 @@
 
 namespace Modules\Tag\Http\Controllers;
 
-use App\Http\Resources\Tag\TagCollection;
-use App\Http\Resources\Tag\TagResource;
 use Illuminate\Http\Response;
 use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
 use Modules\Tag\Entities\Tag;
 use Modules\Tag\Http\Requests\TagStoreRequest;
 use Modules\Tag\Http\Requests\TagUpdateRequest;
 use App\Http\Controllers\Controller;
+use Modules\Tag\Resources\TagCollection;
 
 class TagController extends Controller
 {

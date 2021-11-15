@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources\Tag;
+namespace Modules\Tag\Resources;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
