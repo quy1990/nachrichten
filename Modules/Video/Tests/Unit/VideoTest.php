@@ -51,8 +51,7 @@ class VideoTest extends TestCase
 
     public function testSendMailToSubscribers()
     {
-        $u = User::find($this->testedUser->id);
-        //dd($u);
+        User::find($this->testedUser->id);
         $model = new Video();
         $videoObserver = Mockery::mock(VideoObserver::class);
         $videoObserver->shouldReceive('created')->once();

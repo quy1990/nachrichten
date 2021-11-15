@@ -1,12 +1,12 @@
 <?php
 
-namespace Database\Factories;
+namespace Modules\Post\Database\factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\Category\Entities\Category;
-use Modules\Comment\Entities\Post;
-use Modules\Comment\Entities\Status;
-use Modules\Comment\Entities\User;
+use Modules\Post\Entities\Post;
+use Modules\Status\Entities\Status;
+use Modules\User\Entities\User;
 
 class PostFactory extends Factory
 {
