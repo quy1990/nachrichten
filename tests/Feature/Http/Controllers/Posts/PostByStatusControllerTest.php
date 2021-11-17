@@ -58,7 +58,7 @@ class PostByStatusControllerTest extends TestCase
     public function test__invoke()
     {
         $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $this->status->posts);
-        $response = $this->get('/api/statues/' . $this->status->id . '/posts', $this->header);
+        $response = $this->get('/api/statuses/' . $this->status->id . '/posts', $this->header);
         $response->assertStatus(200);
     }
 }
