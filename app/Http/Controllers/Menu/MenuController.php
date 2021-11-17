@@ -15,7 +15,7 @@ class MenuController extends Controller
 {
     public function __construct()
     {
-        //$this->authorizeResource(Menu::class, 'Menu');
+        $this->authorizeResource(Menu::class, 'menu');
     }
 
     public function index(): MenuCollection

@@ -5,9 +5,13 @@ namespace App\Http\Controllers\Comment;
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
 
-
 class LatestCommentsController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Comment::class, 'comment');
+    }
+
     public function __invoke(): array
     {
         $comments = Comment::paginate(5);

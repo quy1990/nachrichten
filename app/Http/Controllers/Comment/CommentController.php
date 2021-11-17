@@ -8,6 +8,9 @@ use App\Http\Requests\Comments\CommentUpdateRequest;
 use App\Http\Resources\Comment\CommentCollection;
 use App\Http\Resources\Comment\CommentResource;
 use App\Models\Comment;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Routing\ResponseFactory;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
 
@@ -15,7 +18,7 @@ class CommentController extends Controller
 {
     public function __construct()
     {
-        //$this->authorizeResource(Comment::class, 'comment');
+        $this->authorizeResource(Comment::class, 'comment');
     }
 
     public function index(): CommentCollection
@@ -44,7 +47,7 @@ class CommentController extends Controller
         return new CommentResource($comment);
     }
 
-    public function destroy(Comment $comment)
+    public function destroy(Comment $comment): Response|Application|ResponseFactory
     {
         $comment->delete();
         return response("", Status::HTTP_NO_CONTENT);

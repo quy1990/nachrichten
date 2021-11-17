@@ -13,11 +13,11 @@ use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Response;
 use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
 
-class CategoryController extends Controller
+abstract class CategoryController extends Controller
 {
     public function __construct()
     {
-        //$this->authorizeResource(Category::class, 'category');
+        $this->authorizeResource(Category::class, 'category');
     }
 
     public function index(): CategoryCollection
