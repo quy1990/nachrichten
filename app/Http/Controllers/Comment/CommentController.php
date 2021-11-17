@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Comment;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Comments\CommentStoreRequest;
+use App\Http\Requests\Comments\CommentUpdateRequest;
 use App\Http\Resources\Comment\CommentCollection;
 use App\Http\Resources\Comment\CommentResource;
 use App\Models\Comment;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
 
 class CommentController extends Controller
@@ -21,11 +23,11 @@ class CommentController extends Controller
         return new CommentCollection(Comment::paginate(20));
     }
 
-    public function store(Request $request): CommentResource
+    public function store(CommentStoreRequest $request): CommentResource
     {
         $comment = new Comment();
         $comment->body = $request->get('body');
-        $comment->user_id = $request->get('user_id');
+        $comment->user_id = Auth::user()->id;
         $comment->save();
         return new CommentResource($comment);
     }
@@ -35,7 +37,7 @@ class CommentController extends Controller
         return new CommentResource($comment);
     }
 
-    public function update(Request $request, Comment $comment): CommentResource
+    public function update(CommentUpdateRequest $request, Comment $comment): CommentResource
     {
         $comment->body = $request->get('body');
         $comment->save();

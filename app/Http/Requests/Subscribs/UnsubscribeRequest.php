@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Subscribs;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SubscribeRequest extends FormRequest
+class UnsubscribeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class SubscribeRequest extends FormRequest
     public function rules()
     {
         return [
-            'subscribable_id' => 'required|integer',
+            'subscribable_id'   => 'required|integer',
             'subscribable_type' => 'required|string',
         ];
     }

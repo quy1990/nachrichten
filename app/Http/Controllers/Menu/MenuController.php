@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Menu;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Menus\MenuStoreRequest;
+use App\Http\Requests\Menus\MenuUpdateRequest;
 use App\Http\Resources\Menu\MenuCollection;
 use App\Http\Resources\Menu\MenuResource;
 use App\Models\Menu;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
 
@@ -25,10 +26,10 @@ class MenuController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param MenuStoreRequest $request
      * @return MenuResource
      */
-    public function store(Request $request): MenuResource
+    public function store(MenuStoreRequest $request): MenuResource
     {
         $menu = new Menu();
         $menu->name = $request->get('name');
@@ -52,11 +53,11 @@ class MenuController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param MenuUpdateRequest $request
      * @param Menu $menu
      * @return MenuResource
      */
-    public function update(Request $request, Menu $menu): MenuResource
+    public function update(MenuUpdateRequest $request, Menu $menu): MenuResource
     {
         $menu->update($request->all());
         return new MenuResource($menu);

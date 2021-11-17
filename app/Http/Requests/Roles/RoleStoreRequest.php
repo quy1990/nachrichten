@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Roles;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostUpdateRequest extends FormRequest
+class RoleStoreRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -14,9 +14,7 @@ class PostUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'       => 'required',
-            'body'        => 'required',
-            'category_id' => 'required',
+            'name' => 'required',
         ];
     }
 }

@@ -56,8 +56,7 @@ class CommentControllerTest extends TestCase
     public function test_update()
     {
         $response = $this->put($this->url . $this->model->id, [
-            'body' => 'body',
-            'user_id' => $this->user->id
+            'body' => 'body'
         ], $this->header);
 
         $response->assertStatus(200);

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Posts;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class VideoStoreRequest extends FormRequest
+class PostStoreRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -14,10 +14,10 @@ class VideoStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'video_path'  => 'required',
             'title'       => 'required',
             'body'        => 'required',
             'category_id' => 'required',
+            'status_id'   => 'required',
         ];
     }
 }

@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Image;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Images\ImageStoreRequest;
+use App\Http\Requests\Images\ImageUpdateRequest;
 use App\Http\Resources\Image\ImageCollection;
 use App\Http\Resources\Image\ImageResource;
 use App\Models\Image;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
 
@@ -25,10 +26,10 @@ class ImageController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param ImageStoreRequest $request
      * @return ImageResource
      */
-    public function store(Request $request): ImageResource
+    public function store(ImageStoreRequest $request): ImageResource
     {
         $image = new Image();
         $image->url = $request->get('url');
@@ -52,11 +53,11 @@ class ImageController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param ImageUpdateRequest $request
      * @param Image $image
      * @return ImageResource
      */
-    public function update(Request $request, Image $image): ImageResource
+    public function update(ImageUpdateRequest $request, Image $image): ImageResource
     {
         $image->update($request->all());
         return new ImageResource($image);

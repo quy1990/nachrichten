@@ -2,8 +2,8 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\VideoStoreRequest;
-use App\Http\Requests\VideoUpdateRequest;
+use App\Http\Requests\Videos\VideoStoreRequest;
+use App\Http\Requests\Videos\VideoUpdateRequest;
 use App\Http\Resources\Video\VideoCollection;
 use App\Http\Resources\Video\VideoResource;
 use App\Models\Video;

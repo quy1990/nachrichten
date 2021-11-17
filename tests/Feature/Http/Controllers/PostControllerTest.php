@@ -40,7 +40,6 @@ class PostControllerTest extends TestCase
         $response = $this->post($this->url, [
             'title'       => 'abc',
             'body'        => 'this is body',
-            'created_by'  => $this->user->id,
             'category_id' => $this->category->id,
             'status_id'   => $this->status->id,
         ], $this->header);
@@ -51,9 +50,10 @@ class PostControllerTest extends TestCase
     public function test_update()
     {
         $response = $this->put($this->url . $this->model->id, [
-            'title' => 'abc',
-            'body' => 'this is body',
+            'title'       => 'abc',
+            'body'        => 'this is body',
             'category_id' => $this->category->id,
+            'status_id'   => $this->status->id,
         ], $this->header);
 
         $response->assertStatus(200);

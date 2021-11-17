@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\Post;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\PostStoreRequest;
-use App\Http\Requests\PostUpdateRequest;
+use App\Http\Requests\Posts\PostStoreRequest;
+use App\Http\Requests\Posts\PostUpdateRequest;
 use App\Http\Resources\Post\PostCollection;
 use App\Http\Resources\Post\PostResource;
 use App\Models\Post;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Lukasoppermann\Httpstatus\Httpstatuscodes as Status;
 
 class PostController extends Controller
@@ -40,7 +41,7 @@ class PostController extends Controller
         $post->title = $request->get('title');
         $post->body = $request->get('body');
         $post->category_id = $request->get('category_id');
-        $post->created_by = $request->get('created_by');
+        $post->created_by = Auth::user()->id;
         $post->status_id = $request->get('status_id');
         $post->save();
         return new PostResource($post);
@@ -64,7 +65,7 @@ class PostController extends Controller
      * @param Post $post
      * @return PostResource
      */
-    public function update(PostUpdateRequest $request, Post $post)
+    public function update(PostUpdateRequest $request, Post $post): PostResource
     {
         $post->update($request->all());
         return new PostResource($post);

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Subscribe;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\SubscribeRequest;
+use App\Http\Requests\Subscribs\SubscribeRequest;
 use App\Http\Resources\Subscribe\SubscribeResource;
 use App\Models\Subscribable;
 
