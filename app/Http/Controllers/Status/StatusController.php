@@ -15,7 +15,7 @@ class StatusController extends Controller
 {
     public function __construct()
     {
-        //$this->authorizeResource(Status::class, 'Status');
+        $this->authorizeResource(Status::class, 'Status');
     }
 
     /**

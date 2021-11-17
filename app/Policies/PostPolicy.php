@@ -37,6 +37,6 @@ class PostPolicy
 
     private function isOwner(User $user, Post $post): bool
     {
-        return $user->id == $post->user_id;
+        return $user->id == $post->created_by;
     }
 }
