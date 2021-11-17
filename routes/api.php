@@ -59,7 +59,6 @@ Route::get('users/{id}/comments', CommentUserController::class);
 Route::get('users/{id}/posts', PostUserController::class);
 Route::get('users/{id}/image', ImageUserController::class);
 Route::get('users/{id}/roles', RoleUserController::class);
-
 Route::get('dash-broad', DashBroadController::class);
 Route::get('top-users', TopUsersController::class);
 Route::get('latest-posts', LatestPostsController::class);
@@ -71,14 +70,11 @@ Route::get('users/subscribed-tags', SubscribedTagsController::class);
 Route::get('users/subscribed-categories', SubscribedCategoriesController::class);
 Route::get('users/subscribed-comments', SubscribedCommentsController::class);
 Route::get('users/subscribed-users', SubscribedUsersController::class);
-
 Route::get('categories/{id}/posts', PostCategoryController::class);
 Route::get('categoriesDetail', CategoryDetailController::class);
 Route::get('roles/{id}/users', UserRoleController::class);
-
 Route::post('unsubscribe', UnsubscribeController::class);
 Route::post('subscribe', SubscribeController::class);
-
 Route::resource('users', UserController::class);
 Route::resource('statuses', StatusController::class);
 Route::resource('menus', MenuController::class);
