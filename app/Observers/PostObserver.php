@@ -20,8 +20,10 @@ class PostObserver
             $emails[] = $subscriber->email;
         }
 
-        foreach ($post->category->subscribers as $subscriber) {
-            $emails[] = $subscriber->email;
+        if (!is_null($post->category?->subscribers)) {
+            foreach ($post->category->subscribers as $subscriber) {
+                $emails[] = $subscriber->email;
+            }
         }
 
         foreach ($emails as $email) {

@@ -36,17 +36,30 @@ class PostTest extends TestCase
         $this->testedUser = User::factory()->create();
         $this->categories = Category::factory(env('TEST_COUNT'))->create();
         $this->users = User::factory(env('TEST_COUNT'))->create();
-        $this->posts = Post::factory(env('TEST_COUNT') * 2)->create(['created_by' => $this->testedUser->id, 'category_id' => $this->categories[0]->id]);
-        $this->image = Image::factory()->create(['imageable_id' => $this->categories[0]->id, 'imageable_type' => 'App\Models\Category']);
+        $this->status = Status::factory()->create(['name' => 'name 1']);
+        $this->posts = Post::factory(env('TEST_COUNT') * 2)
+            ->create([
+                'status_id'   => $this->status->id,
+                'created_by'  => $this->testedUser->id,
+                'category_id' => $this->categories[0]->id
+            ]);
+        $this->image = Image::factory()->create(['imageable_id'   => $this->categories[0]->id,
+                                                 'imageable_type' => 'App\Models\Category'
+        ]);
         $this->tag = Tag::factory()->create();
-        $this->status = Status::factory()->create();
 
         foreach ($this->posts as $post) {
-            $this->subscribedPosts[] = Subscribable::factory()->create(['user_id' => $this->testedUser->id, 'subscribable_id' => $post->id, 'subscribable_type' => 'App\Models\Post']);
+            $this->subscribedPosts[] = Subscribable::factory()->create(['user_id'           => $this->testedUser->id,
+                                                                        'subscribable_id'   => $post->id,
+                                                                        'subscribable_type' => 'App\Models\Post'
+            ]);
         }
 
         foreach ($this->users as $user) {
-            Subscribable::factory()->create(['user_id' => $user->id, 'subscribable_id' => $this->testedUser->id, 'subscribable_type' => 'App\Models\User']);
+            Subscribable::factory()->create(['user_id'           => $user->id,
+                                             'subscribable_id'   => $this->testedUser->id,
+                                             'subscribable_type' => 'App\Models\User'
+            ]);
         }
 
         foreach ($this->posts as $post) {

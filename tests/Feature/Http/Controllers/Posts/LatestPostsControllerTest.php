@@ -5,6 +5,7 @@ namespace Http\Controllers\Posts;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Post;
+use App\Models\Status;
 use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -22,6 +23,7 @@ class LatestPostsControllerTest extends TestCase
         User::factory(env('TEST_COUNT'))->create();
         Tag::factory(env('TEST_COUNT'))->create();
         Category::factory(env('TEST_COUNT'))->create();
+        $status = Status::factory()->create();
         Post::factory(env('TEST_COUNT'))->create();
         $user = User::factory()->create();
         Comment::factory(env('TEST_COUNT'))->create(['user_id' => $user->id]);

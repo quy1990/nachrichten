@@ -5,6 +5,7 @@ namespace Http\Controllers\Images;
 use App\Models\Category;
 use App\Models\Image;
 use App\Models\Post;
+use App\Models\Status;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
@@ -37,7 +38,9 @@ class ImageableImageControllerTest extends TestCase
         parent::setUp();
         $category = Category::factory()->create();
         $user = User::factory()->create();
+        $this->status = Status::factory()->create();
         $post = Post::factory()->create([
+            'status_id'   => $this->status->id,
             'created_by'  => $user->id,
             'category_id' => $category->id
         ]);

@@ -2,7 +2,9 @@
 
 namespace Http\Controllers\Subscribes;
 
+use App\Models\Category;
 use App\Models\Post;
+use App\Models\Status;
 use App\Models\Subscribable;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
@@ -70,9 +72,17 @@ class SubscribedPostsControllerTest extends TestCase
     {
         parent::setUp();
         $this->user1 = User::factory()->create();
-        $this->posts = Post::factory(env('TEST_COUNT'))->create();
+        $status = Status::factory()->create();
+        Category::factory()->create();
+        $this->posts = Post::factory(env('TEST_COUNT'))->create([
+            'status_id' => $status->id
+        ]);
         foreach ($this->posts as $post) {
-            Subscribable::factory()->create(['user_id' => $this->user1->id, 'subscribable_id' => $post->id, 'subscribable_type' => 'App\Models\Post']);
+            Subscribable::factory()->create([
+                'user_id'           => $this->user1->id,
+                'subscribable_id'   => $post->id,
+                'subscribable_type' => 'App\Models\Post'
+            ]);
         }
 
         $token = auth()->fromUser($this->user1);

@@ -14,9 +14,9 @@ class StatusSeeder extends Seeder
      */
     public function run()
     {
-        $statuses = ['shipping', 'paid', 'done'];
+        $statuses = ["shipping", "pending", "paid", "refund"];
         foreach ($statuses as $status) {
-            Status::create($status);
+            Status::create(['name' => $status]);
         }
     }
 }
