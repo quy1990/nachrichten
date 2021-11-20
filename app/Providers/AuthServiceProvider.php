@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Models\Category;
 use App\Models\Comment;
+use App\Models\Image;
+use App\Models\Menu;
 use App\Models\Post;
 use App\Models\Role;
 use App\Models\Status;
@@ -11,6 +13,8 @@ use App\Models\Tag;
 use App\Models\Video;
 use App\Policies\CategoryPolicy;
 use App\Policies\CommentPolicy;
+use App\Policies\ImagePolicy;
+use App\Policies\MenuPolicy;
 use App\Policies\PostPolicy;
 use App\Policies\RolePolicy;
 use App\Policies\StatusPolicy;
@@ -28,10 +32,12 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected array $policies = [
         Tag::class      => TagPolicy::class,
-        Status::class   => StatusPolicy::class,
         Post::class     => PostPolicy::class,
         Role::class     => RolePolicy::class,
+        Menu::class     => MenuPolicy::class,
         Video::class    => VideoPolicy::class,
+        Image::class    => ImagePolicy::class,
+        Status::class   => StatusPolicy::class,
         Comment::class  => CommentPolicy::class,
         Category::class => CategoryPolicy::class,
     ];

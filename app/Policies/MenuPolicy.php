@@ -10,6 +10,13 @@ class MenuPolicy
 {
     use HandlesAuthorization;
 
+    public function before(User $user, $ability)
+    {
+        if ($user->isAdmin() || $user->isMod()) {
+            return true;
+        }
+    }
+
     /**
      * Determine whether the user can view any models.
      *
