@@ -10,6 +10,13 @@ class TagPolicy
 {
     use HandlesAuthorization;
 
+    public function before(User $user, $ability)
+    {
+        if ($user->isAdmin() || $user->isMod()) {
+            return true;
+        }
+    }
+
     public function viewAny(User $user): bool
     {
         return true;
@@ -17,7 +24,7 @@ class TagPolicy
 
     public function view(User $user, Tag $tag): bool
     {
-        return !is_null($user);
+        return true;
     }
 
     public function create(User $user): bool
@@ -27,11 +34,11 @@ class TagPolicy
 
     public function update(User $user, Tag $tag): bool
     {
-        return !is_null($user);
+        return false;
     }
 
     public function delete(User $user, Tag $tag): bool
     {
-        return !is_null($user);
+        return false;
     }
 }

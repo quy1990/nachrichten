@@ -42,7 +42,6 @@ class StatusControllerTest extends TestCase
             'Authorization' => 'bearer ' . $token
         ];
 
-
         $role = Role::factory()->create(['name' => 'User']);
         $this->normalUser = User::factory()->create();
         $this->user->roles()->attach($role);
@@ -52,7 +51,7 @@ class StatusControllerTest extends TestCase
         ];
     }
 
-    public function test_store()
+    public function test_store_for_admin()
     {
         $response = $this->post($this->url, [
             'name' => 'name 123',
@@ -61,7 +60,7 @@ class StatusControllerTest extends TestCase
         $response->assertStatus(201);
     }
 
-    public function test_show()
+    public function test_show_for_admin()
     {
         $response = $this->get($this->url . $this->model->id, $this->header);
         $response->assertStatus(200);
