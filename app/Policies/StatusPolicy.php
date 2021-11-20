@@ -10,6 +10,13 @@ class StatusPolicy
 {
     use HandlesAuthorization;
 
+    public function before(User $user, $ability)
+    {
+        if ($user->isAdmin() || $user->isMod()) {
+            return true;
+        }
+    }
+
     /**
      * Determine whether the user can view any models.
      *
@@ -18,7 +25,7 @@ class StatusPolicy
      */
     public function viewAny(User $user)
     {
-        //
+        return true;
     }
 
     /**
@@ -30,7 +37,7 @@ class StatusPolicy
      */
     public function view(User $user, Status $status)
     {
-        //
+        return true;
     }
 
     /**

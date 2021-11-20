@@ -6,12 +6,14 @@ use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Role;
+use App\Models\Status;
 use App\Models\Tag;
 use App\Models\Video;
 use App\Policies\CategoryPolicy;
 use App\Policies\CommentPolicy;
 use App\Policies\PostPolicy;
 use App\Policies\RolePolicy;
+use App\Policies\StatusPolicy;
 use App\Policies\SubscribablePolicy;
 use App\Policies\TagPolicy;
 use App\Policies\VideoPolicy;
@@ -24,12 +26,13 @@ class AuthServiceProvider extends ServiceProvider
      *
      * @var array
      */
-    protected $policies = [
-        Tag::class => TagPolicy::class,
-        Post::class => PostPolicy::class,
-        Role::class => RolePolicy::class,
-        Video::class => VideoPolicy::class,
-        Comment::class => CommentPolicy::class,
+    protected array $policies = [
+        Tag::class      => TagPolicy::class,
+        Status::class   => StatusPolicy::class,
+        Post::class     => PostPolicy::class,
+        Role::class     => RolePolicy::class,
+        Video::class    => VideoPolicy::class,
+        Comment::class  => CommentPolicy::class,
         Category::class => CategoryPolicy::class,
     ];
 

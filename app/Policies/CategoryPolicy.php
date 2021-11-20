@@ -10,6 +10,13 @@ class CategoryPolicy
 {
     use HandlesAuthorization;
 
+    public function before(User $user, $ability)
+    {
+        if ($user->isAdmin() || $user->isMod()) {
+            return true;
+        }
+    }
+
     public function viewAny(User $user): bool
     {
         return true;
@@ -20,23 +27,18 @@ class CategoryPolicy
         return true;
     }
 
-    public function create(User $user): bool
+    public function create(User $user)
     {
-        return !is_null($user);
+
     }
 
-    public function update(User $user, Category $category): bool
+    public function update(User $user, Category $category)
     {
-        return $this->isOwner($user, $category);
-    }
-
-    private function isOwner(User $user, Category $category): bool
-    {
-        return true;
+        return false;
     }
 
     public function delete(User $user, Category $category): bool
     {
-        return $this->isOwner($user, $category);
+        return false;
     }
 }

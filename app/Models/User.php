@@ -110,4 +110,14 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->morphedByMany(Tag::class, 'subscribable');
     }
+
+    public function isAdmin(): bool
+    {
+        return in_array('Administrator', $this->roles()->pluck('name')->toArray());
+    }
+
+    public function isMod(): bool
+    {
+        return in_array('Mod', $this->roles()->pluck('name')->toArray());
+    }
 }
