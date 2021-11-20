@@ -18,6 +18,8 @@ class CreateImagesTable extends Migration
             $table->string('url');
             $table->bigInteger('imageable_id');
             $table->string('imageable_type');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

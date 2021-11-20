@@ -33,6 +33,7 @@ class ImageController extends Controller
     {
         $image = new Image();
         $image->url = $request->get('url');
+        $image->user_id = $request->get('user_id');
         $image->imageable_id = $request->get('imageable_id');
         $image->imageable_type = $request->get('imageable_type');
         $image->save();

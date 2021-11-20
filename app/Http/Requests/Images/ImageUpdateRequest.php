@@ -15,6 +15,7 @@ class ImageUpdateRequest extends FormRequest
     {
         return [
             'url'            => 'required',
+            'user_id'        => 'required',
             'imageable_id'   => 'required',
             'imageable_type' => 'required',
         ];

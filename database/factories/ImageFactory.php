@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Image;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ImageFactory extends Factory
@@ -26,6 +27,7 @@ class ImageFactory extends Factory
         return [
             'url'            => $this->faker->imageUrl,
             'imageable_id'   => 1,
+            'user_id'        => $this->faker->numberBetween(1, User::count()),
             'imageable_type' => $arr[rand(0, 1)]
         ];
     }
