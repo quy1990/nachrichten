@@ -10,6 +10,13 @@ class CommentPolicy
 {
     use HandlesAuthorization;
 
+    public function before(User $user, $ability)
+    {
+        if ($user->isAdmin() || $user->isMod()) {
+            return true;
+        }
+    }
+
     public function viewAny(User $user): bool
     {
         return true;
@@ -17,7 +24,7 @@ class CommentPolicy
 
     public function view(User $user, Comment $comment): bool
     {
-        return !is_null($user);
+        return true;
     }
 
     public function create(User $user): bool
@@ -32,7 +39,7 @@ class CommentPolicy
 
     private function isOwner(User $user, Comment $comment): bool
     {
-        return true;
+        return $user->id == $comment->user_id;
     }
 
     public function delete(User $user, Comment $comment): bool
