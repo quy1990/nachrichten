@@ -8,11 +8,16 @@ use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Auth;
 
 class DashBroadController extends Controller
 {
     public function __invoke(): JsonResponse
     {
+        if (!Auth::user()->isAdmin()) {
+            abort(403);
+        }
+
         $data = [
             $this->getDashBroadPost(),
             $this->getDashBroadCategory(),
