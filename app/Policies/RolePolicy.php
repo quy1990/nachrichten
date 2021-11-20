@@ -10,28 +10,37 @@ class RolePolicy
 {
     use HandlesAuthorization;
 
-    public function viewAny(User $user): bool
+    public function before(User $user, $ability)
     {
-        return true;
+        if ($user->isAdmin()) {
+            return true;
+        }
+
+        return false;
     }
 
-    public function view(User $user, Role $role): bool
+    public function viewAny(User $user)
     {
-        return !is_null($user);
+
     }
 
-    public function create(User $user): bool
+    public function view(User $user, Role $role)
     {
-        return !is_null($user);
+
     }
 
-    public function update(User $user, Role $role): bool
+    public function create(User $user)
     {
-        return !is_null($user);
+
     }
 
-    public function delete(User $user, Role $role): bool
+    public function update(User $user, Role $role)
     {
-        return !is_null($user);
+
+    }
+
+    public function delete(User $user, Role $role)
+    {
+
     }
 }
