@@ -10,6 +10,7 @@ use App\Models\Post;
 use App\Models\Role;
 use App\Models\Status;
 use App\Models\Tag;
+use App\Models\User;
 use App\Models\Video;
 use App\Policies\CategoryPolicy;
 use App\Policies\CommentPolicy;
@@ -20,6 +21,7 @@ use App\Policies\RolePolicy;
 use App\Policies\StatusPolicy;
 use App\Policies\SubscribablePolicy;
 use App\Policies\TagPolicy;
+use App\Policies\UserPolicy;
 use App\Policies\VideoPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -33,6 +35,7 @@ class AuthServiceProvider extends ServiceProvider
     protected array $policies = [
         Tag::class      => TagPolicy::class,
         Post::class     => PostPolicy::class,
+        User::class     => UserPolicy::class,
         Role::class     => RolePolicy::class,
         Menu::class     => MenuPolicy::class,
         Video::class    => VideoPolicy::class,
