@@ -10,9 +10,9 @@ class Tag extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected array $fillable = ['name'];
 
-    public $timestamps = false;
+    public bool $timestamps = false;
 
     public function posts(): MorphToMany
     {

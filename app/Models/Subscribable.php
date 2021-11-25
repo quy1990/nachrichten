@@ -9,11 +9,11 @@ class Subscribable extends Model
 {
     use HasFactory;
 
-    public $timestamps = false;
+    public bool $timestamps = false;
 
     protected $primaryKey = null;
 
-    public $incrementing = false;
+    public bool $incrementing = false;
 
-    protected $fillable = ['user_id', 'subscribable_id', 'subscribable_type'];
+    protected array $fillable = ['user_id', 'subscribable_id', 'subscribable_type'];
 }

@@ -11,7 +11,7 @@ class Taggable extends Model
 
     protected $primaryKey = null;
 
-    public $incrementing = false;
+    public bool $incrementing = false;
 
-    public $timestamps = false;
+    public bool $timestamps = false;
 }

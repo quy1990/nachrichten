@@ -12,8 +12,8 @@ class Post extends Model
 {
     use HasFactory;
 
-    public $timestamps = true;
-    protected $fillable = ['title', 'body', 'created_by', 'category_id'];
+    public bool $timestamps = true;
+    protected array $fillable = ['title', 'body', 'created_by', 'category_id'];
 
     public function user(): BelongsTo
     {

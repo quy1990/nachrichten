@@ -11,9 +11,9 @@ class Video extends Model
 {
     use HasFactory;
 
-    public $timestamps = false;
+    public bool $timestamps = false;
 
-    protected $fillable = ['name'];
+    protected array $fillable = ['name'];
 
     public function user(): BelongsTo
     {
