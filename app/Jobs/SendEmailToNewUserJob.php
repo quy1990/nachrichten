@@ -19,7 +19,7 @@ class SendEmailToNewUserJob implements ShouldQueue
         $this->emailAddress = $emailAddress;
     }
 
-    public function handle()
+    public function handle(): void
     {
 //        Mail::to($this->emailAddress)
 //            ->send(new SendEmailToNewUser());

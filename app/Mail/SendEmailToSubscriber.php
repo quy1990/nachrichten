@@ -25,7 +25,7 @@ class SendEmailToSubscriber extends Mailable
      *
      * @return $this
      */
-    public function build()
+    public function build(): SendEmailToSubscriber
     {
         return $this->view('emails.SubscriberEMail');
     }

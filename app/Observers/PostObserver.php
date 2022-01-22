@@ -13,7 +13,7 @@ class PostObserver
      * @param Post $post
      * @return void
      */
-    public function created(Post $post)
+    public function created(Post $post): void
     {
         $emails = [];
         foreach ($post->user->subscribedUsers as $subscriber) {

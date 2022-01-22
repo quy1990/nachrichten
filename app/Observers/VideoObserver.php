@@ -13,7 +13,7 @@ class VideoObserver
      * @param Video $video
      * @return void
      */
-    public function created(Video $video)
+    public function created(Video $video): void
     {
         $subscribedUsers = [];
         foreach ($video->user->subscribedUsers as $subscriber) {

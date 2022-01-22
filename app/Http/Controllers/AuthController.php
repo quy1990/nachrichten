@@ -6,6 +6,7 @@ use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 
 class AuthController extends Controller
@@ -33,9 +34,9 @@ class AuthController extends Controller
     {
         return response()->json([
             'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60,
-            'user' => auth()->user()
+            'token_type'   => 'bearer',
+            'expires_in'   => auth()->factory()->getTTL() * 60,
+            'user'         => auth()->user()
         ]);
     }
 
@@ -67,5 +68,18 @@ class AuthController extends Controller
     public function userProfile(): JsonResponse
     {
         return response()->json(auth()->user());
+    }
+
+    public function uploadAvatar(Request $request): JsonResponse
+    {
+        $path = $request->file('avatar')->store('public/files/user-resources/avatar');
+        $user = auth()->user();
+        $user->avatar = $path;
+        $user->save();
+
+        return response()->json([
+            'message' => 'Avatar successfully registered',
+            'avatar'  => $user->avatar
+        ], 201);
     }
 }

@@ -63,7 +63,7 @@ class PostController extends Controller
      * @param Post $post
      * @return PostResource
      */
-    public function update(PostUpdateRequest $request, Post $post)
+    public function update(PostUpdateRequest $request, Post $post): PostResource
     {
         $post->update($request->all());
         return new PostResource($post);

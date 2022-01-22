@@ -11,7 +11,7 @@ class SubscribeRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -21,10 +21,10 @@ class SubscribeRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            'subscribable_id' => 'required|integer',
+            'subscribable_id'   => 'required|integer',
             'subscribable_type' => 'required|string',
         ];
     }

@@ -13,7 +13,7 @@ class UserObserver
      * @param User $user
      * @return void
      */
-    public function created(User $user)
+    public function created(User $user): void
     {
         dispatch(new SendEmailToNewUserJob($user->email));
     }
@@ -24,7 +24,7 @@ class UserObserver
      * @param User $user
      * @return void
      */
-    public function updated(User $user)
+    public function updated(User $user): void
     {
         dispatch(new SendEmailToNewUserJob($user->email));
     }
