@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
+use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-
+use RuntimeException;
 
 class AuthController extends Controller
 {
@@ -70,16 +71,40 @@ class AuthController extends Controller
         return response()->json(auth()->user());
     }
 
+    /**
+     * @throws Exception
+     */
     public function uploadAvatar(Request $request): JsonResponse
     {
-        $path = $request->file('avatar')->store('public/files/user-resources/avatar');
-        $user = auth()->user();
-        $user->avatar = $path;
-        $user->save();
+        try {
+            $path = $request->file('avatar')->store('avatar', 'public');
+            $user = auth()->user();
+            $oldAvatar = storage_path('app/public/' . $user->avatar);
+            if (file_exists($oldAvatar)) {
+                unlink($oldAvatar);
+            }
+            $user->avatar = $path;
+            $user->save();
 
+            return response()->json([
+                'message' => 'Avatar successfully registered',
+                'avatar'  => $user->avatar
+            ], 201);
+        } catch (Exception $e) {
+            throw new RuntimeException($e->getMessage());
+        }
+    }
+
+    public function getAvatar()
+    {
+        return response()->download(storage_path('app/public/' . auth()->user()->avatar));
+    }
+
+    public function getUrlAvatar(Request $request)
+    {
+        $host = $request->header()['host'][0];
         return response()->json([
-            'message' => 'Avatar successfully registered',
-            'avatar'  => $user->avatar
-        ], 201);
+            'data' => 'http://' . $host . '/storage/' . auth()->user()->avatar
+        ]);
     }
 }

@@ -48,6 +48,7 @@ Route::group([
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::post('/avatar', [AuthController::class, 'uploadAvatar']);
+    Route::get('/avatar', [AuthController::class, 'getUrlAvatar']);
     Route::get('/user-profile', [AuthController::class, 'userProfile']);
 });
 
