@@ -4,9 +4,6 @@ namespace Http\Controllers;
 
 use App\Models\Category;
 use App\Models\User;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -32,7 +29,8 @@ class CategoryControllerTest extends TestCase
 
     public function test_show()
     {
-        $response = $this->get($this->url . $this->model->id, $this->header);
+        $response = $this->get($this->url . $this->model->id,
+            $this->header);
         $response->assertStatus(200);
     }
 
@@ -56,7 +54,8 @@ class CategoryControllerTest extends TestCase
 
     public function test_destroy()
     {
-        $response = $this->delete($this->url . $this->model->id, [], $this->header);
+        $response = $this->delete($this->url . $this->model->id, [],
+            $this->header);
         $response->assertStatus(204);
     }
 

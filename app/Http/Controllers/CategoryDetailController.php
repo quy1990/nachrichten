@@ -9,6 +9,6 @@ class CategoryDetailController extends Controller
 {
     public function __invoke(): CategoryDetailCollection
     {
-        return new CategoryDetailCollection(Category::withCount('posts')->get());
+        return new CategoryDetailCollection(Category::withCount('posts')->paginate());
     }
 }
