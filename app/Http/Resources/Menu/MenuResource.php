@@ -15,11 +15,4 @@ class MenuResource extends JsonResource
             'icon'  => $this->icon
         ];
     }
-
-    private function getImageable(): array
-    {
-        return [
-            'imageable' => $this->imageable()
-        ];
-    }
 }

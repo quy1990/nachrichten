@@ -21,10 +21,10 @@ class StatusFactory extends Factory
      */
     public function definition()
     {
-        $status = ["shipping", "pending", "paid", "refund"];
+        $statuses = ["shipping", "pending", "paid", "refund"];
 
         return [
-            'name' => $status[rand(0, 2)]
+            'name' => $statuses[rand(0, 3)]
         ];
     }
 }

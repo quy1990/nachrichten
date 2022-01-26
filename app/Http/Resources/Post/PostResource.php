@@ -14,8 +14,8 @@ class PostResource extends JsonResource
             'body'            => $this->body,
             'author'          => $this->getAuthorArray(),
             'category'        => $this->getCategoryArray(),
+            'status'          => $this->getStatusArray(),
             'image'           => $this->image,
-            'status'          => $this->status->name,
             'subscribe_count' => $this->subscribers()->count(),
             'created_at'      => $this->created_at->diffForHumans(),
             'updated_at'      => $this->updated_at->diffForHumans(),
@@ -25,7 +25,7 @@ class PostResource extends JsonResource
     private function getAuthorArray(): array
     {
         return [
-            'user_id' => $this->user->id,
+            'user_id'   => $this->user->id,
             'user_name' => $this->user->name
         ];
     }
@@ -33,8 +33,17 @@ class PostResource extends JsonResource
     private function getCategoryArray(): array
     {
         return [
-            'user_id' => $this->category->id,
-            'user_name' => $this->category->name
+            'category_id'   => $this->category->id,
+            'category_name' => $this->category->name
+        ];
+    }
+
+
+    private function getStatusArray(): array
+    {
+        return [
+            'status_id'   => $this->status->id,
+            'status_name' => $this->status->name
         ];
     }
 }
