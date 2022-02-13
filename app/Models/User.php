@@ -46,6 +46,19 @@ class User extends Authenticatable implements JWTSubject
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * @return bool
+     */
+    public function isAdministrator(): bool
+    {
+        $roleNames = [];
+        foreach ($this->roles as $role) {
+            $roleNames[] = $role->name;
+        }
+
+        return in_array("Administrator", $roleNames, true);
+    }
+
     public function posts(): HasMany
     {
         return $this->hasMany(Post::class, 'created_by');

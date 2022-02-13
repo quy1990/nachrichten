@@ -10,9 +10,16 @@ class PostPolicy
 {
     use HandlesAuthorization;
 
+    public function before(User $user, $ability)
+    {
+        if ($user->isAdministrator()) {
+            return true;
+        }
+    }
+
     public function viewAny(User $user): bool
     {
-        return true;
+        return false;
     }
 
     public function view(User $user, Post $post): bool
@@ -37,6 +44,6 @@ class PostPolicy
 
     private function isOwner(User $user, Post $post): bool
     {
-        return $user->id == $post->user_id;
+        return $user->id === $post->user_id;
     }
 }
