@@ -9,6 +9,7 @@ use App\Http\Controllers\Dashbroad\DashBroadController;
 use App\Http\Controllers\Image\ImageableImageController;
 use App\Http\Controllers\Image\ImageController;
 use App\Http\Controllers\Image\ImageUserController;
+use App\Http\Controllers\LetCode\LetCodeController;
 use App\Http\Controllers\Menu\MenuController;
 use App\Http\Controllers\Post\LatestPostsController;
 use App\Http\Controllers\Post\PostByStatusController;
@@ -52,6 +53,9 @@ Route::group([
     Route::get('/avatar', [AuthController::class, 'getUrlAvatar']);
     Route::get('/user-profile', [AuthController::class, 'userProfile']);
 });
+
+Route::get('let-code/array646', [LetCodeController::class, 'array646']);
+
 
 Route::get('posts/{id}/tags', TagPostController::class);
 Route::get('videos/{id}/tags', TagVideoController::class);
