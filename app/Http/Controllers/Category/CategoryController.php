@@ -18,11 +18,14 @@ class CategoryController extends Controller
     public function __construct()
     {
         //$this->authorizeResource(Category::class, 'category');
+//    intlcal_is_equivalent_to();
+
     }
 
     public function index(): CategoryCollection
     {
         return new CategoryCollection(Category::paginate(20));
+//        CategoryCollection::class
 
         //asdajskldjaks
     }
