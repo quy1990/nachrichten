@@ -18,13 +18,13 @@ class CategoryController extends Controller
     public function __construct()
     {
         //$this->authorizeResource(Category::class, 'category');
-
-
     }
 
     public function index(): CategoryCollection
     {
         return new CategoryCollection(Category::paginate(20));
+
+        //asdajskldjaks
     }
 
     public function store(CategoryStoreRequest $request): CategoryResource
